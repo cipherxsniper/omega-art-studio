@@ -107,19 +107,37 @@ def _om109(collection, token_id, image_hash):
     return {"sig_a": sig_a, "sig_b": sig_b, "fingerprint": fp}
 
 def _write_ledger(conn, token, buyer, session_id):
-    idem = hashlib.sha256(
-        f"NFT_SALE:{token["collection"]}:{token["token_id"]}:{session_id}".encode()
+    import uuid
+    coll = token["collection"]
+    tid = token["token_id"]
+    idem_key = hashlib.sha256(
+        f"NFT_SALE:{coll}:{tid}:{session_id}".encode()
     ).hexdigest()[:32]
-    conn.execute("""
+    memo = (f"NFT_SALE: {coll} #{tid} "
+            f"'{token.get('title','')}' -> {buyer} | session={session_id}")
+    cur = conn.cursor()
+    cur.execute("""
         INSERT INTO ledger_entries
-            (idempotency_key, event_type, collection, token_id,
-             from_account, to_account, amount_usd, stripe_session_id,
-             om109_fingerprint, created_at)
-        VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,NOW())
-        ON CONFLICT (idempotency_key) DO NOTHING
-    """, (idem, "NFT_SALE", token["collection"], token["token_id"],
-           "OMEGA_ART_STUDIO", buyer, token.get("price_usd", 0),
-           session_id, token.get("om109_fingerprint", "")))
+            (id, debit_account, credit_account, amount, memo,
+             event_type, hash, direction)
+        VALUES (%s,%s,%s,%s,%s,%s,%s,%s)
+        ON CONFLICT (id) DO NOTHING
+    """, (idem_key, "SYSTEM", buyer,
+          token.get("price_usd", 0) or 0,
+          memo, "NFT_SALE",
+          token.get("om109_fingerprint", ""),
+          "DEBIT"))
+
+    receipt_hash = hashlib.sha256(
+        f"{coll}:{tid}:{token.get('om109_fingerprint','')}:{buyer}:{session_id}".encode()
+    ).hexdigest()[:16]
+
+    cur.execute(
+        "UPDATE nft_registry SET receipt_hash=%s WHERE collection=%s AND token_id=%s",
+        (receipt_hash, coll, tid)
+    )
+
+    return receipt_hash
 
 def _send_coa_email(token, buyer, image_path, receipt_hash="", passport_url=""):
     smtp_user = os.environ.get("SMTP_USER", "")
@@ -129,27 +147,59 @@ def _send_coa_email(token, buyer, image_path, receipt_hash="", passport_url=""):
     if not smtp_user or not smtp_pass:
         print("[nft_webhook] SMTP not configured")
         return False
-    rarity = RARITY_LABEL.get(token.get("rarity","common"), token.get("rarity",""))
+
+    rarity = RARITY_LABEL.get(token.get("rarity", "common"), token.get("rarity", ""))
     tid = token["token_id"]
-    coll = token["collection"].replace("_"," ").title()
+    coll = token["collection"].replace("_", " ").title()
     title = token.get("title", f"Token #{tid}")
     fp = token.get("om109_fingerprint", "")
     ch = token.get("chain_hash", "")
     ts = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
     quote = _quote()
-    body = f"""\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nCERTIFICATE OF AUTHENTICITY\nOmega Art Studio\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nTitle      : {title}\nCollection : {coll}\nToken ID   : {tid}\nRarity     : {rarity}\nOM109      : {fp}\nChain Hash : {ch}\nRecorded   : {ts}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nCUSTODIAL NOTICE\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nThis is a digital asset. The PNG, this certificate,\nand the OM109 fingerprint are your responsibility.\nOmega provides the provenance. You hold the asset.\n\nVerify: {_live_verify_url(token["collection"], tid)}\n\n"{quote}"\n\nThomas Lee Harvey\nCEO & Founder, Omega Art Studio\n"""
+    verify_url = _live_verify_url(token["collection"], tid)
+    receipt_line = f"\nReceipt  : {_live_receipt_url(receipt_hash)}" if receipt_hash else ""
+    passport_line = f"\nPassport : {passport_url}" if passport_url else ""
+
+    body = (
+        "\n"
+        + "-" * 42 + "\n"
+        + "CERTIFICATE OF AUTHENTICITY\n"
+        + "Omega Art Studio\n"
+        + "-" * 42 + "\n\n"
+        + f"Title      : {title}\n"
+        + f"Collection : {coll}\n"
+        + f"Token ID   : {tid}\n"
+        + f"Rarity     : {rarity}\n"
+        + f"OM109      : {fp}\n"
+        + f"Chain Hash : {ch}\n"
+        + f"Recorded   : {ts}\n\n"
+        + "-" * 42 + "\n"
+        + "CUSTODIAL NOTICE\n"
+        + "-" * 42 + "\n"
+        + "This is a digital asset. The PNG, this certificate,\n"
+        + "and the OM109 fingerprint are your responsibility.\n"
+        + "Omega provides the provenance. You hold the asset.\n\n"
+        + f"Verify   : {verify_url}"
+        + receipt_line
+        + passport_line
+        + "\n\n"
+        + f'"{quote}"\n\n'
+        + "Thomas Lee Harvey\n"
+        + "CEO & Founder, Omega Art Studio\n"
+    )
 
     msg = MIMEMultipart()
     msg["From"] = smtp_user
     msg["To"] = buyer
-    msg["Subject"] = f"Your {rarity} — {title} | Certificate of Authenticity"
+    msg["Subject"] = f"Your {rarity} - {title} | Certificate of Authenticity"
     msg.attach(MIMEText(body, "plain"))
     if image_path and os.path.exists(image_path):
         with open(image_path, "rb") as f:
             part = MIMEBase("application", "octet-stream")
             part.set_payload(f.read())
         encoders.encode_base64(part)
-        part.add_header("Content-Disposition", f'attachment; filename="{token["collection"]}_{tid}.png"')
+        part.add_header("Content-Disposition",
+                        f'attachment; filename="{token["collection"]}_{tid}.png"')
         msg.attach(part)
     try:
         with smtplib.SMTP(smtp_host, smtp_port) as s:
@@ -186,9 +236,10 @@ def handle_nft_checkout(data):
         image_path = os.path.expanduser(f"~/{coll_dir}/images/{tid}.png")
         cur.execute("UPDATE nft_registry SET sale_status=%s, owner_account_id=%s, sold_at=NOW() WHERE collection=%s AND token_id=%s AND sale_status!=%s",
             ("sold", buyer, coll, tid, "sold"))
-        _write_ledger(conn, token, buyer, session_id)
+        receipt_hash = _write_ledger(conn, token, buyer, session_id)
         conn.commit()
         if buyer != "unknown":
+            passport_url = _live_passport_url(buyer)
             _send_coa_email(token, buyer, image_path, receipt_hash, passport_url)
         print(f"[nft_webhook] Sale complete: {coll}/{tid} -> {buyer}")
         conn.close()
