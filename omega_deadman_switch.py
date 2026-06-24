@@ -22,7 +22,7 @@ STALE_THRESHOLD_HOURS = 24
 
 WATCH_NODES = {
     "omega-node-001": "Phone 1 (Control Plane, 192.168.11.115)",
-    "omega-node-002": "Phone 2 (Database Node, 192.168.11.2)",
+    "omega-node-002": "Phone 2 (Database Node, 192.168.11.238)",
 }
 
 STATE_PATH = HOME / "omega_runtime/state/deadman_alerts.json"

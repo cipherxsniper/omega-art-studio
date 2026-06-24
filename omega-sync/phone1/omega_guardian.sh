@@ -5,7 +5,7 @@
 OMEGA_HOME="/data/data/com.termux/files/home"
 LOGS="$OMEGA_HOME/omega_runtime/logs"
 SSH_KEY="$OMEGA_HOME/.ssh/omega_bridge"
-PHONE2="192.168.11.2"
+PHONE2="192.168.11.163"
 _GUARDIAN_CYCLES=0
 
 mkdir -p "$LOGS"
@@ -60,30 +60,28 @@ while true; do
         sleep 8
     fi
 
-    # Watch SSH tunnel — most critical link
-    if ! pgrep -f "ssh.*omega_bridge" > /dev/null; then
-        echo "[$(date)] RESTART: SSH tunnel" >> "$LOGS/guardian.log"
-        nohup ssh -i "$SSH_KEY" \
-          -o StrictHostKeyChecking=no \
-          -o ServerAliveInterval=30 \
-          -o ServerAliveCountMax=3 \
-          -o ExitOnForwardFailure=yes \
-          -L 5432:127.0.0.1:5432 \
-          u0_a253@$PHONE2 -p 8022 -N \
-          >> "$LOGS/ssh_tunnel.log" 2>&1 &
+    if ! pgrep -f "autossh.*omega_bridge" > /dev/null; then
+        echo "[$(date)] RESTART: SSH tunnel (autossh)" >> "$LOGS/guardian.log"
+        pkill -f "ssh.*omega_bridge" 2>/dev/null
+        nohup autossh -M 0 -i "$SSH_KEY" \
+            -o StrictHostKeyChecking=no \
+            -o ServerAliveInterval=30 \
+            -o ServerAliveCountMax=6 \
+            -o ExitOnForwardFailure=yes \
+            -o TCPKeepAlive=yes \
+            -L 5432:127.0.0.1:5432 \
+            u0_a253@$PHONE2 -p 8022 -N \
+            >> "$LOGS/ssh_tunnel.log" 2>&1 &
         sleep 8
-        psql -h 127.0.0.1 -p 5432 -U postgres -d omega_bank \
-          -c "SELECT 1" > /dev/null 2>&1 \
-          && echo "[$(date)] SSH tunnel RESTORED" >> "$LOGS/guardian.log" \
-          || echo "[$(date)] SSH tunnel FAILED" >> "$LOGS/guardian.log"
     fi
-
     # Run oracle every 5 minutes (10 cycles x 30s)
     if [ $((_GUARDIAN_CYCLES % 10)) -eq 0 ]; then
         python3 "$OMEGA_HOME/omega_oracle_v2.py" \
           >> "$LOGS/oracle.log" 2>&1 &
+        bash "$OMEGA_HOME/omega_build_watcher.sh" >> "$LOGS/build_watcher.log" 2>&1 &
     fi
 
+    bash "$OMEGA_HOME/omega_update_api_url.sh" >> "$LOGS/api_url_update.log" 2>&1
     sleep 30
 done
 

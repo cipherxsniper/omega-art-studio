@@ -28,7 +28,7 @@ SPAWN_THR  = 2_000_000  # auto-spawn signal at 2M entries
 
 KNOWN_SEEDS = [
     {"id": "omega-node-001", "host": "192.168.11.115", "port": 7433},
-    {"id": "omega-node-002", "host": "192.168.11.2", "port": 7433},
+    {"id": "omega-node-002", "host": "192.168.11.238", "port": 7433},
 ]
 
 # ── Database ────────────────────────────────────────────

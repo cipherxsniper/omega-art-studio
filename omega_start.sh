@@ -7,7 +7,7 @@
 OMEGA_HOME="/data/data/com.termux/files/home"
 LOGS="$OMEGA_HOME/omega_runtime/logs"
 SSH_KEY="$OMEGA_HOME/.ssh/omega_bridge"
-PHONE2="192.168.11.2"
+PHONE2="192.168.11.238"
 
 echo "═══════════════════════════════════════════"
 echo "  OMEGA SYSTEM BOOTSTRAP"
@@ -81,7 +81,7 @@ echo "[6/7] Node 002 on Phone 2..."
 ssh -i "$SSH_KEY" -o StrictHostKeyChecking=no \
   -o ConnectTimeout=10 \
   u0_a253@$PHONE2 -p 8022 \
-  "pgrep -f omega_node_manager > /dev/null && echo OK || (export OMEGA_NODE_ID=omega-node-002; export OMEGA_NODE_HOST=192.168.11.2; setsid python3 ~/Omega-Production/omega_bank/omega_node_manager.py >> ~/omega_runtime/logs/node_manager.log 2>&1 </dev/null &amp; sleep 8 && pgrep -f omega_node_manager > /dev/null && echo OK)" \
+  "pgrep -f omega_node_manager > /dev/null && echo OK || (export OMEGA_NODE_ID=omega-node-002; export OMEGA_NODE_HOST=192.168.11.238; setsid python3 ~/Omega-Production/omega_bank/omega_node_manager.py >> ~/omega_runtime/logs/node_manager.log 2>&1 </dev/null &amp; sleep 8 && pgrep -f omega_node_manager > /dev/null && echo OK)" \
   && echo "  ✅ Node 002 ONLINE" \
   || echo "  ⚠️  Node 002 FAILED"
 

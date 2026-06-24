@@ -153,7 +153,7 @@ def generate_node_config(node_id, base_port):
         "db_name": "omega_bank",
         "peer_nodes": [
             {"node_id": "omega-node-001", "host": "192.168.11.115", "port": 7432},
-            {"node_id": "omega-node-002", "host": "192.168.11.2", "port": 7432},
+            {"node_id": "omega-node-002", "host": "192.168.11.238", "port": 7432},
         ],
         "spawned_at": datetime.now().isoformat(),
         "spawn_generation": node_num - 2,

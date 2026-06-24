@@ -9,3 +9,12 @@ alias p2boot='p2 "cd ~/Omega-Production/omega_bank && setsid python3 omega_conse
 
 # OMEGA MASTER BOOT — one command, entire system
 alias omega-full='omega && p2boot'
+
+function push() {
+  cd ~/omega_sync 2>/dev/null || { echo "omega_sync not found"; return 1; }
+  git add -A
+  git commit -m "sync: oracle=100/100 — $(date '+%Y-%m-%d %H:%M')"
+  git push origin main
+  cd ~
+  echo "✅ Pushed"
+}

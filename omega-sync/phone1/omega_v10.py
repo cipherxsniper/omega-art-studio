@@ -45,12 +45,6 @@
 
 from __future__ import annotations
 import os, sys, json, time, signal, smtplib, imaplib, email as email_lib
-try:
-    from omega_nft_webhook import handle_nft_checkout as _handle_nft_checkout
-    NFT_WEBHOOK_OK = True
-except Exception as _e:
-    NFT_WEBHOOK_OK = False
-    print(f'[omega_v10] NFT webhook not loaded: {_e}')
 import re, random, queue, threading, hashlib, traceback, argparse, hmac
 import sqlite3, logging, base64, textwrap
 from pathlib import Path
@@ -1771,17 +1765,6 @@ def _on_checkout_completed(data: dict):
     line_items = data.get("line_items", {}).get("data", [])
     if line_items:
         price_id = line_items[0].get("price", {}).get("id", "")
-
-    # NFT purchase — check first before B2B logic
-    if NFT_WEBHOOK_OK:
-        try:
-            nft_handled = _handle_nft_checkout(data)
-            if nft_handled:
-                notify(f"🎨 NFT SOLD — COA emailed to {email}")
-                return
-        except Exception as _nft_e:
-            log("error", "nft_webhook", f"NFT handler failed: {_nft_e}")
-
     product_key = _resolve_product_key(price_id)
     p = Config.PRODUCTS.get(product_key, Config.PRODUCTS["full_ops"])
     if email:

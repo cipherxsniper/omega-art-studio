@@ -4,7 +4,7 @@
 # Auto-reconnects on drop, verifies PostgreSQL, never gives up
 
 SSH_KEY="/data/data/com.termux/files/home/.ssh/omega_bridge"
-PHONE2="192.168.11.2"
+PHONE2="192.168.11.238"
 LOGS="/data/data/com.termux/files/home/omega_runtime/logs"
 RETRY=0
 
@@ -64,12 +64,12 @@ while true; do
            || pg_ctl start -D \$PREFIX/var/lib/postgresql; \
            pgrep -f omega_consensus > /dev/null || \
            (cd ~/Omega-Production/omega_bank && \
-            OMEGA_NODE_ID=omega-node-002 OMEGA_NODE_HOST=192.168.11.2 \
+            OMEGA_NODE_ID=omega-node-002 OMEGA_NODE_HOST=192.168.11.238 \
             setsid python3 omega_consensus.py \
             >> ~/omega_runtime/logs/consensus.log 2>&1 </dev/null &); \
            pgrep -f omega_node_manager > /dev/null || \
            (cd ~/Omega-Production/omega_bank && \
-            OMEGA_NODE_ID=omega-node-002 OMEGA_NODE_HOST=192.168.11.2 \
+            OMEGA_NODE_ID=omega-node-002 OMEGA_NODE_HOST=192.168.11.238 \
             setsid python3 omega_node_manager.py \
             >> ~/omega_runtime/logs/node_manager.log 2>&1 </dev/null &)" \
           >> "$LOGS/tunnel_daemon.log" 2>&1 &

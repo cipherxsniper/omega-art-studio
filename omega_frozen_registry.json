@@ -5,7 +5,7 @@
       "target": "http://127.0.0.1:6000/health",
       "expected_contains": "healthy",
       "frozen_at": "2026-06-17T19:16:53.893586",
-      "last_verified": "2026-06-23T20:52:41.741894",
+      "last_verified": "2026-06-24T04:13:23.940048",
       "status": "VERIFIED"
     },
     "vps_6002_health": {
@@ -13,7 +13,7 @@
       "target": "http://127.0.0.1:6002/health",
       "expected_contains": "healthy",
       "frozen_at": "2026-06-17T19:16:53.894857",
-      "last_verified": "2026-06-23T20:52:41.761851",
+      "last_verified": "2026-06-24T04:13:23.971281",
       "status": "VERIFIED"
     },
     "vps_6003_health": {
@@ -21,23 +21,23 @@
       "target": "http://127.0.0.1:6003/health",
       "expected_contains": "healthy",
       "frozen_at": "2026-06-17T19:16:53.895691",
-      "last_verified": "2026-06-23T20:52:41.783453",
-      "status": "REGRESSED"
+      "last_verified": "2026-06-24T04:13:24.009729",
+      "status": "VERIFIED"
     },
     "tunnel_db_live": {
       "check_type": "cmd",
       "target": "psql -h 127.0.0.1 -p 5432 -U postgres -d omega_bank -c \"SELECT 1\"",
       "expected_contains": "1 row",
       "frozen_at": "2026-06-17T19:16:53.896410",
-      "last_verified": "2026-06-23T20:52:41.861006",
+      "last_verified": "2026-06-24T04:13:24.995450",
       "status": "VERIFIED"
     },
     "push_honest_failure": {
       "check_type": "cmd",
-      "target": "cd ~/omega_push && git log --oneline -1",
+      "target": "cd ~/omega_redirect && git log --oneline -1",
       "expected_contains": null,
-      "frozen_at": "2026-06-17T19:16:53.897168",
-      "last_verified": "2026-06-23T20:52:41.922386",
+      "frozen_at": "2026-06-24T00:29:23.359995",
+      "last_verified": "2026-06-24T04:13:25.021108",
       "status": "VERIFIED"
     },
     "om109_dual_sign": {
@@ -45,7 +45,7 @@
       "target": "/data/data/com.termux/files/home/check_om109_unsigned.sh",
       "expected_contains": null,
       "frozen_at": "2026-06-17T19:37:21.254326",
-      "last_verified": "2026-06-23T20:52:43.741532",
+      "last_verified": "2026-06-24T04:13:26.435666",
       "status": "VERIFIED"
     },
     "ledger_immutable": {
@@ -53,7 +53,7 @@
       "target": "psql -h 127.0.0.1 -p 5432 -U postgres -d omega_bank -c \"SELECT tgenabled FROM pg_trigger WHERE tgname='ledger_protect'\"",
       "expected_contains": "O",
       "frozen_at": "2026-06-17T19:19:29.636517",
-      "last_verified": "2026-06-23T20:52:44.232297",
+      "last_verified": "2026-06-24T04:13:27.465883",
       "status": "VERIFIED"
     },
     "consensus_quorum_2": {
@@ -61,31 +61,23 @@
       "target": "http://192.168.11.115:7432/status",
       "expected_contains": "\"quorum_size\": 2",
       "frozen_at": "2026-06-17T19:36:33.872679",
-      "last_verified": "2026-06-23T20:52:46.122355",
-      "status": "VERIFIED"
+      "last_verified": "2026-06-24T04:13:29.791533",
+      "status": "REGRESSED"
     },
     "tunnel_no_thrash": {
       "check_type": "cmd",
       "target": "/data/data/com.termux/files/home/check_tunnel_stability.sh",
       "expected_contains": null,
-      "frozen_at": "2026-06-21T21:09:42.035913",
-      "last_verified": "2026-06-23T20:52:46.158542",
+      "frozen_at": "2026-06-24T00:50:52.194408",
+      "last_verified": "2026-06-24T04:13:29.851400",
       "status": "REGRESSED"
-    },
-    "oracle_score_button": {
-      "check_type": "cmd",
-      "target": "grep -c \"ORACLE SCORE\" /data/data/com.termux/files/home/omega_v10.py",
-      "expected_contains": null,
-      "frozen_at": "2026-06-18T02:29:40.015765",
-      "last_verified": "2026-06-23T20:52:46.180179",
-      "status": "VERIFIED"
     },
     "telegram_core_menus": {
       "check_type": "cmd",
       "target": "grep -c \"card_list\\|finance_bank\\|finance_wal\\|node3_health\" /data/data/com.termux/files/home/omega_v10.py",
       "expected_contains": null,
       "frozen_at": "2026-06-18T02:29:40.016473",
-      "last_verified": "2026-06-23T20:52:46.201888",
+      "last_verified": "2026-06-24T04:13:29.881111",
       "status": "VERIFIED"
     },
     "cards_handler_order": {
@@ -93,7 +85,7 @@
       "target": "bash -c \"grep -n cards_button_handler /data/data/com.termux/files/home/omega_v10.py | head -1 | cut -d: -f1\"",
       "expected_contains": null,
       "frozen_at": "2026-06-18T02:29:40.017159",
-      "last_verified": "2026-06-23T20:52:46.239053",
+      "last_verified": "2026-06-24T04:13:29.936265",
       "status": "VERIFIED"
     },
     "provenance_api_live": {
@@ -101,7 +93,7 @@
       "target": "http://127.0.0.1:8082/health",
       "expected_contains": "online",
       "frozen_at": "2026-06-19T05:04:24.661007",
-      "last_verified": "2026-06-23T20:52:46.267866",
+      "last_verified": "2026-06-24T04:13:29.981614",
       "status": "VERIFIED"
     },
     "provenance_api_verify": {
@@ -109,7 +101,7 @@
       "target": "curl -s http://127.0.0.1:8082/nft/verify/echoes/85 | grep -q authentic",
       "expected_contains": null,
       "frozen_at": "2026-06-19T05:04:24.661579",
-      "last_verified": "2026-06-23T20:52:46.410097",
+      "last_verified": "2026-06-24T04:13:31.008713",
       "status": "VERIFIED"
     }
   }
