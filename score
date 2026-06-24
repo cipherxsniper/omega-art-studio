@@ -1,0 +1,2 @@
+#!/data/data/com.termux/files/usr/bin/bash
+python ~/Omega-Production/omega_bank/code/omega_oracle_v2.py

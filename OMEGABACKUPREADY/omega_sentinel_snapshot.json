@@ -1,0 +1,806 @@
+{
+  "ts": "2026-06-08T23:38:59.436189",
+  "file_hash": "dec0f29f671fbd1b",
+  "functions": {
+    "log": {
+      "hash": "21df856438f157ae",
+      "line": 408,
+      "size": 2
+    },
+    "audit": {
+      "hash": "a0e91985f3b6ad5e",
+      "line": 613,
+      "size": 18
+    },
+    "notify": {
+      "hash": "bb72923b99484b1f",
+      "line": 644,
+      "size": 7
+    },
+    "pop_notifications": {
+      "hash": "c0723e8494343695",
+      "line": 652,
+      "size": 4
+    },
+    "uptime_str": {
+      "hash": "d31e68f0447890ec",
+      "line": 657,
+      "size": 4
+    },
+    "is_business_hours": {
+      "hash": "2284f06ac6525b57",
+      "line": 662,
+      "size": 3
+    },
+    "validate_email": {
+      "hash": "cd5a8ff1a7b2a10f",
+      "line": 682,
+      "size": 9
+    },
+    "is_biz_email": {
+      "hash": "72b4f90822a2b4de",
+      "line": 692,
+      "size": 3
+    },
+    "is_system_sender": {
+      "hash": "4f90c14fc116e75d",
+      "line": 696,
+      "size": 3
+    },
+    "is_autoresponder": {
+      "hash": "e423d1c082fc121b",
+      "line": 700,
+      "size": 4
+    },
+    "load_weights": {
+      "hash": "2b804bd02f5cf147",
+      "line": 721,
+      "size": 11
+    },
+    "save_weights": {
+      "hash": "8d8cedc1c0e6bc51",
+      "line": 733,
+      "size": 2
+    },
+    "score_lead": {
+      "hash": "6cbf434e690fa0d9",
+      "line": 736,
+      "size": 12
+    },
+    "passes_gate": {
+      "hash": "5207dfa57e2946d6",
+      "line": 754,
+      "size": 11
+    },
+    "_product_for_lead": {
+      "hash": "6f7aa5b98b7dff2a",
+      "line": 988,
+      "size": 7
+    },
+    "_ceo_context": {
+      "hash": "3ed9ccfb7796b9f6",
+      "line": 996,
+      "size": 7
+    },
+    "generate_pitch": {
+      "hash": "5df1e31fb1473264",
+      "line": 1004,
+      "size": 38
+    },
+    "generate_reply": {
+      "hash": "e18e81dafdc7d3d8",
+      "line": 1043,
+      "size": 40
+    },
+    "_hunter_domain_search": {
+      "hash": "2c41e904e75c819a",
+      "line": 1113,
+      "size": 24
+    },
+    "_serpapi_search": {
+      "hash": "3bd4533a6d32ae25",
+      "line": 1138,
+      "size": 30
+    },
+    "run_lead_generation": {
+      "hash": "01a745bcd6b8e64a",
+      "line": 1169,
+      "size": 52
+    },
+    "generate_pitch_ab": {
+      "hash": "7ddfc811ddbc36d4",
+      "line": 1229,
+      "size": 47
+    },
+    "record_ab_send": {
+      "hash": "05eee1179ebb7d2f",
+      "line": 1278,
+      "size": 14
+    },
+    "get_ab_winner": {
+      "hash": "0f4518bdf2752ff2",
+      "line": 1294,
+      "size": 41
+    },
+    "run_outreach": {
+      "hash": "efc1f658bfa8f607",
+      "line": 1340,
+      "size": 81
+    },
+    "fetch_inbox": {
+      "hash": "cd4ccba6311b8a9a",
+      "line": 1427,
+      "size": 38
+    },
+    "run_inbox": {
+      "hash": "af6cf2c6c3e50052",
+      "line": 1466,
+      "size": 82
+    },
+    "_check_bounce_rate": {
+      "hash": "2ebf40f5dcb53477",
+      "line": 1557,
+      "size": 36
+    },
+    "_delayed_onboarding": {
+      "hash": "247adbccf53c2882",
+      "line": 1595,
+      "size": 9
+    },
+    "_trigger_onboarding_email": {
+      "hash": "15665eeff5a21f8d",
+      "line": 1606,
+      "size": 109
+    },
+    "handle_stripe_event": {
+      "hash": "e180f45c71990716",
+      "line": 1720,
+      "size": 35
+    },
+    "_resolve_product_key": {
+      "hash": "dd3f93a038ad585a",
+      "line": 1756,
+      "size": 5
+    },
+    "_on_checkout_completed": {
+      "hash": "8fe076184bf3c58f",
+      "line": 1762,
+      "size": 23
+    },
+    "_on_subscription_created": {
+      "hash": "791b87e4a0b58976",
+      "line": 1786,
+      "size": 11
+    },
+    "_on_subscription_deleted": {
+      "hash": "02e71c2439bb6a76",
+      "line": 1798,
+      "size": 9
+    },
+    "_on_payment_succeeded": {
+      "hash": "1c0c24a5047f2952",
+      "line": 1808,
+      "size": 6
+    },
+    "_on_payment_failed": {
+      "hash": "49c5b8b0dc2ddcba",
+      "line": 1815,
+      "size": 4
+    },
+    "_trigger_onboarding": {
+      "hash": "738adbffc5f347f0",
+      "line": 1820,
+      "size": 64
+    },
+    "_verify_webhook_hmac": {
+      "hash": "027d73572a2c63c1",
+      "line": 1890,
+      "size": 8
+    },
+    "build_flask_app": {
+      "hash": "74382b5e419d293f",
+      "line": 1899,
+      "size": 102
+    },
+    "run_webhook_server": {
+      "hash": "b6c8692f75ab6b46",
+      "line": 2002,
+      "size": 6
+    },
+    "run_email_enrichment": {
+      "hash": "096b58e4aa09d8ff",
+      "line": 2014,
+      "size": 75
+    },
+    "run_learning": {
+      "hash": "a5eb619e72011f13",
+      "line": 2090,
+      "size": 34
+    },
+    "_telegram_push": {
+      "hash": "4b3c1ed4c367c808",
+      "line": 2176,
+      "size": 8
+    },
+    "_is_authed": {
+      "hash": "61461231926822f6",
+      "line": 2185,
+      "size": 4
+    },
+    "_auth_session": {
+      "hash": "010d6d0b0038b04e",
+      "line": 2190,
+      "size": 3
+    },
+    "_is_admin": {
+      "hash": "3d5905a80a053856",
+      "line": 2194,
+      "size": 3
+    },
+    "_main_menu": {
+      "hash": "d433fcc1ff2beadd",
+      "line": 2198,
+      "size": 52
+    },
+    "_back_kb": {
+      "hash": "1145250a4e811de4",
+      "line": 2251,
+      "size": 2
+    },
+    "_ledger_write": {
+      "hash": "430da3d0715cdab5",
+      "line": 2645,
+      "size": 21
+    },
+    "ledger_record_payment": {
+      "hash": "1623f2bf5f9d1245",
+      "line": 2668,
+      "size": 10
+    },
+    "ledger_record_churn": {
+      "hash": "f06567798a34c3cb",
+      "line": 2680,
+      "size": 10
+    },
+    "ledger_record_trial": {
+      "hash": "d19915066f8a3535",
+      "line": 2692,
+      "size": 10
+    },
+    "send_daily_briefing_now": {
+      "hash": "2afb76e8c0568186",
+      "line": 2706,
+      "size": 88
+    },
+    "_get_live_context": {
+      "hash": "07827e7985db824e",
+      "line": 2801,
+      "size": 178
+    },
+    "handle_assistant_query": {
+      "hash": "6dad6c381a101794",
+      "line": 2981,
+      "size": 33
+    },
+    "build_telegram_app": {
+      "hash": "0c65a8193ba0bf75",
+      "line": 3015,
+      "size": 32
+    },
+    "_push_worker": {
+      "hash": "365dfa631160f230",
+      "line": 3053,
+      "size": 20
+    },
+    "start_engine": {
+      "hash": "9ac98978dcdb7921",
+      "line": 3079,
+      "size": 24
+    },
+    "stop_engine": {
+      "hash": "bbbc75b79b5b542e",
+      "line": 3104,
+      "size": 6
+    },
+    "_print_banner": {
+      "hash": "c0559b437a29c403",
+      "line": 3116,
+      "size": 13
+    },
+    "_send_trading_briefing": {
+      "hash": "353627ec98fb0785",
+      "line": 3134,
+      "size": 53
+    },
+    "_briefing_thread": {
+      "hash": "44cb175bd5e4e5ac",
+      "line": 3188,
+      "size": 22
+    },
+    "run_trading_cycle": {
+      "hash": "8504f0dc87cd3d4a",
+      "line": 3562,
+      "size": 87
+    },
+    "_tune_trading_params": {
+      "hash": "e7eb7b219d103143",
+      "line": 3650,
+      "size": 20
+    },
+    "get_trading_summary": {
+      "hash": "9055528b09c3eb4b",
+      "line": 3671,
+      "size": 17
+    },
+    "cmd_trading": {
+      "hash": "fa0cbc64204b14b1",
+      "line": 3693,
+      "size": 7
+    },
+    "_trading_menu": {
+      "hash": "6b96a18bf93b2beb",
+      "line": 3701,
+      "size": 30
+    },
+    "trading_button_handler": {
+      "hash": "76ed2ed9d170acd1",
+      "line": 3732,
+      "size": 151
+    },
+    "start_bank_bridge": {
+      "hash": "a4afa77c7cde93a8",
+      "line": 3893,
+      "size": 21
+    },
+    "bank_query": {
+      "hash": "0a9710f4bf51b2c1",
+      "line": 3915,
+      "size": 16
+    },
+    "get_bank_summary": {
+      "hash": "112fe06a29d971d7",
+      "line": 3932,
+      "size": 57
+    },
+    "cmd_finance": {
+      "hash": "00b782ca8a5dc48f",
+      "line": 3991,
+      "size": 7
+    },
+    "_finance_menu": {
+      "hash": "e1ca94fd17c21df6",
+      "line": 3999,
+      "size": 81
+    },
+    "finance_button_handler": {
+      "hash": "1a3fe42344ad1fa3",
+      "line": 4081,
+      "size": 98
+    },
+    "cmd_cards": {
+      "hash": "c9401bb5503dc1e9",
+      "line": 4182,
+      "size": 7
+    },
+    "_cards_menu": {
+      "hash": "841c9836992a775f",
+      "line": 4190,
+      "size": 34
+    },
+    "cards_button_handler": {
+      "hash": "27e66831d3ea2d8b",
+      "line": 4225,
+      "size": 88
+    },
+    "main": {
+      "hash": "d7bbed47a4eb9022",
+      "line": 4315,
+      "size": 65
+    },
+    "verify_email_exists": {
+      "hash": "f7b7a8b9d06e6235",
+      "line": 4390,
+      "size": 11
+    },
+    "process_onboarding_reply": {
+      "hash": "43dddee44ba1b47a",
+      "line": 4412,
+      "size": 41
+    },
+    "get_onboard_state": {
+      "hash": "15d6b01a17145e37",
+      "line": 4470,
+      "size": 9
+    },
+    "save_onboard_state": {
+      "hash": "7fa5c585400f47eb",
+      "line": 4480,
+      "size": 6
+    },
+    "next_onboard_question": {
+      "hash": "0aa93c5c36d5d53d",
+      "line": 4487,
+      "size": 5
+    },
+    "run_conversational_onboarding": {
+      "hash": "d69583c5566d03e1",
+      "line": 4493,
+      "size": 43
+    },
+    "_finalize_onboarding": {
+      "hash": "16c878ef19055911",
+      "line": 4537,
+      "size": 67
+    },
+    "_compute_proposal_hash": {
+      "hash": "79256f678722417b",
+      "line": 4628,
+      "size": 3
+    },
+    "_request_consensus_vote": {
+      "hash": "d7d591829ba4bb2f",
+      "line": 4632,
+      "size": 22
+    },
+    "_quorum_approve": {
+      "hash": "67c817a33f537ff3",
+      "line": 4655,
+      "size": 35
+    },
+    "_pg_ledger_write": {
+      "hash": "705ef8313b9c634b",
+      "line": 4691,
+      "size": 40
+    },
+    "_node_manifest_write": {
+      "hash": "77f553d0f3afd15c",
+      "line": 4732,
+      "size": 45
+    },
+    "_safe_ledger_write": {
+      "hash": "55a40d153023f94d",
+      "line": 4778,
+      "size": 37
+    },
+    "_post_init": {
+      "hash": "e1b9a9cbe5d7aaaf",
+      "line": 259,
+      "size": 10
+    },
+    "validate": {
+      "hash": "038a0e6ba320a558",
+      "line": 310,
+      "size": 60
+    },
+    "get": {
+      "hash": "572f880d1ca6a29b",
+      "line": 421,
+      "size": 8
+    },
+    "migrate": {
+      "hash": "9c1a8f8121f29625",
+      "line": 431,
+      "size": 84
+    },
+    "metric": {
+      "hash": "1c009d6935aa459d",
+      "line": 517,
+      "size": 7
+    },
+    "set_metric": {
+      "hash": "970811cec5644512",
+      "line": 526,
+      "size": 7
+    },
+    "get_metrics": {
+      "hash": "9b9bc38f90e17653",
+      "line": 535,
+      "size": 3
+    },
+    "is_suppressed": {
+      "hash": "fafda9ee4c64054e",
+      "line": 540,
+      "size": 3
+    },
+    "suppress": {
+      "hash": "3d5a8d2dd20daae1",
+      "line": 545,
+      "size": 7
+    },
+    "event": {
+      "hash": "038e23b556d745fb",
+      "line": 554,
+      "size": 7
+    },
+    "upsert_lead": {
+      "hash": "efa4d8b99ff81734",
+      "line": 563,
+      "size": 17
+    },
+    "get_leads": {
+      "hash": "386b714ac89354d0",
+      "line": 582,
+      "size": 9
+    },
+    "get_clients": {
+      "hash": "63ef3bcfdd01f1ea",
+      "line": 593,
+      "size": 2
+    },
+    "daily_send_count": {
+      "hash": "7aa6b80a88bbf8b6",
+      "line": 597,
+      "size": 7
+    },
+    "_sig": {
+      "hash": "be048f25264e9bdd",
+      "line": 774,
+      "size": 12
+    },
+    "send": {
+      "hash": "55323b9680a58c74",
+      "line": 788,
+      "size": 35
+    },
+    "_sendgrid": {
+      "hash": "450f79131e7c2a7d",
+      "line": 825,
+      "size": 27
+    },
+    "_mailgun": {
+      "hash": "e62ad22d6f10b3ff",
+      "line": 854,
+      "size": 17
+    },
+    "_smtp": {
+      "hash": "ab263599f24124fc",
+      "line": 873,
+      "size": 16
+    },
+    "generate": {
+      "hash": "868ead922d3b2ee5",
+      "line": 897,
+      "size": 68
+    },
+    "classify_intent": {
+      "hash": "edd00875b9e2fd4d",
+      "line": 967,
+      "size": 15
+    },
+    "_fire": {
+      "hash": "6b2a090956464a1c",
+      "line": 1598,
+      "size": 4
+    },
+    "health": {
+      "hash": "31421c8ec1eac25d",
+      "line": 1910,
+      "size": 2
+    },
+    "inbound_lead": {
+      "hash": "04d85ffe0abd8259",
+      "line": 1914,
+      "size": 38
+    },
+    "stripe_webhook": {
+      "hash": "6387fdf23bdddb18",
+      "line": 1954,
+      "size": 7
+    },
+    "typeform_webhook": {
+      "hash": "ec93821bf3f778dc",
+      "line": 1963,
+      "size": 36
+    },
+    "__init__": {
+      "hash": "9b6c08e5ac3b5ba3",
+      "line": 3549,
+      "size": 7
+    },
+    "run": {
+      "hash": "3e886af15aa0d547",
+      "line": 2140,
+      "size": 13
+    },
+    "stop": {
+      "hash": "e74c9295f4b415da",
+      "line": 2154,
+      "size": 2
+    },
+    "status_emoji": {
+      "hash": "2cd4444b52d7ed64",
+      "line": 2158,
+      "size": 4
+    },
+    "cmd_start": {
+      "hash": "bea0d68e306a7e18",
+      "line": 2256,
+      "size": 14
+    },
+    "cmd_pin": {
+      "hash": "f81cbbd339264372",
+      "line": 2271,
+      "size": 11
+    },
+    "cmd_status": {
+      "hash": "de374ecd6b921b12",
+      "line": 2283,
+      "size": 23
+    },
+    "cmd_pause": {
+      "hash": "a96d7173679d71c3",
+      "line": 2307,
+      "size": 6
+    },
+    "cmd_resume": {
+      "hash": "b19e9edf02137729",
+      "line": 2314,
+      "size": 6
+    },
+    "cmd_help": {
+      "hash": "ce3d1406f508c027",
+      "line": 2321,
+      "size": 13
+    },
+    "cmd_leads": {
+      "hash": "851bd15443ebd242",
+      "line": 2335,
+      "size": 16
+    },
+    "cmd_revenue": {
+      "hash": "296bffddce0d015c",
+      "line": 2352,
+      "size": 16
+    },
+    "cmd_clients": {
+      "hash": "0562b76437e7a758",
+      "line": 2369,
+      "size": 15
+    },
+    "master_button_handler": {
+      "hash": "afa2a7e8c2d3a594",
+      "line": 2385,
+      "size": 14
+    },
+    "button_handler": {
+      "hash": "4b075a3be5c66960",
+      "line": 2400,
+      "size": 237
+    },
+    "_sign": {
+      "hash": "13d31da1ac592f96",
+      "line": 3246,
+      "size": 3
+    },
+    "_get": {
+      "hash": "c66f26f0fa588a84",
+      "line": 3250,
+      "size": 17
+    },
+    "_post": {
+      "hash": "6a500231da259fc8",
+      "line": 3268,
+      "size": 14
+    },
+    "get_balance": {
+      "hash": "b696396baa3e0fff",
+      "line": 3283,
+      "size": 30
+    },
+    "get_klines": {
+      "hash": "92f8d156f59a5813",
+      "line": 3314,
+      "size": 16
+    },
+    "get_ticker": {
+      "hash": "32bd542d5b0d0ddf",
+      "line": 3331,
+      "size": 11
+    },
+    "place_market_buy": {
+      "hash": "d624226402802f72",
+      "line": 3343,
+      "size": 9
+    },
+    "place_market_sell": {
+      "hash": "d2eb51362ed5ad22",
+      "line": 3353,
+      "size": 9
+    },
+    "sma": {
+      "hash": "6693b4fff51b45bf",
+      "line": 3366,
+      "size": 5
+    },
+    "ema": {
+      "hash": "4cc7eee541ac5666",
+      "line": 3373,
+      "size": 6
+    },
+    "rsi": {
+      "hash": "a775b59558f51889",
+      "line": 3381,
+      "size": 12
+    },
+    "macd": {
+      "hash": "702080d8f3f4b427",
+      "line": 3395,
+      "size": 8
+    },
+    "bollinger": {
+      "hash": "f1faf7c4f3196bdc",
+      "line": 3405,
+      "size": 8
+    },
+    "vwap": {
+      "hash": "1c34fcff6b56bbd2",
+      "line": 3415,
+      "size": 4
+    },
+    "atr": {
+      "hash": "159d4cd579650ebd",
+      "line": 3421,
+      "size": 7
+    },
+    "_bullish": {
+      "hash": "c6c0b1889a61881f",
+      "line": 3432,
+      "size": 1
+    },
+    "_bearish": {
+      "hash": "371a9e73ef3a4f38",
+      "line": 3434,
+      "size": 1
+    },
+    "_body": {
+      "hash": "e4be56d0ff2a627b",
+      "line": 3436,
+      "size": 1
+    },
+    "_range": {
+      "hash": "bc0bb40e6a773f57",
+      "line": 3438,
+      "size": 1
+    },
+    "_doji": {
+      "hash": "be557674a3ca9bb4",
+      "line": 3440,
+      "size": 1
+    },
+    "score": {
+      "hash": "933c1a9fe9cf642a",
+      "line": 3443,
+      "size": 32
+    },
+    "_get_candles": {
+      "hash": "5105f6dfae7e4e2f",
+      "line": 3482,
+      "size": 7
+    },
+    "composite_rating": {
+      "hash": "a0c103e76571131b",
+      "line": 3490,
+      "size": 36
+    },
+    "market_regime": {
+      "hash": "8ae2577bfd771486",
+      "line": 3527,
+      "size": 12
+    },
+    "win_probability": {
+      "hash": "eeb82c05e49fe0d7",
+      "line": 3540,
+      "size": 6
+    },
+    "shutdown_handler": {
+      "hash": "b48a61b6b2228906",
+      "line": 4333,
+      "size": 4
+    },
+    "vote": {
+      "hash": "1e7696c34d2882cd",
+      "line": 4667,
+      "size": 4
+    }
+  }
+}

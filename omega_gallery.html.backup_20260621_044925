@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Omega Art Studio — Provenance Gallery</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,400&family=Space+Mono:wght@400;700&display=swap');
+  :root {
+    --void:#070710; --void-2:#0c0c18; --void-3:#121224; --line:#232336;
+    --ink:#e9e8f0; --dim:#8a87a3; --accent:#b8a4ff; --accent-dim:#6b5ca8;
+  }
+  .coll-echoes { --accent:#ff6b8a; --accent-dim:#99435a; }
+  .coll-somnium { --accent:#5ad1e6; --accent-dim:#2f7a87; }
+  .coll-paracosm { --accent:#ffb84d; --accent-dim:#99701f; }
+  .coll-monolith { --accent:#b8a4ff; --accent-dim:#6b5ca8; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--void); color:var(--ink); font-family:'Fraunces',serif; min-height:100vh; overflow-x:hidden; }
+  body::before { content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(184,164,255,0.06), transparent 60%),
+                radial-gradient(circle at 50% 100%, rgba(0,0,0,0.5), transparent 70%); }
+  header { position:relative; z-index:2; padding:64px 32px 32px; text-align:center; }
+  .eyebrow { font-family:'Space Mono',monospace; font-size:11px; letter-spacing:4px; text-transform:uppercase; color:var(--accent); opacity:0.85; margin-bottom:18px; }
+  h1 { font-size:clamp(36px,7vw,64px); font-weight:500; font-style:italic; letter-spacing:-0.01em; line-height:1.05;
+    background:linear-gradient(135deg, var(--ink) 40%, var(--accent) 120%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:14px; }
+  .sub { font-family:'Space Mono',monospace; font-size:12px; color:var(--dim); letter-spacing:1px; max-width:520px; margin:0 auto; }
+  .stats { display:flex; justify-content:center; gap:48px; margin-top:40px; flex-wrap:wrap; position:relative; z-index:2; }
+  .stat { text-align:center; }
+  .stat-num { font-family:'Space Mono',monospace; font-weight:700; font-size:22px; color:var(--ink); }
+  .stat-label { font-family:'Space Mono',monospace; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--dim); margin-top:4px; }
+  .tabs { display:flex; justify-content:center; gap:4px; margin:56px auto 0; padding:0 24px; position:relative; z-index:2; max-width:720px; flex-wrap:wrap; }
+  .tab { font-family:'Space Mono',monospace; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; padding:12px 22px; cursor:pointer;
+    color:var(--dim); border:1px solid var(--line); border-radius:100px; transition:all .35s cubic-bezier(.2,.8,.2,1); background:rgba(255,255,255,0.02); }
+  .tab:hover { color:var(--ink); border-color:var(--accent-dim); }
+  .tab.active { color:var(--void); background:var(--accent); border-color:var(--accent); }
+  .filters { display:flex; justify-content:center; gap:8px; margin:20px auto 0; padding:0 24px; flex-wrap:wrap; position:relative; z-index:2; }
+  .filter-chip { font-family:'Space Mono',monospace; font-size:10px; letter-spacing:1px; text-transform:uppercase; padding:6px 14px; border-radius:100px;
+    border:1px solid var(--line); color:var(--dim); cursor:pointer; transition:all .25s; }
+  .filter-chip:hover { color:var(--ink); }
+  .filter-chip.active { background:var(--line); color:var(--ink); border-color:var(--dim); }
+  .gallery { position:relative; z-index:2; max-width:1400px; margin:56px auto 100px; padding:0 24px;
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:22px; }
+  .card-wrap { perspective:1600px; aspect-ratio:3/4; cursor:pointer; }
+  .card { position:relative; width:100%; height:100%; transition:transform .7s cubic-bezier(.2,.9,.25,1); transform-style:preserve-3d; }
+  .card-wrap.flipped .card { transform:rotateY(180deg); }
+  .face { position:absolute; inset:0; backface-visibility:hidden; border-radius:6px; overflow:hidden; }
+  .face-front { background:var(--void-2); border:1px solid var(--line); }
+  .face-front img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s ease; }
+  .card-wrap:hover .face-front img { transform:scale(1.04); }
+  .face-front .rarity-tag { position:absolute; top:10px; left:10px; font-family:'Space Mono',monospace; font-size:9px; letter-spacing:1.5px; text-transform:uppercase;
+    padding:4px 10px; border-radius:100px; background:rgba(7,7,16,0.75); backdrop-filter:blur(6px); border:1px solid var(--accent); color:var(--accent); }
+  .face-front .card-caption { position:absolute; bottom:0; left:0; right:0; padding:32px 14px 14px;
+    background:linear-gradient(to top, rgba(7,7,16,0.92), transparent); display:flex; flex-direction:column; gap:4px; }
+  .face-front .card-title { font-family:'Fraunces',serif; font-style:italic; font-size:17px; line-height:1.2; }
+  .face-front .card-id { font-family:'Space Mono',monospace; font-size:10px; color:var(--dim); }
+  .face-front .flip-hint { position:absolute; top:10px; right:10px; width:22px; height:22px; border-radius:50%; background:rgba(7,7,16,0.6); backdrop-filter:blur(6px);
+    border:1px solid var(--line); display:flex; align-items:center; justify-content:center; font-size:11px; color:var(--dim); }
+  .face-back { transform:rotateY(180deg); background:radial-gradient(circle at 30% 0%, rgba(184,164,255,0.08), transparent 55%), var(--void-3);
+    border:1px solid var(--accent-dim); padding:16px; display:flex; flex-direction:column; font-family:'Space Mono',monospace; }
+  .back-scroll { flex:1; overflow-y:auto; padding-right:4px; scrollbar-width:thin; }
+  .back-scroll::-webkit-scrollbar { width:3px; }
+  .back-scroll::-webkit-scrollbar-thumb { background:var(--accent-dim); border-radius:3px; }
+  .back-eyebrow { font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--accent); opacity:0.8; margin-bottom:8px; }
+  .back-title { font-family:'Fraunces',serif; font-style:italic; font-weight:500; font-size:18px; color:var(--ink); line-height:1.15; margin-bottom:2px; }
+  .back-collection { font-size:9px; color:var(--dim); letter-spacing:1px; margin-bottom:10px; }
+  .back-divider { height:1px; background:linear-gradient(90deg, var(--accent-dim), transparent); margin:8px 0; }
+  .back-row { margin-bottom:7px; }
+  .back-label { font-size:7px; letter-spacing:1.5px; text-transform:uppercase; color:var(--accent); opacity:0.7; margin-bottom:2px; }
+  .back-value { font-size:9px; color:var(--ink); word-break:break-all; line-height:1.5; }
+  .back-value.hash { color:var(--dim); font-size:7.5px; }
+  .seal { margin-top:auto; text-align:center; padding-top:8px; }
+  .seal-ring { display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:50%;
+    border:1.5px solid var(--accent); color:var(--accent); font-size:16px; font-family:'Fraunces',serif; margin-bottom:4px; }
+  .seal-text { font-size:7px; letter-spacing:1.5px; color:var(--dim); }
+  .verify-status { font-size:8px; letter-spacing:1px; margin-top:6px; display:flex; align-items:center; justify-content:center; gap:5px; }
+  .verify-dot { width:6px; height:6px; border-radius:50%; background:#4ade80; box-shadow:0 0 6px #4ade80; }
+  .verify-dot.pending { background:var(--dim); box-shadow:none; }
+  .verify-dot.fail { background:#ff6b6b; box-shadow:0 0 6px #ff6b6b; }
+  .loading-msg { text-align:center; padding:80px 20px; color:var(--dim); font-family:'Space Mono',monospace; font-size:12px; letter-spacing:1px; grid-column:1/-1; }
+  .pulse-dot { display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--accent); margin-right:8px; animation:pulse 1.4s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.2;} }
+  footer { position:relative; z-index:2; text-align:center; padding:40px 24px 70px; font-family:'Space Mono',monospace; font-size:10px; color:var(--dim); letter-spacing:1px; }
+  @media (max-width:540px) { .gallery { grid-template-columns:repeat(2,1fr); gap:14px; } .stats { gap:28px; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">Omega Art Studio · Provenance Gallery</div>
+  <h1>Four Collections,<br>One Immutable Ledger</h1>
+  <div class="sub">400 hyper-surrealist works — each one SHA-256 hashed, OM109 dual-signed, and chain-verified against the Omega Ledger</div>
+  <div class="stats">
+    <div class="stat"><div class="stat-num" id="stat-total">—</div><div class="stat-label">Tokens</div></div>
+    <div class="stat"><div class="stat-num" id="stat-collections">4</div><div class="stat-label">Collections</div></div>
+    <div class="stat"><div class="stat-num" id="stat-verified">—</div><div class="stat-label">Verified Live</div></div>
+    <div class="stat"><div class="stat-num">Ω</div><div class="stat-label">OM109 Secured</div></div>
+  </div>
+  <div class="tabs" id="tabs">
+    <div class="tab active" data-coll="all">All Works</div>
+    <div class="tab" data-coll="echoes">Echoes of Eternity</div>
+    <div class="tab" data-coll="somnium">Somnium</div>
+    <div class="tab" data-coll="paracosm">Paracosm</div>
+    <div class="tab" data-coll="monolith">Monolith</div>
+  </div>
+  <div class="filters" id="filters">
+    <div class="filter-chip active" data-rarity="all">All Rarities</div>
+    <div class="filter-chip" data-rarity="Impossible Diamond">Impossible Diamond</div>
+    <div class="filter-chip" data-rarity="Black Diamond">Black Diamond</div>
+    <div class="filter-chip" data-rarity="Super Rare">Super Rare</div>
+    <div class="filter-chip" data-rarity="Rare">Rare</div>
+    <div class="filter-chip" data-rarity="Medium">Medium</div>
+    <div class="filter-chip" data-rarity="Common">Common</div>
+  </div>
+</header>
+<div class="gallery" id="gallery">
+  <div class="loading-msg"><span class="pulse-dot"></span>Loading provenance data from local metadata...</div>
+</div>
+<footer>OM109 Dual-Key Signature · Omega Ledger · Authenticated by Thomas Lee Harvey</footer>
+<script>
+const COLLECTIONS = [
+  { slug:"echoes", folder:"echoes_of_eternity", label:"Echoes of Eternity", range:[1,100], cls:"coll-echoes", pad:4 },
+  { slug:"somnium", folder:"somnium", label:"Somnium", range:[1,100], cls:"coll-somnium", pad:4 },
+  { slug:"paracosm", folder:"paracosm", label:"Paracosm", range:[1001,1100], cls:"coll-paracosm", pad:0 },
+  { slug:"monolith", folder:"monolith", label:"Monolith", range:[2001,2100], cls:"coll-monolith", pad:0 },
+];
+const PROVENANCE_API = "https://observed-principal-leaves-reflected.trycloudflare.com";
+let ALL_TOKENS = [];
+let currentColl = "all";
+let currentRarity = "all";
+async function loadCollection(coll) {
+  const tokens = [];
+  const [start,end] = coll.range;
+  const promises = [];
+  for (let id=start; id<=end; id++) {
+    const idStr = coll.pad ? String(id).padStart(coll.pad, '0') : String(id);
+    promises.push(
+      fetch(`${coll.folder}/metadata/${idStr}.json`)
+        .then(r => r.ok ? r.json() : null)
+        .then(meta => { if (meta) tokens.push({...meta, _slug:coll.slug, _cls:coll.cls, _folder:coll.folder, _pad:coll.pad}); })
+        .catch(()=>{})
+    );
+  }
+  await Promise.all(promises);
+  return tokens;
+}
+async function loadAll() {
+  const results = await Promise.all(COLLECTIONS.map(loadCollection));
+  ALL_TOKENS = results.flat().sort((a,b)=>a.token_id-b.token_id);
+  document.getElementById('stat-total').textContent = ALL_TOKENS.length || '0';
+  render();
+  verifyVisible();
+}
+function rarityRank(r) {
+  const order=["Impossible Diamond","Black Diamond","Super Rare","Rare","Medium","Common"];
+  return order.indexOf(r);
+}
+function render() {
+  const galleryEl = document.getElementById('gallery');
+  let filtered = ALL_TOKENS;
+  if (currentColl !== "all") filtered = filtered.filter(t=>t._slug===currentColl);
+  if (currentRarity !== "all") filtered = filtered.filter(t=>t.rarity===currentRarity);
+  filtered = [...filtered].sort((a,b)=>rarityRank(a.rarity)-rarityRank(b.rarity));
+  if (!filtered.length) {
+    galleryEl.innerHTML = `<div class="loading-msg">No tokens found. Serve this HTML from the folder containing echoes_of_eternity/, somnium/, paracosm/, and monolith/.</div>`;
+    return;
+  }
+  galleryEl.innerHTML = filtered.map(t=>cardHTML(t)).join('');
+  document.querySelectorAll('.card-wrap').forEach(el=>{
+    el.addEventListener('click', ()=>el.classList.toggle('flipped'));
+  });
+}
+function cardHTML(t) {
+  const pad = t._pad || 0;
+  const idStr = pad ? String(t.edition).padStart(pad, '0') : String(t.edition);
+  const imgPath = `${t._folder}/images/${idStr}.png`;
+  const isSigned = t.attributes?.find(a=>a.trait_type==="Signed by Artist")?.value==="Yes";
+  const sigA = t.om109_fingerprint ? t.om109_fingerprint.slice(0,24)+"..." : "—";
+  return `
+    <div class="card-wrap ${t._cls}" data-id="${t.edition}">
+      <div class="card">
+        <div class="face face-front">
+          <img src="${imgPath}" alt="${t.title}" loading="lazy" onerror="this.style.background='var(--void-3)'">
+          <div class="rarity-tag">${t.rarity}</div>
+          <div class="flip-hint">↻</div>
+          <div class="card-caption">
+            <div class="card-title">${t.title}</div>
+            <div class="card-id">#${t.edition} · ${t.collection}</div>
+          </div>
+        </div>
+        <div class="face face-back">
+          <div class="back-scroll">
+            <div class="back-eyebrow">Certificate of Authenticity</div>
+            <div class="back-title">${t.title}</div>
+            <div class="back-collection">${t.collection} · Edition #${t.edition} of 100</div>
+            <div class="back-divider"></div>
+            <div class="back-row"><div class="back-label">Rarity</div><div class="back-value">${t.rarity}</div></div>
+            <div class="back-row"><div class="back-label">Seed Number</div><div class="back-value">${t.edition * 137}</div></div>
+            <div class="back-row"><div class="back-label">Signed By</div><div class="back-value">${isSigned ? 'Thomas Lee Harvey' : 'Unsigned Edition'}</div></div>
+            <div class="back-divider"></div>
+            <div class="back-row"><div class="back-label">SHA-256 Hash</div><div class="back-value hash">${t.image_sha256?t.image_sha256.slice(0,28)+'…':'—'}</div></div>
+            <div class="back-row"><div class="back-label">OM109 Fingerprint</div><div class="back-value hash">${sigA}</div></div>
+            <div class="back-row"><div class="back-label">Chain Hash</div><div class="back-value hash">${t.om109_chain_hash?t.om109_chain_hash.slice(0,28)+'…':'—'}</div></div>
+          </div>
+          <div class="seal">
+            <div class="seal-ring">Ω</div>
+            <div class="seal-text">OM109 DUAL-SIGNATURE</div>
+            <div class="verify-status" data-verify-id="${t._slug}-${t.edition}"><span class="verify-dot pending"></span><span>checking...</span></div>
+                                                             <button onclick="window.open(`https://pursue-carriers-humanities-shipped.trycloudflare.com/omega_explorer.html?verify=${t._slug}/${t.edition}`, "_blank");" style="width: 100%; padding: 10px; margin-top: 10px; background: #00d4ff; color: #0a0e27; border: none; border-radius: 3px; cursor: pointer; font-weight: bold; font-size: 11px; letter-spacing: 1px;">→ VERIFY ON LEDGER</button>
+          </div>
+        </div>
+      </div>
+    </div>`;
+}
+async function verifyVisible() {
+  const cards = document.querySelectorAll('[data-verify-id]');
+  for (const el of cards) {
+    const [slug,id] = el.dataset.verifyId.split('-');
+    try {
+      const r = await fetch(`${PROVENANCE_API}/nft/verify/${slug}/${id}`, {signal:AbortSignal.timeout(3000)});
+      const data = await r.json();
+      if (data.authentic) el.innerHTML = `<span class="verify-dot"></span><span>verified live</span>`;
+      else el.innerHTML = `<span class="verify-dot fail"></span><span>mismatch</span>`;
+    } catch(e) {
+      el.innerHTML = `<span class="verify-dot pending"></span><span>API offline</span>`;
+    }
+  }
+  const verifiedCount = document.querySelectorAll('.verify-dot:not(.pending):not(.fail)').length;
+  document.getElementById('stat-verified').textContent = verifiedCount || '—';
+}
+document.getElementById('tabs').addEventListener('click', (e)=>{
+  const tab = e.target.closest('.tab');
+  if (!tab) return;
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  tab.classList.add('active');
+  currentColl = tab.dataset.coll;
+  render();
+});
+document.getElementById('filters').addEventListener('click', (e)=>{
+  const chip = e.target.closest('.filter-chip');
+  if (!chip) return;
+  document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active'));
+  chip.classList.add('active');
+  currentRarity = chip.dataset.rarity;
+  render();
+});
+loadAll();
+</script>
+</body>
+</html>

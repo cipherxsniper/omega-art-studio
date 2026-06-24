@@ -1,0 +1,33 @@
+{
+  "ts": "2026-06-23T05:07:10.162498+00:00",
+  "tarball_sha256": "92881bd200991993059f593b5fc5716b46c068c55c65d4e2c7efcad5c36403ed",
+  "tarball_size": 119791,
+  "local_object_id": "2814f683236b4f1b8390911fc05f4fb4",
+  "local_checksum": "b8be48c2c72e65c84560f1ef6091361017bb4d402a1d65a40e0c34ea0aa7ff25",
+  "remote_object_id": null,
+  "remote_checksum": null,
+  "remote_host": null,
+  "files_backed_up": [
+    "omega_v10.py",
+    "omega_oracle_v2.py",
+    "omega_oracle_history.json",
+    "omega_consensus.py",
+    "Omega-Production/omega_consensus.py",
+    "omega_sentinel.py",
+    "omega_card_engine.py",
+    "omega_email_finder.py",
+    "omega_scraper.py",
+    "omega_spawn_engine.py",
+    "omega_storage_verify.py",
+    "omega_guardian.sh",
+    "omega_tunnel_daemon.sh",
+    "omega_start.sh",
+    "omega_treasury_cycle.py",
+    "omega_node_manager.py",
+    "omega_cloud_node3_api_server.py",
+    "omega_runtime/omega_storage.py",
+    "omega_runtime/omega_auth.py",
+    "omega_runtime/omega_http_server.py",
+    "omega_runtime/omega_tls_server.py"
+  ]
+}

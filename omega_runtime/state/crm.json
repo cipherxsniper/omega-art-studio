@@ -1,0 +1,20 @@
+{
+  "leads": {},
+  "contacted": {},
+  "interested": {},
+  "clients": {},
+  "suppression": [],
+  "blacklist": [],
+  "daily_sends": {},
+  "conversations": {},
+  "onboarding_state": {},
+  "pipeline": {
+    "new": 0,
+    "contacted": 0,
+    "replied": 0,
+    "interested": 0,
+    "onboarding": 0,
+    "paying": 0
+  },
+  "category_performance": {}
+}

@@ -1,0 +1,19 @@
+{
+  "history": [],
+  "best_aggregate": 54,
+  "last_aggregate": 54,
+  "proof_chain": [],
+  "pending_snap": "1689be170fd309105d880c4ac6e4ee90f14d9a5a",
+  "pending_aggregate": 54,
+  "pending_proof": "ce083a625e625b69",
+  "system_baselines": {
+    "omega_v10": 81,
+    "omega_consensus": 0,
+    "omega_node_manager": 0,
+    "omega_card_engine": 85,
+    "omega_sentinel": 60,
+    "omega_email_finder": 0,
+    "omega_bank_db": 100,
+    "omega_ledger_db": 100
+  }
+}

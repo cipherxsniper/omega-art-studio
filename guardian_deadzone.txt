@@ -1,0 +1,148 @@
+
+# ── Spawn Engine — auto-grows network at thresholds ──────
+if ! pgrep -f omega_spawn_engine.py > /dev/null; then
+    echo "[$(date)] Spawn engine dead — restarting"
+    nohup python3 /data/data/com.termux/files/home/omega_spawn_engine.py watch \
+        >> /data/data/com.termux/files/home/omega_runtime/logs/spawn_engine.log 2>&1 &
+fi
+
+# SSH tunnel watchdog
+pg_isready -h 127.0.0.1 -p 5432 -q 2>/dev/null || {
+    pkill -f "ssh.*omega_bridge" 2>/dev/null
+    sleep 2
+    nohup ssh -i ~/.ssh/omega_bridge \
+        -o StrictHostKeyChecking=no \
+        -o ServerAliveInterval=20 \
+        -o ServerAliveCountMax=3 \
+        -o ExitOnForwardFailure=yes \
+        -L 5432:127.0.0.1:5432 \
+        u0_a253@192.168.11.163 \
+        -p 8022 -N &
+}
+
+# Node 3 HTTP server
+if ! pgrep -f omega_http_server.py > /dev/null; then
+    nohup python3 ~/omega_runtime/omega_http_server.py >> ~/omega_runtime/logs/node3_http.log 2>&1 &
+    echo "[$(date)] Node3 HTTP restarted" >> ~/omega_runtime/logs/guardian.log
+fi
+
+# Node 3 tunnel
+if ! pgrep -f "localhost.run" > /dev/null; then
+    nohup ssh -R 80:localhost:5004 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 -o ServerAliveCountMax=3 nokey@localhost.run >> ~/omega_runtime/logs/tunnel.log 2>&1 &
+    echo "[$(date)] Node3 tunnel restarted" >> ~/omega_runtime/logs/guardian.log
+fi
+
+# ── Storage Verification — refreshes real capacity numbers ──
+if [ ! -f /data/data/com.termux/files/home/omega_runtime/state/last_storage_check ]; then
+    mkdir -p /data/data/com.termux/files/home/omega_runtime/state
+    echo "0" > /data/data/com.termux/files/home/omega_runtime/state/last_storage_check
+fi
+LAST_CHECK=$(cat /data/data/com.termux/files/home/omega_runtime/state/last_storage_check)
+NOW=$(date +%s)
+ELAPSED=$((NOW - LAST_CHECK))
+if [ $ELAPSED -gt 3600 ]; then
+    python3 /data/data/com.termux/files/home/omega_storage_verify.py >> /data/data/com.termux/files/home/omega_runtime/logs/storage_verify.log 2>&1
+    echo $NOW > /data/data/com.termux/files/home/omega_runtime/state/last_storage_check
+fi
+
+# ── Disaster Recovery — daily backup with cross-node redundancy ──
+if [ ! -f /data/data/com.termux/files/home/omega_runtime/state/last_dr_backup ]; then
+    echo "0" > /data/data/com.termux/files/home/omega_runtime/state/last_dr_backup
+fi
+LAST_DR=$(cat /data/data/com.termux/files/home/omega_runtime/state/last_dr_backup)
+NOW_DR=$(date +%s)
+if [ $((NOW_DR - LAST_DR)) -gt 86400 ]; then
+    python3 /data/data/com.termux/files/home/omega_disaster_recovery.py backup >> /data/data/com.termux/files/home/omega_runtime/logs/disaster_recovery.log 2>&1
+    echo $NOW_DR > /data/data/com.termux/files/home/omega_runtime/state/last_dr_backup
+fi
+
+# ── Dead-Man's Switch — alerts if either phone goes silent 24h+ ──
+if [ ! -f /data/data/com.termux/files/home/omega_runtime/state/last_deadman_check ]; then
+    echo "0" > /data/data/com.termux/files/home/omega_runtime/state/last_deadman_check
+fi
+LAST_DM=$(cat /data/data/com.termux/files/home/omega_runtime/state/last_deadman_check)
+NOW_DM=$(date +%s)
+if [ $((NOW_DM - LAST_DM)) -gt 3600 ]; then
+    python3 /data/data/com.termux/files/home/omega_deadman_switch.py >> /data/data/com.termux/files/home/omega_runtime/logs/deadman.log 2>&1
+    echo $NOW_DM > /data/data/com.termux/files/home/omega_runtime/state/last_deadman_check
+fi
+
+# ── Webhook Sync — keeps Stripe webhook pointed at current tunnel URL ──
+if [ ! -f /data/data/com.termux/files/home/omega_runtime/state/last_webhook_sync ]; then
+    echo "0" > /data/data/com.termux/files/home/omega_runtime/state/last_webhook_sync
+fi
+LAST_WS=$(cat /data/data/com.termux/files/home/omega_runtime/state/last_webhook_sync)
+NOW_WS=$(date +%s)
+if [ $((NOW_WS - LAST_WS)) -gt 300 ]; then
+    python3 /data/data/com.termux/files/home/omega_webhook_sync.py >> /data/data/com.termux/files/home/omega_runtime/logs/webhook_sync.log 2>&1
+    echo $NOW_WS > /data/data/com.termux/files/home/omega_runtime/state/last_webhook_sync
+fi
+
+# ── DuckDNS — keeps omega-node3.duckdns.org pointed at current public IP ──
+if [ ! -f /data/data/com.termux/files/home/omega_runtime/state/last_ddns_update ]; then
+    echo "0" > /data/data/com.termux/files/home/omega_runtime/state/last_ddns_update
+fi
+LAST_DDNS=$(cat /data/data/com.termux/files/home/omega_runtime/state/last_ddns_update)
+NOW_DDNS=$(date +%s)
+if [ $((NOW_DDNS - LAST_DDNS)) -gt 3600 ]; then
+    python3 /data/data/com.termux/files/home/omega_runtime/omega_ddns.py >> /data/data/com.termux/files/home/omega_runtime/logs/ddns.log 2>&1
+    echo $NOW_DDNS > /data/data/com.termux/files/home/omega_runtime/state/last_ddns_update
+fi
+
+# ── Omega Companion Server ──────────────────────────────────
+if ! pgrep -f omega_companion_server.py > /dev/null; then
+    echo "[$(date)] Companion server dead — restarting"
+    nohup python3 /data/data/com.termux/files/home/omega_companion_server.py \
+        >> /data/data/com.termux/files/home/omega_runtime/logs/companion_server.log 2>&1 &
+fi
+
+    # Watch Node 3 Bridge
+    if ! pgrep -f omega_node3_bridge > /dev/null; then
+        echo "[$(date)] RESTART: node3_bridge" >> "$LOGS/guardian.log"
+        nohup python3 "$OMEGA_HOME/omega_node3_bridge.py" >> "$LOGS/node3_bridge.log" 2>&1 &
+    fi
+
+    # Watch Node 3 TLS server
+    if ! pgrep -f omega_tls_server.py > /dev/null; then
+        echo "[$(date)] RESTART: omega_tls_server" >> "$LOGS/guardian.log"
+        nohup python3 "$OMEGA_HOME/omega_runtime/omega_tls_server.py" >> "$LOGS/node3.log" 2>&1 &
+    fi
+
+# Tunnel sync watchdog — keeps Stripe webhook URL in sync with cloudflared
+pgrep -f omega_tunnel_sync.py > /dev/null || {
+    nohup python3 /data/data/com.termux/files/home/omega_tunnel_sync.py \
+        >> /data/data/com.termux/files/home/omega_runtime/logs/tunnel_sync.log 2>&1 &
+}
+
+# Cloudflared watchdog — restarts tunnel if it dies
+pgrep -f cloudflared > /dev/null || {
+    nohup cloudflared tunnel --url http://localhost:8080 \
+        >> /data/data/com.termux/files/home/omega_runtime/logs/cloudflared.log 2>&1 &
+}
+
+# Ledger watcher — daily reports + violation scanning
+pgrep -f omega_ledger_watcher.py > /dev/null || {
+    nohup python3 /data/data/com.termux/files/home/omega_ledger_watcher.py \
+        >> /data/data/com.termux/files/home/omega_runtime/logs/ledger_watcher.log 2>&1 &
+}
+
+    # Dashboard Bridge
+    if ! pgrep -f omega_dashboard_bridge.py > /dev/null; then
+        echo "[$(date)] RESTART: dashboard_bridge" >> "$LOGS/guardian.log"
+        nohup python3 "$OMEGA_HOME/omega_dashboard_bridge.py" >> "$LOGS/dashboard_bridge.log" 2>&1 &
+    fi
+
+    # Restart Provenance API if dead
+    if ! pgrep -f "omega_provenance_api.py" > /dev/null 2>&1; then
+        echo "[$(date)] Provenance API DOWN — restarting..." >> $LOG
+        nohup python3 /data/data/com.termux/files/home/omega_provenance_api.py \
+          >> /data/data/com.termux/files/home/omega_runtime/logs/provenance_api.log 2>&1 &
+        echo "[$(date)] Provenance API restarted PID=$!" >> $LOG
+    fi
+
+    # Restart Provenance API if dead
+    if ! pgrep -f "omega_provenance_api" > /dev/null 2>&1; then
+        echo "[$(date)] Provenance API DOWN — restarting..." >> $LOG
+        nohup python3 /data/data/com.termux/files/home/omega_provenance_api.py \
+          >> /data/data/com.termux/files/home/omega_runtime/logs/provenance_api.log 2>&1 &
+    fi

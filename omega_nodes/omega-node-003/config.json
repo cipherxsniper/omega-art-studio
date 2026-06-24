@@ -1,0 +1,24 @@
+{
+  "node_id": "omega-node-003",
+  "host": "127.0.0.1",
+  "consensus_port": 7436,
+  "mesh_port": 7437,
+  "db_host": "127.0.0.1",
+  "db_port": 5432,
+  "db_name": "omega_bank",
+  "peer_nodes": [
+    {
+      "node_id": "omega-node-001",
+      "host": "192.168.11.115",
+      "port": 7432
+    },
+    {
+      "node_id": "omega-node-002",
+      "host": "192.168.11.163",
+      "port": 7432
+    }
+  ],
+  "spawned_at": "2026-06-09T19:12:43.688108",
+  "spawn_generation": 1,
+  "genesis_hash": "3b8b00999eb46be6"
+}

@@ -1,0 +1,14 @@
+{
+  "history": [
+    {
+      "ts": "2026-06-08T16:53:15.256420",
+      "score": 90,
+      "hash": "a4f5dae667e6b6f1f53da980b64eb5918da7da53",
+      "event": "pre_patch"
+    }
+  ],
+  "best": 90,
+  "last": 90,
+  "last_hash": "a4f5dae667e6b6f1f53da980b64eb5918da7da53",
+  "best_hash": "a4f5dae667e6b6f1f53da980b64eb5918da7da53"
+}

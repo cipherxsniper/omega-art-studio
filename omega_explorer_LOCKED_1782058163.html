@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omega Ledger Explorer — Full Transparency</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0a0e1a;
+            color: #0f0;
+            line-height: 1.5;
+        }
+        .container { max-width: 1600px; margin: 0 auto; padding: 20px; }
+        
+        .error-log {
+            background: #1a0a0a;
+            border: 2px solid #f00;
+            padding: 15px;
+            margin-bottom: 20px;
+            max-height: 200px;
+            overflow-y: auto;
+            font-size: 11px;
+        }
+        .error-entry {
+            color: #f00;
+            margin: 5px 0;
+            padding: 5px;
+            border-left: 3px solid #f00;
+            background: #0a0a0a;
+        }
+        .info-entry {
+            color: #0a0;
+            margin: 5px 0;
+            padding: 5px;
+            border-left: 3px solid #0f0;
+            background: #0a0a0a;
+        }
+        
+        header {
+            background: #1a1f3a;
+            border: 2px solid #0f0;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+        }
+        h1 { font-size: 24px; letter-spacing: 2px; margin-bottom: 5px; }
+        .subtitle { font-size: 11px; color: #0a0; opacity: 0.7; }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .stat {
+            background: #0f1428;
+            border: 1px solid #0f0;
+            padding: 12px;
+            font-size: 12px;
+        }
+        .stat-label { color: #0a0; opacity: 0.6; }
+        .stat-value { font-size: 16px; font-weight: bold; color: #0f0; margin-top: 5px; }
+        
+        .tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #0f0;
+        }
+        .tab {
+            padding: 12px 20px;
+            background: #0f1428;
+            border: 1px solid #0f0;
+            color: #0f0;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+        .tab:hover { background: #1a1f3a; }
+        .tab.active { background: #0f0; color: #0a0e1a; }
+        
+        .section { display: none; }
+        .section.active { display: block; }
+        
+        .wallet-row {
+            background: #0f1428;
+            border: 1px solid #0f0;
+            margin-bottom: 15px;
+            padding: 15px;
+        }
+        .wallet-header {
+            border-bottom: 1px solid #0f0;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .wallet-name { font-size: 13px; font-weight: bold; color: #0f0; }
+        .wallet-balance { font-size: 14px; color: #0f0; margin-top: 5px; }
+        .wallet-address {
+            font-family: 'Courier New', monospace;
+            font-size: 10px;
+            color: #0a0;
+            word-break: break-all;
+            margin: 10px 0;
+            padding: 8px;
+            background: #0a0e1a;
+            border: 1px solid #0f0;
+        }
+        .holdings {
+            margin-top: 10px;
+            padding: 10px;
+            background: #0a0e1a;
+            border: 1px solid #0f0;
+        }
+        .nft-entry {
+            padding: 8px;
+            margin: 5px 0;
+            background: #0f1428;
+            border-left: 3px solid #0f0;
+            font-size: 11px;
+            color: #0f0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            border: 1px solid #0f0;
+            padding: 10px;
+            text-align: left;
+            font-size: 11px;
+        }
+        th {
+            background: #0f0;
+            color: #0a0e1a;
+            font-weight: bold;
+        }
+        tr:nth-child(even) { background: #0a0e1a; }
+        tr:hover { background: #1a1f3a; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="error-log" class="error-log"></div>
+        
+        <header>
+            <h1>Ω OMEGA LEDGER EXPLORER</h1>
+            <div class="subtitle">Full Transparency • Complete Data • Immutable Chain</div>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-label">Total Entries</div>
+                    <div class="stat-value" id="stat-entries">Loading...</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Total Value</div>
+                    <div class="stat-value" id="stat-value">Loading...</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Active Wallets</div>
+                    <div class="stat-value">13</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">NFT Collections</div>
+                    <div class="stat-value">4</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="tabs">
+            <div class="tab active" data-tab="wallets">WALLETS</div>
+            <div class="tab" data-tab="transactions">LEDGER</div>
+        </div>
+
+        <div id="wallets" class="section active">
+            <h2 style="color: #0f0; margin-bottom: 15px; text-transform: uppercase;">13 Founding Wallets</h2>
+            <div id="wallets-list" style="color: #0a0; font-style: italic;">Loading wallets...</div>
+        </div>
+
+        <div id="transactions" class="section">
+            <h2 style="color: #0f0; margin-bottom: 15px; text-transform: uppercase;">Immutable Ledger</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Event Type</th>
+                        <th>Amount</th>
+                        <th>Timestamp</th>
+                        <th>Hash</th>
+                    </tr>
+                </thead>
+                <tbody id="transactions-list">
+                    <tr><td colspan="4" style="color: #0a0;">Loading...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        var LOG = [];
+        var API_URL = 'http://127.0.0.1:8082';
+
+        function addLog(message, isError) {
+            var time = new Date().toLocaleTimeString();
+            var entry = {
+                time: time,
+                message: message,
+                isError: isError
+            };
+            LOG.push(entry);
+            
+            var logDiv = document.getElementById('error-log');
+            var entryDiv = document.createElement('div');
+            entryDiv.className = isError ? 'error-entry' : 'info-entry';
+            entryDiv.textContent = '[' + time + '] ' + message;
+            logDiv.appendChild(entryDiv);
+            logDiv.scrollTop = logDiv.scrollHeight;
+            
+            console.log((isError ? 'ERROR' : 'INFO') + ': ' + message);
+        }
+
+        function handleError(errorMsg, details) {
+            addLog('ERROR: ' + errorMsg + (details ? ' — ' + details : ''), true);
+        }
+
+        function handleInfo(msg) {
+            addLog(msg, false);
+        }
+
+        // Tab switching
+        var tabs = document.querySelectorAll('.tab');
+        for (var i = 0; i < tabs.length; i++) {
+            tabs[i].addEventListener('click', function(e) {
+                var allTabs = document.querySelectorAll('.tab');
+                for (var j = 0; j < allTabs.length; j++) {
+                    allTabs[j].classList.remove('active');
+                }
+                var allSections = document.querySelectorAll('.section');
+                for (var j = 0; j < allSections.length; j++) {
+                    allSections[j].classList.remove('active');
+                }
+                e.target.classList.add('active');
+                var sectionId = e.target.getAttribute('data-tab');
+                document.getElementById(sectionId).classList.add('active');
+                
+                if (sectionId === 'wallets') {
+                    loadWallets();
+                } else if (sectionId === 'transactions') {
+                    loadTransactions();
+                }
+            });
+        }
+
+        function loadWallets() {
+            handleInfo('Fetching wallets from ' + API_URL + '/founding-wallets');
+            
+            fetch(API_URL + '/founding-wallets')
+                .then(function(response) {
+                    handleInfo('Response received: ' + response.status);
+                    if (!response.ok) {
+                        throw new Error('HTTP ' + response.status);
+                    }
+                    return response.text();
+                })
+                .then(function(text) {
+                    handleInfo('Response text length: ' + text.length + ' chars');
+                    var data = JSON.parse(text);
+                    handleInfo('JSON parsed successfully, wallets count: ' + (data.founding_wallets ? data.founding_wallets.length : 0));
+                    
+                    var container = document.getElementById('wallets-list');
+                    container.innerHTML = '';
+                    
+                    if (!data.founding_wallets || data.founding_wallets.length === 0) {
+                        handleError('No wallets in response', JSON.stringify(data));
+                        return;
+                    }
+                    
+                    for (var i = 0; i < data.founding_wallets.length; i++) {
+                        var w = data.founding_wallets[i];
+                        handleInfo('Processing wallet ' + (i+1) + ': ' + w.name);
+                        
+                        var walletHtml = document.createElement('div');
+                        walletHtml.className = 'wallet-row';
+                        
+                        var header = document.createElement('div');
+                        header.className = 'wallet-header';
+                        header.innerHTML = '<div class="wallet-name">' + (i+1) + '. ' + (w.name || 'Unknown') + '</div>' +
+                                          '<div class="wallet-balance">Balance: ' + (w.balance || 'N/A') + ' | NFTs: ' + (w.nft_count || 0) + '</div>';
+                        walletHtml.appendChild(header);
+                        
+                        var addr = document.createElement('div');
+                        addr.innerHTML = '<div style="color: #0a0; font-size: 9px; margin-bottom: 5px;">WALLET ADDRESS:</div>' +
+                                        '<div class="wallet-address">' + (w.wallet_id || 'N/A') + '</div>';
+                        walletHtml.appendChild(addr);
+                        
+                        if (w.holdings && w.holdings.length > 0) {
+                            var holdings = document.createElement('div');
+                            holdings.className = 'holdings';
+                            holdings.innerHTML = '<div style="color: #0f0; margin-bottom: 8px; font-weight: bold;">NFT HOLDINGS (' + w.holdings.length + '):</div>';
+                            
+                            for (var j = 0; j < w.holdings.length; j++) {
+                                var nft = w.holdings[j];
+                                var nftDiv = document.createElement('div');
+                                nftDiv.className = 'nft-entry';
+                                nftDiv.textContent = nft.collection + ' #' + nft.token_id + ' — ' + nft.title + ' (' + nft.rarity + ')';
+                                holdings.appendChild(nftDiv);
+                            }
+                            walletHtml.appendChild(holdings);
+                        }
+                        
+                        container.appendChild(walletHtml);
+                    }
+                    
+                    handleInfo('Rendered ' + data.founding_wallets.length + ' wallets successfully');
+                })
+                .catch(function(error) {
+                    handleError('Fetch failed', error.message);
+                    document.getElementById('wallets-list').innerHTML = '<div style="color: #f00;">Error loading wallets. Check error log above.</div>';
+                });
+        }
+
+        function loadTransactions() {
+            handleInfo('Fetching ledger stats from ' + API_URL + '/ledger/stats');
+            
+            fetch(API_URL + '/ledger/stats')
+                .then(function(response) {
+                    handleInfo('Response received: ' + response.status);
+                    if (!response.ok) {
+                        throw new Error('HTTP ' + response.status);
+                    }
+                    return response.json();
+                })
+                .then(function(data) {
+                    handleInfo('Stats parsed: ' + (data.total_ledger_entries || 0) + ' entries');
+                    
+                    document.getElementById('stat-entries').textContent = (data.total_ledger_entries || 0).toLocaleString();
+                    document.getElementById('stat-value').textContent = data.total_value || '$0';
+                    
+                    var tbody = document.getElementById('transactions-list');
+                    tbody.innerHTML = '';
+                    
+                    if (!data.recent_transactions) {
+                        handleError('No recent_transactions in response', JSON.stringify(data));
+                        return;
+                    }
+                    
+                    for (var i = 0; i < data.recent_transactions.length; i++) {
+                        var tx = data.recent_transactions[i];
+                        var row = document.createElement('tr');
+                        row.innerHTML = '<td style="color: #0f0; font-weight: bold;">' + (tx.event || 'N/A') + '</td>' +
+                                       '<td style="color: #0f0;">' + (tx.amount || 'N/A') + '</td>' +
+                                       '<td style="font-size: 10px;">' + (tx.time ? new Date(tx.time).toLocaleString() : 'N/A') + '</td>' +
+                                       '<td style="color: #0a0; font-size: 9px;">SHA256...</td>';
+                        tbody.appendChild(row);
+                    }
+                    
+                    handleInfo('Rendered ' + data.recent_transactions.length + ' transactions');
+                })
+                .catch(function(error) {
+                    handleError('Ledger fetch failed', error.message);
+                });
+        }
+
+        // Auto-load wallets on startup
+        handleInfo('Page loaded, API endpoint: ' + API_URL);
+        setTimeout(function() {
+            loadWallets();
+        }, 500);
+    </script>
+</body>
+</html>

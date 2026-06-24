@@ -1,0 +1,56 @@
+{
+  "genesis_seed": "42a58293c6bde8a8fb35d33300cb915a",
+  "position": 6,
+  "last_fingerprint": "b6f91e39866b6101a621ea247074253d154f64eae830bee722556f9d9c6209dc",
+  "history": [
+    {
+      "position": 1,
+      "data_hash": "cb8146aec1679f462a31a8050b2b1c3eb646c5c42b38272073fffe88467125f4",
+      "fingerprint": "e99e9e179a31e7ff0c6d7242de9e7453ac393394eb61ebbe5107855fc4cec6e1",
+      "prev_fingerprint": "db991679a39fc9e8a2d38e2a32e76d34ddd9396fb1e31fb61e0db686d905500a",
+      "alternation": "B->A",
+      "ts": "2026-06-15T00:58:03.366616+00:00"
+    },
+    {
+      "position": 2,
+      "data_hash": "cb8146aec1679f462a31a8050b2b1c3eb646c5c42b38272073fffe88467125f4",
+      "fingerprint": "a5c865f1d2940669ebf8b95abdbab525c082f5f925650b065ceab26d70faee33",
+      "prev_fingerprint": "e99e9e179a31e7ff0c6d7242de9e7453ac393394eb61ebbe5107855fc4cec6e1",
+      "alternation": "A->B",
+      "ts": "2026-06-15T00:58:03.368099+00:00"
+    },
+    {
+      "position": 3,
+      "data_hash": "cb8146aec1679f462a31a8050b2b1c3eb646c5c42b38272073fffe88467125f4",
+      "fingerprint": "b19ec63edffcde4af394bc6465e14ccd48ab735a7e5a36d72a037c601e603d7b",
+      "prev_fingerprint": "a5c865f1d2940669ebf8b95abdbab525c082f5f925650b065ceab26d70faee33",
+      "alternation": "B->A",
+      "ts": "2026-06-15T00:58:03.369214+00:00"
+    },
+    {
+      "position": 4,
+      "data_hash": "cb8146aec1679f462a31a8050b2b1c3eb646c5c42b38272073fffe88467125f4",
+      "fingerprint": "6b6b6d4e12d6da10f25b154ebd3ae7a75bab2510c70039ea34b1dd003f5bd012",
+      "prev_fingerprint": "b19ec63edffcde4af394bc6465e14ccd48ab735a7e5a36d72a037c601e603d7b",
+      "alternation": "A->B",
+      "ts": "2026-06-15T00:58:03.370107+00:00"
+    },
+    {
+      "position": 5,
+      "data_hash": "cb8146aec1679f462a31a8050b2b1c3eb646c5c42b38272073fffe88467125f4",
+      "fingerprint": "a6ac7194232e743a6488716ebc1eade3710e567734c5032d8949533695ef12ac",
+      "prev_fingerprint": "6b6b6d4e12d6da10f25b154ebd3ae7a75bab2510c70039ea34b1dd003f5bd012",
+      "alternation": "B->A",
+      "ts": "2026-06-15T00:58:03.370979+00:00"
+    },
+    {
+      "position": 6,
+      "data_hash": "1b76c01312d6636b9b4f14636eb3848244ed9c3d7f460a8ff5d2e73e91ee06d7",
+      "fingerprint": "b6f91e39866b6101a621ea247074253d154f64eae830bee722556f9d9c6209dc",
+      "prev_fingerprint": "a6ac7194232e743a6488716ebc1eade3710e567734c5032d8949533695ef12ac",
+      "alternation": "A->B",
+      "ts": "2026-06-15T23:51:16.443549+00:00"
+    }
+  ],
+  "created_at": "2026-06-15T00:58:03.363174+00:00"
+}

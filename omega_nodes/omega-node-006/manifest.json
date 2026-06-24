@@ -1,0 +1,16 @@
+{
+  "node_id": "omega-node-006",
+  "spawned_at": "2026-06-23T19:07:47.668614",
+  "trigger": "emergency_quorum_loss",
+  "entry_count_at_spawn": 0,
+  "genesis_nodes": [
+    "omega-node-001",
+    "omega-node-002"
+  ],
+  "config_path": "/data/data/com.termux/files/home/omega_nodes/omega-node-006/config.json",
+  "launcher_path": "/data/data/com.termux/files/home/omega_nodes/omega-node-006/launch.sh",
+  "status": "provisioned",
+  "chain_tip": 4593686,
+  "generation": 4,
+  "proof_hash": "6efb1f6d4a5fd5bf"
+}
