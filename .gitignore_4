@@ -1,0 +1,17 @@
+.env
+.env.*
+*.env
+omega_dump.txt
+__pycache__/
+*.pyc
+*.db-shm
+*.db-wal
+
+# secrets
+.env
+.env.*
+*.pem
+*.key
+*.p12
+secrets/
+omega_dump.txt

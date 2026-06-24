@@ -1,0 +1,6 @@
+class TxState:
+    REQUESTED = "REQUESTED"
+    HELD = "HELD"
+    SETTLING = "SETTLING"
+    SETTLED = "SETTLED"
+    FAILED = "FAILED"

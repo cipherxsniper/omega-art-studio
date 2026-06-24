@@ -1,0 +1,3 @@
+
+# === HARD SETTLEMENT BIND (TRUTH LAYER) ===
+

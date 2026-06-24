@@ -1,0 +1,43 @@
+{
+  "emails_sent": 0,
+  "bounced": 0,
+  "real_replies": 0,
+  "conversions": 0,
+  "mrr": 0.0,
+  "stripe_sent": 0,
+  "onboardings": 0,
+  "leads_generated": 0,
+  "gate_rejected": 0,
+  "gate_passed": 0,
+  "reply_rate": 0,
+  "conv_rate": 0,
+  "category_stats": {},
+  "stage_stats": {
+    "1": {
+      "sent": 0,
+      "replies": 0
+    },
+    "2": {
+      "sent": 0,
+      "replies": 0
+    },
+    "3": {
+      "sent": 0,
+      "replies": 0
+    }
+  },
+  "product_stats": {
+    "full_ops": {
+      "sent": 0,
+      "conv": 0
+    },
+    "growth": {
+      "sent": 0,
+      "conv": 0
+    },
+    "starter": {
+      "sent": 0,
+      "conv": 0
+    }
+  }
+}

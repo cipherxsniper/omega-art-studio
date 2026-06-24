@@ -1,0 +1,7 @@
+2026-05-23 13:46:08.981 PDT [6686] LOG:  starting PostgreSQL 18.2 on aarch64-unknown-linux-android, compiled by Android (13989888, +pgo, +bolt, +lto, +mlgo, based on r563880c) clang version 21.0.0 (https://android.googlesource.com/toolchain/llvm-project 5e96669f06077099aa41290cdb4c5e6fa0f59349), 64-bit
+2026-05-23 13:46:08.983 PDT [6686] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2026-05-23 13:46:08.986 PDT [6686] LOG:  listening on Unix socket "/data/data/com.termux/files/usr/tmp/.s.PGSQL.5432"
+2026-05-23 13:46:09.011 PDT [6700] LOG:  database system was shut down at 2026-05-23 13:46:08 PDT
+2026-05-23 13:46:09.036 PDT [6686] LOG:  database system is ready to accept connections
+2026-05-23 13:51:09.116 PDT [6698] LOG:  checkpoint starting: time
+2026-05-23 13:51:13.597 PDT [6698] LOG:  checkpoint complete: wrote 42 buffers (0.3%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=4.396 s, sync=0.011 s, total=4.489 s; sync files=11, longest=0.002 s, average=0.001 s; distance=317 kB, estimate=317 kB; lsn=0/17B3160, redo lsn=0/17B3108

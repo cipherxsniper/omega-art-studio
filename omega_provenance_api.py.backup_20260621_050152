@@ -1,0 +1,172 @@
+#!/usr/bin/env python3
+import json
+import psycopg2
+from http.server import HTTPServer, BaseHTTPRequestHandler
+from urllib.parse import urlparse
+
+PG_CONN = "dbname=omega_bank user=postgres host=127.0.0.1 port=5432"
+PG_LEDGER = "dbname=omega_ledger user=postgres host=127.0.0.1 port=5432"
+
+# 13 NFT wallets with real holdings
+NFT_WALLET_MAP = {
+    "2109a4cc-a066-4698-a478-a786bf096318": "Thomas Lee Harvey — Founder",
+    "a7889956-ca14-432a-9cb7-7dc17530b7d9": "Omega Merchant",
+    "ed574d93-0abf-4cc5-b6e0-9d73b77da135": "OMEGA_CREDIT",
+    "b702cb19-9b5c-44f4-8db4-161e3bf60655": "OMEGA_RESERVE_LEDGER",
+    "0b608cb6-6745-4b75-bb9d-fa60e8a1b051": "OMEGA_SYSTEM_TREASURY",
+    "4053d3a5-06b8-43d6-b8d5-5268991f8cbc": "OMEGA_GENESIS",
+    "b4ab75f8-adc6-4981-ba48-d6dc3df423a5": "Omega Treasury Reserve",
+    "fa4d0a6a-bb76-45ec-90f6-4ec37f847963": "Omega Investment Pool",
+    "8ad07ed5-f433-4439-a188-f11b51110ae4": "Omega Credit Layer",
+    "c182dbbc-e607-4364-a6cc-7611dac8eb95": "Omega Debit Layer",
+    "fac22005-e8d3-4e08-ba89-c14150503429": "Omega Genesis Liquidity Origin",
+    "cb8f4ebe-3205-408f-a765-148275ac36b8": "Reserve Ledger",
+    "c8818380-c58d-4c52-a912-d69e0ae0d263": "Ops Float",
+}
+
+class Handler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        path = urlparse(self.path).path
+        
+        try:
+            if path == "/health":
+                self.json_response({"status": "online", "collections": 4})
+            elif path.startswith("/wallet/"):
+                wallet_id = path.split("/")[-1]
+                self.json_response(self.get_wallet(wallet_id))
+            elif path.startswith("/nft/verify/"):
+                parts = path.split("/")
+                collection = parts[3] if len(parts) > 3 else ""
+                token_id = parts[4] if len(parts) > 4 else ""
+                self.json_response(self.get_nft_verify(collection, token_id))
+            elif path == "/ledger/stats":
+                self.json_response(self.get_ledger_stats())
+            elif path == "/founding-wallets":
+                self.json_response(self.get_founding_wallets())
+            else:
+                self.json_response({"error": "not found"}, 404)
+        except Exception as e:
+            self.json_response({"error": str(e)}, 500)
+    
+    def json_response(self, data, status=200):
+        self.send_response(status)
+        self.send_header("Content-Type", "application/json")
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.end_headers()
+        self.wfile.write(json.dumps(data).encode())
+    
+    def get_wallet(self, wallet_id):
+        """Get wallet by ANY ID (banking or NFT) and return best available data"""
+        conn = psycopg2.connect(PG_CONN)
+        cur = conn.cursor()
+        
+        # Try to get balance from banking side
+        cur.execute("SELECT available_balance FROM wallets WHERE id = %s", (wallet_id,))
+        result = cur.fetchone()
+        balance = float(result[0]) if result and result[0] else 0
+        
+        # Get NFT holdings from NFT side
+        conn2 = psycopg2.connect(PG_LEDGER)
+        cur2 = conn2.cursor()
+        cur2.execute("""
+            SELECT token_id, collection, title, rarity 
+            FROM nft_registry 
+            WHERE owner_account_id = %s 
+            ORDER BY collection, token_id
+        """, (wallet_id,))
+        holdings = [
+            {"token_id": row[0], "collection": row[1], "title": row[2], "rarity": row[3]}
+            for row in cur2.fetchall()
+        ]
+        
+        cur.close()
+        cur2.close()
+        conn.close()
+        conn2.close()
+        
+        return {
+            "wallet_id": wallet_id,
+            "balance": f"${balance:,.2f}" if balance > 0 else "N/A",
+            "nft_count": len(holdings),
+            "holdings": holdings
+        }
+    
+    def get_nft_verify(self, collection, token_id):
+        conn = psycopg2.connect(PG_LEDGER)
+        cur = conn.cursor()
+        col_map = {
+            "echoes": "Echoes of Eternity",
+            "somnium": "Somnium",
+            "paracosm": "Paracosm",
+            "monolith": "Monolith"
+        }
+        col_name = col_map.get(collection, collection)
+        cur.execute("""
+            SELECT token_id, name, title, rarity, om109_fingerprint, chain_hash
+            FROM nft_registry
+            WHERE collection = %s AND token_id = %s
+        """, (col_name, int(token_id) if token_id.isdigit() else -1))
+        result = cur.fetchone()
+        cur.close()
+        conn.close()
+        
+        if not result:
+            return {"error": "NFT not found"}
+        
+        return {
+            "token_id": result[0],
+            "title": result[2],
+            "rarity": result[3],
+            "om109_fingerprint": result[4],
+            "chain_hash": result[5],
+            "authentic": True,
+            "creator": "Thomas Lee Harvey"
+        }
+    
+    def get_ledger_stats(self):
+        conn = psycopg2.connect(PG_LEDGER)
+        cur = conn.cursor()
+        
+        cur.execute("SELECT COUNT(*) FROM ledger_entries")
+        total_entries = cur.fetchone()[0]
+        
+        cur.execute("SELECT SUM(amount) FROM ledger_entries WHERE event_type IN ('GENESIS', 'TRANSFER', 'SETTLEMENT')")
+        total_value = float(cur.fetchone()[0] or 0)
+        
+        cur.execute("""
+            SELECT event_type, amount, created_at 
+            FROM ledger_entries 
+            ORDER BY created_at DESC 
+            LIMIT 10
+        """)
+        recent = [{"event": row[0], "amount": f"${float(row[1]):,.2f}", "time": str(row[2])} for row in cur.fetchall()]
+        
+        cur.execute("SELECT rarity, COUNT(*) FROM nft_registry GROUP BY rarity ORDER BY COUNT(*) DESC")
+        rarity_dist = {row[0]: row[1] for row in cur.fetchall()}
+        
+        cur.close()
+        conn.close()
+        
+        return {
+            "total_ledger_entries": total_entries,
+            "total_value": f"${total_value:,.2f}",
+            "recent_transactions": recent,
+            "rarity_distribution": rarity_dist
+        }
+    
+    def get_founding_wallets(self):
+        """Return all 13 NFT wallets with their real holdings"""
+        results = []
+        for nft_wallet_id, name in NFT_WALLET_MAP.items():
+            wallet_data = self.get_wallet(nft_wallet_id)
+            wallet_data["name"] = name
+            results.append(wallet_data)
+        return {"founding_wallets": results}
+    
+    def log_message(self, format, *args):
+        pass
+
+if __name__ == "__main__":
+    server = HTTPServer(("127.0.0.1", 8082), Handler)
+    print("Provenance API (NFT wallets) listening on 8082")
+    server.serve_forever()

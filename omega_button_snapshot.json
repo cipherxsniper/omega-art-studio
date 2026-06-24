@@ -1,0 +1,123 @@
+{
+  "buttons": {
+    "clients": {
+      "hash": "8f4d9088",
+      "handled": true
+    },
+    "dash": {
+      "hash": "af9d2c92",
+      "handled": true
+    },
+    "finance_audit": {
+      "hash": "a705c4d6",
+      "handled": true
+    },
+    "finance_bank": {
+      "hash": "1d335545",
+      "handled": true
+    },
+    "finance_cards": {
+      "hash": "5374420c",
+      "handled": true
+    },
+    "finance_treasury": {
+      "hash": "f64cc7d5",
+      "handled": true
+    },
+    "finance_wal": {
+      "hash": "4ddb3818",
+      "handled": true
+    },
+    "inbox_intel": {
+      "hash": "af741588",
+      "handled": true
+    },
+    "ledger": {
+      "hash": "fe14010b",
+      "handled": true
+    },
+    "logs": {
+      "hash": "98f38f12",
+      "handled": true
+    },
+    "menu": {
+      "hash": "39899100",
+      "handled": true
+    },
+    "onboarding": {
+      "hash": "a4963c49",
+      "handled": true
+    },
+    "open_finance": {
+      "hash": "f0a66a48",
+      "handled": true
+    },
+    "open_trading": {
+      "hash": "9aa33f87",
+      "handled": true
+    },
+    "pipeline": {
+      "hash": "23bf0d24",
+      "handled": true
+    },
+    "revenue": {
+      "hash": "371f7e42",
+      "handled": true
+    },
+    "system": {
+      "hash": "bbc5e661",
+      "handled": true
+    },
+    "toggle_engine": {
+      "hash": "0ab25e37",
+      "handled": true
+    },
+    "top_leads": {
+      "hash": "26a6e6f9",
+      "handled": true
+    },
+    "trade_balances": {
+      "hash": "505b6c6f",
+      "handled": true
+    },
+    "trade_dash": {
+      "hash": "fcca01d9",
+      "handled": true
+    },
+    "trade_history": {
+      "hash": "033204cc",
+      "handled": true
+    },
+    "trade_positions": {
+      "hash": "7cb539db",
+      "handled": true
+    },
+    "trade_signals": {
+      "hash": "a6dbbcae",
+      "handled": true
+    },
+    "trade_strat_adaptive": {
+      "hash": "2d569683",
+      "handled": true
+    },
+    "trade_strat_momentum": {
+      "hash": "5d9bf890",
+      "handled": true
+    },
+    "trade_strat_range": {
+      "hash": "ff080f27",
+      "handled": true
+    },
+    "trade_strat_trend": {
+      "hash": "7b5dc3b1",
+      "handled": true
+    },
+    "trade_toggle": {
+      "hash": "208ab424",
+      "handled": true
+    }
+  },
+  "total": 29,
+  "all_handled": true,
+  "frozen_at": "2026-06-08T16:16:44.217030"
+}

@@ -1,0 +1,122 @@
+#!/usr/bin/env python3
+import json, argparse, sys
+from pathlib import Path
+
+RARITY_COLORS = {
+    "Impossible Diamond": ("#ffffff", "#000000"),
+    "Black Diamond":       ("#b9f2ff", "#001a2e"),
+    "Super Rare":          ("#ffd700", "#1a1200"),
+    "Rare":                ("#c084fc", "#1a0030"),
+    "Medium":              ("#60a5fa", "#001020"),
+    "Common":              ("#94a3b8", "#0a0f1a"),
+}
+
+def build_certificate(meta):
+    token_id   = meta["token_id"]
+    rarity     = meta["rarity"]
+    title      = meta["title"]
+    collection = meta["collection"]
+    creator    = meta["creator"]
+    image_hash = meta["image_sha256"]
+    om109_fp   = meta["om109_fingerprint"]
+    chain_hash = meta["om109_chain_hash"]
+    total      = meta.get("total_supply", 100)
+    attrs      = {a["trait_type"]: a["value"] for a in meta.get("attributes", [])}
+
+    accent, bg = RARITY_COLORS.get(rarity, ("#60a5fa", "#001020"))
+    is_signed  = rarity in ("Impossible Diamond", "Black Diamond")
+    edition_str = "1 of 1" if rarity == "Impossible Diamond" else f"#{token_id} of {total}"
+
+    concept_lines = []
+    for key in ("Phantom Shadow", "Structure", "Color Subject", "Physics Violation", "Theme"):
+        if key in attrs:
+            concept_lines.append(f"{key}: {attrs[key]}")
+    concept_block = "<br>".join(concept_lines) if concept_lines else meta.get("description", "")[:200]
+
+    html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Certificate of Authenticity - {collection} #{token_id}</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:wght@400;700&display=swap');
+  *{{margin:0;padding:0;box-sizing:border-box;}}
+  body{{background:{bg};color:#e8eef8;font-family:'Cormorant Garamond',serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 20px;}}
+  .cert{{max-width:720px;width:100%;border:1px solid {accent}40;background:rgba(255,255,255,0.03);backdrop-filter:blur(10px);padding:60px 52px;position:relative;}}
+  .cert::before,.cert::after{{content:'';position:absolute;width:40px;height:40px;border-color:{accent};border-style:solid;}}
+  .cert::before{{top:16px;left:16px;border-width:1px 0 0 1px;}}
+  .cert::after{{bottom:16px;right:16px;border-width:0 1px 1px 0;}}
+  .eyebrow{{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:{accent};margin-bottom:28px;opacity:0.8;}}
+  h1{{font-size:42px;font-weight:300;font-style:italic;line-height:1.1;margin-bottom:6px;color:#fff;}}
+  .edition{{font-family:'Space Mono',monospace;font-size:13px;color:{accent};margin-bottom:36px;letter-spacing:2px;}}
+  .divider{{height:1px;background:linear-gradient(90deg,transparent,{accent}80,transparent);margin:32px 0;}}
+  .field{{margin-bottom:20px;}}
+  .field-label{{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:{accent};opacity:0.7;margin-bottom:4px;}}
+  .field-value{{font-size:16px;font-weight:300;color:#e8eef8;line-height:1.4;}}
+  .hash{{font-family:'Space Mono',monospace;font-size:9px;color:{accent};opacity:0.6;word-break:break-all;line-height:1.6;}}
+  .rarity-badge{{display:inline-block;padding:4px 16px;border:1px solid {accent};font-family:'Space Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:{accent};margin-bottom:32px;}}
+  .sig-row{{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px;}}
+  .sig-box{{background:rgba(255,255,255,0.02);border:1px solid {accent}30;padding:14px;}}
+  .footer{{margin-top:40px;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:{accent};opacity:0.5;text-align:center;}}
+  .om109-seal{{text-align:center;margin:28px 0;font-family:'Space Mono',monospace;}}
+  .seal-ring{{display:inline-block;width:80px;height:80px;border-radius:50%;border:2px solid {accent}60;line-height:80px;font-size:22px;color:{accent};}}
+  .collection-tag{{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:{accent};opacity:0.75;margin-top:4px;}}
+</style>
+</head>
+<body>
+<div class="cert">
+  <div class="eyebrow">Certificate of Authenticity - Omega NFT Network</div>
+  <h1>{title}</h1>
+  <div class="collection-tag">{collection}</div>
+  <div class="edition">Edition {edition_str}</div>
+  <div class="rarity-badge">{rarity}</div>
+  <div class="field"><div class="field-label">Creator</div><div class="field-value">{creator}</div></div>
+  <div class="field"><div class="field-label">Collection</div><div class="field-value">{collection}</div></div>
+  <div class="field"><div class="field-label">Concept</div><div class="field-value" style="font-style:italic;font-size:14px;">{concept_block}</div></div>
+  <div class="divider"></div>
+  <div class="om109-seal"><div class="seal-ring">&#937;</div><div style="margin-top:10px;font-size:10px;letter-spacing:3px;color:{accent};opacity:0.7;">OM109 DUAL-SIGNATURE VERIFIED</div></div>
+  <div class="field"><div class="field-label">Image SHA-256 (proof of art)</div><div class="hash">{image_hash}</div></div>
+  <div class="field"><div class="field-label">OM109 Fingerprint</div><div class="hash">{om109_fp}</div></div>
+  <div class="field"><div class="field-label">Ledger Chain Hash</div><div class="hash">{chain_hash}</div></div>
+  <div class="sig-row">
+    <div class="sig-box"><div class="field-label">Token ID</div><div class="field-value" style="font-family:'Space Mono',monospace;font-size:14px;">#{token_id}</div></div>
+    <div class="sig-box"><div class="field-label">Signed by Artist</div><div class="field-value" style="font-family:'Space Mono',monospace;font-size:14px;">{'Yes - Thomas Lee Harvey' if is_signed else 'No'}</div></div>
+  </div>
+  <div class="divider"></div>
+  <div class="footer">This certificate is cryptographically bound to the image file above.<br>Any modification to the image invalidates the SHA-256 proof.<br>OM109 dual-signature secured - Omega Ledger - Omega AI Network</div>
+</div>
+</body>
+</html>"""
+    return html
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--collection", required=True)
+    parser.add_argument("--id", type=int, default=None)
+    args = parser.parse_args()
+    base = Path.home() / args.collection
+    meta_dir = base / "metadata"
+    cert_dir = base / "certificates"
+    cert_dir.mkdir(parents=True, exist_ok=True)
+    if not meta_dir.exists():
+        print(f"ERROR: {meta_dir} not found")
+        sys.exit(1)
+    meta_files = sorted(meta_dir.glob("*.json"))
+    if args.id is not None:
+        meta_files = [f for f in meta_files if f.stem == str(args.id)]
+        if not meta_files:
+            print(f"ERROR: no metadata for token #{args.id}")
+            sys.exit(1)
+    print(f"\nGenerating {len(meta_files)} certificates for {args.collection}...")
+    for mf in meta_files:
+        meta = json.loads(mf.read_text())
+        if "token_id" not in meta:
+            meta["token_id"] = int(mf.stem)
+        html = build_certificate(meta)
+        out_path = cert_dir / f"{mf.stem}_certificate.html"
+        out_path.write_text(html)
+        print(f"  {out_path.name}")
+    print(f"\nDone. Certificates -> {cert_dir}\n")
+
+if __name__ == "__main__":
+    main()

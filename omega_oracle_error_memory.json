@@ -1,0 +1,28 @@
+{
+  "indent_errors": [],
+  "syntax_errors": [
+    {
+      "detail": "  File \"/data/data/com.termux/files/usr/tmp/tmpt_5e8tde.py\", line 1\n    404: Not Found\n    ^^^\nSynta",
+      "ts": "2026-06-10T17:07:56.604900",
+      "patch": 119
+    }
+  ],
+  "duplicate_functions": [
+    {
+      "detail": "ledger_record_payment",
+      "ts": "2026-06-08T17:39:29.032982",
+      "patch": 0
+    },
+    {
+      "detail": "ledger_record_churn",
+      "ts": "2026-06-08T17:39:29.033885",
+      "patch": 0
+    },
+    {
+      "detail": "ledger_record_trial",
+      "ts": "2026-06-08T17:39:29.034552",
+      "patch": 0
+    }
+  ],
+  "patch_count": 410
+}

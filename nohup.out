@@ -1,0 +1,31 @@
+bind [127.0.0.1]:5432: Address already in use
+channel_setup_fwd_listener_tcpip: cannot listen to port: 5432
+Could not request local forwarding.
+bind [127.0.0.1]:5432: Address already in use
+channel_setup_fwd_listener_tcpip: cannot listen to port: 5432
+bind [127.0.0.1]:7433: Address already in use
+bind [127.0.0.1]:5432: Address already in use
+channel_setup_fwd_listener_tcpip: cannot listen to port: 5432
+Could not request local forwarding.
+Warning: Permanently added '[192.168.11.2]:8022' (ED25519) to the list of known hosts.
+Timeout, server 192.168.11.2 not responding.
+ssh: connect to host 192.168.11.2 port 8022: No route to host
+ssh: connect to host 192.168.11.2 port 8022: No route to host
+ssh: connect to host 192.168.11.2 port 8022: No route to host
+ssh: connect to host 192.168.11.2 port 8022: No route to host
+ssh: connect to host 192.168.11.2 port 8022: No route to host
+ssh: connect to host 192.168.11.2 port 8022: No route to host
+ssh: connect to host 192.168.11.2 port 8022: No route to host
+ssh: connect to host 192.168.11.2 port 8022: No route to host
+ssh: connect to host 192.168.11.2 port 8022: No route to host
+ssh: connect to host 192.168.11.2 port 8022: No route to host
+ssh: connect to host 192.168.11.2 port 8022: No route to host
+ssh: connect to host 192.168.11.2 port 8022: No route to host
+ssh: connect to host 192.168.11.2 port 8022: No route to host
+ssh: connect to host 192.168.11.2 port 8022: No route to host
+ssh: connect to host 192.168.11.2 port 8022: No route to host
+ssh: connect to host 192.168.11.2 port 8022: No route to host
+ssh: connect to host 192.168.11.2 port 8022: No route to host
+ssh: connect to host 192.168.11.2 port 8022: No route to host
+ssh: connect to host 192.168.11.2 port 8022: No route to host
+ssh: connect to host 192.168.11.163 port 8022: Connection refused

@@ -1,0 +1,11 @@
+{
+  "object_id": "1e7af73845da1c5e90743483779cdc56",
+  "owner_id": "thomas_lee_harvey",
+  "object_name": "system_backup_20260622_050647.tar.gz",
+  "content_type": "application/gzip",
+  "size_bytes": 119878,
+  "checksum": "6ccd2e6e4dd227fdcaebf196f7dc1d8483d88b4039d5936a6a3290fba6601635",
+  "immutable": true,
+  "created_at": "2026-06-22T05:06:47.985827+00:00",
+  "node": "node3"
+}

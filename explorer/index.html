@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Omega Provenance Registry</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  --ink: #0B0D12;
+  --ink-2: #14171F;
+  --ink-3: #1B1F29;
+  --hairline: #262B36;
+  --parchment: #E9E4D6;
+  --parchment-dim: #8E8A7C;
+  --brass: #C08A3E;
+  --brass-dim: #8A6529;
+  --verified: #4F8B5C;
+  --rejected: #B5503A;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--ink);
+  color: var(--parchment);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+.wrap { max-width: 720px; margin: 0 auto; padding: 28px 18px 80px; }
+
+/* ── Header ── */
+header { margin-bottom: 28px; }
+.eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin-bottom: 10px;
+}
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 1.1;
+  color: var(--parchment);
+  margin-bottom: 10px;
+}
+.lede {
+  font-size: 13px;
+  color: var(--parchment-dim);
+  max-width: 52ch;
+  line-height: 1.6;
+}
+
+/* ── Config row (API base) ── */
+.config-row {
+  margin-top: 18px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.config-row label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--parchment-dim);
+  white-space: nowrap;
+}
+.config-row input {
+  flex: 1;
+  background: var(--ink-2);
+  border: 1px solid var(--hairline);
+  color: var(--parchment-dim);
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  padding: 7px 10px;
+  border-radius: 3px;
+}
+.config-row input:focus { outline: none; border-color: var(--brass-dim); }
+
+/* ── Search panel ── */
+.search-panel {
+  background: var(--ink-2);
+  border: 1px solid var(--hairline);
+  border-radius: 6px;
+  padding: 20px;
+  margin: 24px 0;
+}
+.search-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+select, .token-input {
+  background: var(--ink-3);
+  border: 1px solid var(--hairline);
+  color: var(--parchment);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  padding: 10px 12px;
+  border-radius: 4px;
+}
+select { flex: 1.3; }
+.token-input { flex: 1; font-family: 'Space Mono', monospace; }
+select:focus, .token-input:focus { outline: none; border-color: var(--brass); }
+
+.btn-row { display: flex; gap: 8px; }
+button {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 16px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+button:hover { opacity: 0.85; }
+button:active { opacity: 0.65; }
+.btn-primary { background: var(--brass); color: var(--ink); flex: 1; }
+.btn-ghost {
+  background: transparent;
+  border-color: var(--hairline);
+  color: var(--parchment-dim);
+}
+
+.range-hint {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--parchment-dim);
+  margin-top: 8px;
+}
+
+/* ── Status states ── */
+.status-msg {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  padding: 14px 16px;
+  border-radius: 4px;
+  margin: 16px 0;
+  display: none;
+}
+.status-msg.show { display: block; }
+.status-msg.loading { background: var(--ink-2); color: var(--parchment-dim); border: 1px solid var(--hairline); }
+.status-msg.error { background: #1F1310; color: var(--rejected); border: 1px solid #3A1F18; }
+
+/* ── Evidence card ── */
+.card {
+  display: none;
+  background: var(--ink-2);
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 20px 0 32px;
+  animation: cardIn 0.4s ease;
+}
+.card.show { display: block; }
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card-image {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: var(--ink-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.card-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.card-image .placeholder {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--parchment-dim);
+  text-align: center;
+}
+
+.card-body { padding: 22px; }
+.card-eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin-bottom: 6px;
+}
+.card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 28px;
+  color: var(--parchment);
+  margin-bottom: 4px;
+}
+.card-sub {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--parchment-dim);
+  margin-bottom: 18px;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.field {
+  background: var(--ink-3);
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  padding: 9px 12px;
+}
+.field-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--parchment-dim);
+  margin-bottom: 3px;
+}
+.field-value { font-size: 13px; color: var(--parchment); }
+.field-value.mono { font-family: 'Space Mono', monospace; font-size: 11px; word-break: break-all; }
+
+.divider { height: 1px; background: var(--hairline); margin: 20px 0; }
+
+/* ── Proof section ── */
+.proof-header {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin-bottom: 14px;
+}
+.proof-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.proof-step.in { opacity: 1; transform: translateX(0); }
+.proof-check {
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  width: 16px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.proof-check.pending { color: var(--parchment-dim); }
+.proof-check.ok { color: var(--verified); }
+.proof-check.bad { color: var(--rejected); }
+.proof-text { flex: 1; }
+.proof-label { font-size: 12px; color: var(--parchment); margin-bottom: 2px; }
+.proof-hash {
+  font-family: 'Space Mono', monospace;
+  font-size: 9.5px;
+  color: var(--parchment-dim);
+  word-break: break-all;
+  cursor: pointer;
+}
+.proof-hash:hover { color: var(--brass); }
+.proof-hash.copied { color: var(--verified); }
+
+/* ── Seal ── */
+.seal-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28px 0 8px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.seal-wrap.in { opacity: 1; }
+.seal {
+  width: 84px; height: 84px;
+  border-radius: 50%;
+  border: 2px solid var(--verified);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  color: var(--verified);
+  transform: scale(0.7) rotate(-12deg);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.seal-wrap.in .seal { transform: scale(1) rotate(0deg); }
+.seal.rejected { border-color: var(--rejected); color: var(--rejected); }
+.seal-caption {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--verified);
+  margin-top: 12px;
+}
+.seal-caption.rejected { color: var(--rejected); }
+.seal-sub {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: var(--parchment-dim);
+  margin-top: 4px;
+  text-align: center;
+}
+
+/* ── Browse register ── */
+.browse-section { margin-top: 40px; }
+.browse-header {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin-bottom: 14px;
+}
+.tabs { display: flex; gap: 6px; margin-bottom: 16px; flex-wrap: wrap; }
+.tab {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--hairline);
+  color: var(--parchment-dim);
+  cursor: pointer;
+  background: transparent;
+}
+.tab.active { border-color: var(--brass); color: var(--brass); }
+
+.tile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+  gap: 5px;
+  max-height: 280px;
+  overflow-y: auto;
+  padding: 4px;
+}
+.tile {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  text-align: center;
+  padding: 8px 2px;
+  background: var(--ink-2);
+  border: 1px solid var(--hairline);
+  border-radius: 3px;
+  color: var(--parchment-dim);
+  cursor: pointer;
+}
+.tile:hover { border-color: var(--brass-dim); color: var(--parchment); }
+
+/* ── Footer ── */
+footer {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid var(--hairline);
+}
+.footer-text {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--parchment-dim);
+  line-height: 1.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Omega Ledger · Public Registry</div>
+    <h1>Provenance Registry</h1>
+    <p class="lede">Look up any token from the four Omega NFT collections and watch its authenticity get checked twice — once by the ledger server, and again independently, right here in your browser.</p>
+
+    <div class="config-row">
+      <label for="apiBase">API</label>
+      <input type="text" id="apiBase" value="http://127.0.0.1:8082" spellcheck="false">
+    </div>
+  </header>
+
+  <div class="search-panel">
+    <div class="search-row">
+      <select id="collectionSelect">
+        <option value="Echoes of Eternity">Echoes of Eternity</option>
+        <option value="Somnium">Somnium</option>
+        <option value="Paracosm">Paracosm</option>
+        <option value="Monolith">Monolith</option>
+      </select>
+      <input type="number" id="tokenInput" class="token-input" placeholder="token #">
+    </div>
+    <div class="btn-row">
+      <button class="btn-primary" id="verifyBtn">Verify token</button>
+      <button class="btn-ghost" id="randomBtn">Random</button>
+    </div>
+    <div class="range-hint" id="rangeHint"></div>
+  </div>
+
+  <div class="status-msg" id="statusMsg"></div>
+
+  <div class="card" id="resultCard">
+    <div class="card-image" id="cardImage">
+      <div class="placeholder">No image on file</div>
+    </div>
+    <div class="card-body">
+      <div class="card-eyebrow" id="cardCollection"></div>
+      <div class="card-title" id="cardTitle"></div>
+      <div class="card-sub" id="cardSub"></div>
+
+      <div class="fields" id="cardFields"></div>
+
+      <div class="divider"></div>
+
+      <div class="proof-header">Cryptographic proof</div>
+      <div id="proofSteps"></div>
+
+      <div class="seal-wrap" id="sealWrap">
+        <div class="seal" id="seal">Ω</div>
+        <div class="seal-caption" id="sealCaption"></div>
+        <div class="seal-sub" id="sealSub"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="browse-section">
+    <div class="browse-header">Browse the register</div>
+    <div class="tabs" id="tabs"></div>
+    <div class="tile-grid" id="tileGrid"></div>
+  </div>
+
+  <footer>
+    <div class="footer-text">
+      Every lookup queries the Omega Ledger directly — nothing here is cached or pre-rendered.
+      The server recomputes the OM109 fingerprint from the token's signature components on
+      every request. This page then performs that same SHA-256 recomputation a second time,
+      independently, using your browser's own crypto engine. Two separate calculations,
+      agreeing, is the proof — not a badge someone asked you to trust.
+    </div>
+  </footer>
+
+</div>
+
+<script>
+const COLLECTIONS = {
+  "Echoes of Eternity": { start: 1, end: 100 },
+  "Somnium":            { start: 1, end: 100 },
+  "Paracosm":           { start: 1001, end: 1100 },
+  "Monolith":           { start: 2001, end: 2100 },
+};
+
+const $ = id => document.getElementById(id);
+
+function apiBase() { return $('apiBase').value.replace(/\/$/, ''); }
+
+function updateRangeHint() {
+  const c = $('collectionSelect').value;
+  const r = COLLECTIONS[c];
+  $('rangeHint').textContent = `Token range for ${c}: #${r.start}–#${r.end}`;
+  $('tokenInput').placeholder = `${r.start}–${r.end}`;
+}
+$('collectionSelect').addEventListener('change', () => { updateRangeHint(); renderTiles(); });
+updateRangeHint();
+
+function setStatus(msg, type) {
+  const el = $('statusMsg');
+  el.textContent = msg;
+  el.className = `status-msg show ${type || ''}`;
+}
+function clearStatus() { $('statusMsg').className = 'status-msg'; }
+
+async function sha256Hex(str) {
+  const enc = new TextEncoder().encode(str);
+  const buf = await crypto.subtle.digest('SHA-256', enc);
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+function copyHash(el, text) {
+  navigator.clipboard?.writeText(text).then(() => {
+    el.classList.add('copied');
+    const old = el.textContent;
+    el.textContent = 'copied to clipboard';
+    setTimeout(() => { el.classList.remove('copied'); el.textContent = old; }, 1100);
+  });
+}
+
+function addProofStep(label, hashText) {
+  const wrap = document.createElement('div');
+  wrap.className = 'proof-step';
+  wrap.innerHTML = `
+    <div class="proof-check pending">○</div>
+    <div class="proof-text">
+      <div class="proof-label">${label}</div>
+      ${hashText ? `<div class="proof-hash">${hashText}</div>` : ''}
+    </div>
+  `;
+  $('proofSteps').appendChild(wrap);
+  return wrap;
+}
+
+function settleStep(stepEl, ok) {
+  return new Promise(res => {
+    requestAnimationFrame(() => {
+      stepEl.classList.add('in');
+      const check = stepEl.querySelector('.proof-check');
+      check.textContent = ok ? '✓' : '✕';
+      check.className = `proof-check ${ok ? 'ok' : 'bad'}`;
+      setTimeout(res, 220);
+    });
+  });
+}
+
+async function verifyToken(collection, tokenId) {
+  clearStatus();
+  $('resultCard').classList.remove('show');
+  $('proofSteps').innerHTML = '';
+  $('sealWrap').classList.remove('in');
+  setStatus('Querying the Omega Ledger…', 'loading');
+
+  let data;
+  try {
+    const url = `${apiBase()}/nft/verify/${encodeURIComponent(collection)}/${encodeURIComponent(tokenId)}`;
+    const res = await fetch(url);
+    data = await res.json();
+    if (!res.ok) {
+      setStatus(`Not found: ${collection} #${tokenId} doesn't exist in the registry.`, 'error');
+      return;
+    }
+  } catch (e) {
+    setStatus(`Couldn't reach the API at ${apiBase()}. Confirm the provenance server is running and reachable from this device.`, 'error');
+    return;
+  }
+
+  clearStatus();
+  renderCard(data);
+  $('resultCard').classList.add('show');
+  $('resultCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  await runProofSequence(data);
+}
+
+function renderCard(d) {
+  $('cardCollection').textContent = d.collection;
+  $('cardTitle').textContent = d.rarity === 'Impossible Diamond' ? 'Unique' : d.title;
+  $('cardSub').textContent = `#${String(d.token_id).padStart(4, '0')} · ${d.rarity}${d.is_founder_linked ? ' · Founder-held' : ''}`;
+
+  $('cardFields').innerHTML = `
+    <div class="field"><div class="field-label">Theme</div><div class="field-value">${d.theme || '—'}</div></div>
+    <div class="field"><div class="field-label">Sale status</div><div class="field-value">${d.sale_status || '—'}</div></div>
+    <div class="field"><div class="field-label">Owner wallet</div><div class="field-value mono">${d.owner_account_id || '—'}</div></div>
+    <div class="field"><div class="field-label">Minted</div><div class="field-value mono">${d.minted_at ? d.minted_at.split('.')[0] : '—'}</div></div>
+  `;
+
+  $('cardImage').innerHTML = `<div class="placeholder">Image not linked in this record</div>`;
+
+  $('proofSteps').innerHTML = '';
+}
+
+async function runProofSequence(d) {
+  const stepHash = addProofStep('Image SHA-256 (proof of art)', d.image_sha256);
+  const stepFpServer = addProofStep('Server-recomputed OM109 fingerprint', d.om109_fingerprint);
+  const stepFpBrowser = addProofStep('Browser-recomputed fingerprint (independent check)', null);
+  const stepChain = addProofStep('Ledger chain hash', d.chain_hash);
+
+  await settleStep(stepHash, true);
+  await settleStep(stepFpServer, d.authentic === true);
+
+  let browserMatch = false;
+  try {
+    if (window.isSecureContext && d.om109_sig_a && d.om109_sig_b) {
+      const recomputed = await sha256Hex(d.om109_sig_a.slice(0, 32) + d.om109_sig_b.slice(0, 32));
+      browserMatch = recomputed === d.om109_fingerprint;
+      stepFpBrowser.querySelector('.proof-text').innerHTML += `<div class="proof-hash">${recomputed}</div>`;
+    } else {
+      stepFpBrowser.querySelector('.proof-label').textContent += ' — unavailable outside a secure context';
+    }
+  } catch (e) {
+    stepFpBrowser.querySelector('.proof-label').textContent += ' — could not run in this browser';
+  }
+  await settleStep(stepFpBrowser, browserMatch);
+  await settleStep(stepChain, !!d.chain_hash);
+
+  document.querySelectorAll('.proof-hash').forEach(el => {
+    el.addEventListener('click', () => copyHash(el, el.textContent));
+  });
+
+  const sealEl = $('seal');
+  const captionEl = $('sealCaption');
+  const subEl = $('sealSub');
+  const allGood = d.authentic === true && browserMatch;
+
+  if (allGood) {
+    sealEl.classList.remove('rejected');
+    sealEl.textContent = 'Ω';
+    captionEl.textContent = 'Verified — both checks agree';
+    captionEl.classList.remove('rejected');
+    subEl.textContent = 'Server and browser independently confirmed this signature.';
+  } else {
+    sealEl.classList.add('rejected');
+    sealEl.textContent = '✕';
+    captionEl.textContent = 'Could not confirm';
+    captionEl.classList.add('rejected');
+    subEl.textContent = window.isSecureContext
+      ? 'The two recomputations did not agree. Treat this record with caution.'
+      : 'Browser recheck needs a secure context (localhost or https) to run.';
+  }
+  $('sealWrap').classList.add('in');
+}
+
+$('verifyBtn').addEventListener('click', () => {
+  const c = $('collectionSelect').value;
+  const t = $('tokenInput').value.trim();
+  if (!t) { setStatus('Enter a token number.', 'error'); return; }
+  verifyToken(c, t);
+});
+
+$('randomBtn').addEventListener('click', () => {
+  const c = $('collectionSelect').value;
+  const r = COLLECTIONS[c];
+  const t = Math.floor(Math.random() * (r.end - r.start + 1)) + r.start;
+  $('tokenInput').value = t;
+  verifyToken(c, t);
+});
+
+$('tokenInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') $('verifyBtn').click();
+});
+
+/* ── Browse tabs + tiles ── */
+function renderTabs() {
+  const tabsEl = $('tabs');
+  tabsEl.innerHTML = '';
+  Object.keys(COLLECTIONS).forEach((name, i) => {
+    const tab = document.createElement('div');
+    tab.className = `tab ${name === $('collectionSelect').value ? 'active' : ''}`;
+    tab.textContent = name;
+    tab.addEventListener('click', () => {
+      $('collectionSelect').value = name;
+      updateRangeHint();
+      renderTabs();
+      renderTiles();
+    });
+    tabsEl.appendChild(tab);
+  });
+}
+
+function renderTiles() {
+  const c = $('collectionSelect').value;
+  const r = COLLECTIONS[c];
+  const grid = $('tileGrid');
+  grid.innerHTML = '';
+  for (let i = r.start; i <= r.end; i++) {
+    const tile = document.createElement('div');
+    tile.className = 'tile';
+    tile.textContent = `#${i}`;
+    tile.addEventListener('click', () => {
+      $('tokenInput').value = i;
+      verifyToken(c, i);
+    });
+    grid.appendChild(tile);
+  }
+  renderTabs();
+}
+renderTiles();
+</script>
+
+</body>
+</html>
