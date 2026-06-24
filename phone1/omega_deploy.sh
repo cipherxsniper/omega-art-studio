@@ -1,9 +1,10 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# omega_deploy.sh — pulls from omega-sync and deploys
+# omega_deploy.sh
+source /data/data/com.termux/files/home/.env — pulls from omega-sync and deploys
 OMEGA_HOME="/data/data/com.termux/files/home"
 SYNC="$OMEGA_HOME/omega-sync"
-BOT_TOKEN=$(grep "TELEGRAM_BOT_TOKEN" "$OMEGA_HOME/.env" | cut -d= -f2 | tr -d " ")
-CHAT_ID=$(grep "TELEGRAM_CHAT_ID" "$OMEGA_HOME/.env" | cut -d= -f2 | tr -d " ")
+BOT_TOKEN=$(grep "TELEGRAM_BOT_TOKEN" /data/data/com.termux/files/home/.env | cut -d= -f2 | tr -d " ")
+CHAT_ID=$(grep "TELEGRAM_CHAT_ID" /data/data/com.termux/files/home/.env | cut -d= -f2 | tr -d " ")
 notify() { curl -s -X POST "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" -d chat_id="$CHAT_ID" -d text="$1" > /dev/null; }
 notify "⚙️ Deploying build..."
 cd "$SYNC" && git pull origin master --force 2>/dev/null

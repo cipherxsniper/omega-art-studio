@@ -1,11 +1,12 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# omega_build_watcher.sh — watches omega-sync for Claude commits
+# omega_build_watcher.sh
+source /data/data/com.termux/files/home/.env — watches omega-sync for Claude commits
 # Sends Telegram notification, waits for PUSH reply, deploys
 OMEGA_HOME="/data/data/com.termux/files/home"
 SYNC="$OMEGA_HOME/omega-sync"
 STATE="$OMEGA_HOME/omega_runtime/state/last_sync_hash"
-BOT_TOKEN=$(grep "TELEGRAM_BOT_TOKEN" "$OMEGA_HOME/.env" | cut -d= -f2 | tr -d " ")
-CHAT_ID=$(grep "TELEGRAM_CHAT_ID" "$OMEGA_HOME/.env" | cut -d= -f2 | tr -d " ")
+BOT_TOKEN=$(grep "TELEGRAM_BOT_TOKEN" /data/data/com.termux/files/home/.env | cut -d= -f2 | tr -d " ")
+CHAT_ID=$(grep "TELEGRAM_CHAT_ID" /data/data/com.termux/files/home/.env | cut -d= -f2 | tr -d " ")
 cd "$SYNC" || exit 1
 git fetch origin master --quiet 2>/dev/null
 REMOTE_HASH=$(git rev-parse origin/master 2>/dev/null)
