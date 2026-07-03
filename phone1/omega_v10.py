@@ -4625,8 +4625,8 @@ from urllib.error import URLError as _URLError
 import json as _json_st
 
 CONSENSUS_NODES = [
-    "192.168.11.115:7432",
-    "192.168.11.2:7432",
+    "127.0.0.1:7432",
+
 ]
 QUORUM_THRESHOLD = 500.00
 CONSENSUS_TIMEOUT = 8

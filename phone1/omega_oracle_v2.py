@@ -711,6 +711,30 @@ def run_score(verbose: bool = True) -> dict:
     }
     save_history(entry)
 
+    # ── Auto-heal failed components ──────────────────────────
+    failed = [name for name, data in results.items() if data["score"] < 100]
+    if failed:
+        try:
+            import importlib.util, sys
+            spec = importlib.util.spec_from_file_location(
+                "omega_self_healer",
+                str(HOME / "omega_self_healer.py")
+            )
+            healer = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(healer)
+            heal_results = healer.run(failed)
+            healed = [k for k, v in heal_results.items() if v == "healed"]
+            if healed:
+                # Re-score healed components
+                for name in healed:
+                    info = COMPONENTS[name]
+                    new_score, new_issues = score_component(name, info)
+                    results[name] = {"score": new_score, "issues": new_issues,
+                                     "weighted": new_score * info["weight"]}
+                    all_issues = [i for n, d in results.items() for i in d["issues"]]
+        except Exception as _he:
+            pass  # healer errors never block scoring
+
     if verbose:
         bar_chars = 10
         print("\n" + "=" * 54)
