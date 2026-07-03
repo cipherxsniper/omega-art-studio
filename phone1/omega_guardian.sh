@@ -142,26 +142,25 @@ while true; do
         pg_ctl -D $PREFIX/var/lib/postgresql start -l $PREFIX/var/lib/postgresql/logfile >> "$LOGS/guardian.log" 2>&1
         sleep 5
     fi
+    # ── Spawn Engine — auto-grows network at thresholds ──────
+    if ! pgrep -f omega_spawn_engine.py > /dev/null; then
+        echo "[$(date)] Spawn engine dead — restarting"
+        nohup python3 /data/data/com.termux/files/home/omega_spawn_engine.py watch \
+            >> /data/data/com.termux/files/home/omega_runtime/logs/spawn_engine.log 2>&1 &
+    fi
+
+    # SSH tunnel watchdog
+    pg_isready -h 127.0.0.1 -p 5432 -q 2>/dev/null || {
+        pkill -f "ssh.*omega_bridge" 2>/dev/null
+        sleep 2
+        nohup ssh -i ~/.ssh/omega_bridge \
+            -o StrictHostKeyChecking=no \
+            -o ServerAliveInterval=20 \
+            -o ServerAliveCountMax=3 \
+            -o ExitOnForwardFailure=yes \
+            -L 5432:127.0.0.1:5432 \
+            u0_a253@192.168.11.238 \
+            -p 8022 -N &
+    }
     sleep 30
 done
-
-# ── Spawn Engine — auto-grows network at thresholds ──────
-if ! pgrep -f omega_spawn_engine.py > /dev/null; then
-    echo "[$(date)] Spawn engine dead — restarting"
-    nohup python3 /data/data/com.termux/files/home/omega_spawn_engine.py watch \
-        >> /data/data/com.termux/files/home/omega_runtime/logs/spawn_engine.log 2>&1 &
-fi
-
-# SSH tunnel watchdog
-pg_isready -h 127.0.0.1 -p 5432 -q 2>/dev/null || {
-    pkill -f "ssh.*omega_bridge" 2>/dev/null
-    sleep 2
-    nohup ssh -i ~/.ssh/omega_bridge \
-        -o StrictHostKeyChecking=no \
-        -o ServerAliveInterval=20 \
-        -o ServerAliveCountMax=3 \
-        -o ExitOnForwardFailure=yes \
-        -L 5432:127.0.0.1:5432 \
-        u0_a253@192.168.11.238 \
-        -p 8022 -N &
-}
