@@ -29,7 +29,7 @@ class Handler(BaseHTTPRequestHandler):
         
         try:
             if path == "/health":
-                self.json_response({"status": "online", "collections": 5})
+                self.json_response({"status": "online", "collections": 7})
             elif path.startswith("/collection/"):
                 slug = path.split("/")[-1]
                 self.json_response(self.get_collection(slug))
@@ -82,6 +82,11 @@ class Handler(BaseHTTPRequestHandler):
             "lebal": "Le Bal des Rêves",
             "le-bal": "Le Bal des Rêves",
             "bal": "Le Bal des Rêves",
+            "realism-punks": "Realism Punks",
+            "realism_punks": "Realism Punks",
+            "punks": "Realism Punks",
+            "surrealism_punks": "Surrealism Punks",
+            "surrealism-punks": "Surrealism Punks",
         }
         col_name = col_map.get(slug, slug)
         try:
@@ -148,7 +153,7 @@ class Handler(BaseHTTPRequestHandler):
     def get_nft_verify(self, collection, token_id):
         conn = psycopg2.connect(PG_LEDGER)
         cur = conn.cursor()
-        col_map = {"echoes": "Echoes of Eternity", "somnium": "Somnium", "paracosm": "Paracosm", "monolith": "Monolith", "lebal": "Le Bal des Rêves", "le-bal": "Le Bal des Rêves", "bal": "Le Bal des Rêves"}
+        col_map = {"echoes": "Echoes of Eternity", "somnium": "Somnium", "paracosm": "Paracosm", "monolith": "Monolith", "lebal": "Le Bal des Rêves", "le-bal": "Le Bal des Rêves", "bal": "Le Bal des Rêves", "realism-punks": "Realism Punks", "realism_punks": "Realism Punks", "punks": "Realism Punks"}
         col_name = col_map.get(collection, collection)
         cur.execute("SELECT token_id, name, title, rarity, om109_fingerprint, chain_hash FROM nft_registry WHERE collection = %s AND token_id = %s", (col_name, int(token_id) if token_id.isdigit() else -1))
         result = cur.fetchone()
