@@ -61,6 +61,14 @@ while true; do
         sleep 2
     fi
 
+    # Watch provenance API
+    if ! pgrep -f omega_provenance_api.py > /dev/null; then
+        echo "[$(date)] RESTART: provenance_api" >> "$LOGS/guardian.log"
+        nohup python3 "$OMEGA_HOME/omega_provenance_api.py" \
+          >> "$LOGS/provenance_api.log" 2>&1 &
+        sleep 2
+    fi
+
     # Watch node manager
     if ! pgrep -f omega_node_manager.py > /dev/null; then
         echo "[$(date)] RESTART: node manager" >> "$LOGS/guardian.log"
