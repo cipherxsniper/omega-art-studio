@@ -21,3 +21,10 @@ __pycache__/
 *.pyc
 # Secrets
 .env
+.bash_history
+.cache/
+.npm/
+.env
+.eenv
+__pycache__/
+*.pyc
