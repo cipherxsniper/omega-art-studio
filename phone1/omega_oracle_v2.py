@@ -184,7 +184,7 @@ def score_component(name: str, info: dict) -> tuple[int, list]:
         import subprocess
         try:
             result = subprocess.run(
-                ["psql", "-h", "127.0.0.1", "-p", "5432", "-U", "postgres",
+                ["psql", "-h", "127.0.0.1", "-p", "5544", "-U", "postgres",
                  "-d", "omega_bank", "-c", "SELECT 1"],
                 capture_output=True, timeout=5, text=True
             )
@@ -204,7 +204,7 @@ def score_component(name: str, info: dict) -> tuple[int, list]:
         try:
             import psycopg2, subprocess
             # Must connect locally — not via tunnel
-            conn = psycopg2.connect(host="127.0.0.1", port=5432,
+            conn = psycopg2.connect(host="127.0.0.1", port=5544,
                                     dbname="omega_bank", user="u0_a321",
                                     connect_timeout=3)
             cur = conn.cursor()
@@ -359,7 +359,7 @@ def score_component(name: str, info: dict) -> tuple[int, list]:
     if name == "omega_ledger_db":
         try:
             import psycopg2
-            conn = psycopg2.connect(host="127.0.0.1", port=5432,
+            conn = psycopg2.connect(host="127.0.0.1", port=5544,
                                     dbname="omega_ledger", user="u0_a321",
                                     connect_timeout=3)
             cur = conn.cursor()
@@ -525,7 +525,7 @@ def score_component(name: str, info: dict) -> tuple[int, list]:
         # Test 2: ledger DB has real entries
         try:
             import psycopg2
-            conn = psycopg2.connect(host="127.0.0.1", port=5432,
+            conn = psycopg2.connect(host="127.0.0.1", port=5544,
                                     dbname="omega_ledger", user="postgres",
                                     connect_timeout=3)
             cur = conn.cursor()
@@ -542,7 +542,7 @@ def score_component(name: str, info: dict) -> tuple[int, list]:
         # Test 3: wallet data is real
         try:
             import psycopg2
-            conn = psycopg2.connect(host="127.0.0.1", port=5432,
+            conn = psycopg2.connect(host="127.0.0.1", port=5544,
                                     dbname="omega_bank", user="postgres",
                                     connect_timeout=3)
             cur = conn.cursor()

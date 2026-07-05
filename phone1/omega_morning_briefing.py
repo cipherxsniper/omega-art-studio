@@ -36,7 +36,7 @@ def get_oracle():
 
 def get_nft_sales():
     try:
-        conn = psycopg2.connect("dbname=omega_ledger user=postgres host=127.0.0.1 port=5432")
+        conn = psycopg2.connect("dbname=omega_ledger user=postgres host=127.0.0.1 port=5544")
         cur = conn.cursor()
         cur.execute("""
             SELECT COUNT(*), COALESCE(SUM(
@@ -60,7 +60,7 @@ def get_nft_sales():
 
 def get_top_wallets():
     try:
-        conn = psycopg2.connect("dbname=omega_bank user=postgres host=127.0.0.1 port=5432")
+        conn = psycopg2.connect("dbname=omega_bank user=postgres host=127.0.0.1 port=5544")
         cur = conn.cursor()
         cur.execute("""
             SELECT a.owner_name, w.settled_balance

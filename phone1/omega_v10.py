@@ -45,12 +45,6 @@
 
 from __future__ import annotations
 import os, sys, json, time, signal, smtplib, imaplib, email as email_lib
-try:
-    from omega_nft_webhook import handle_nft_checkout as _handle_nft_checkout
-    NFT_WEBHOOK_OK = True
-except Exception as _e:
-    NFT_WEBHOOK_OK = False
-    print(f'[omega_v10] NFT webhook not loaded: {_e}')
 import re, random, queue, threading, hashlib, traceback, argparse, hmac
 import sqlite3, logging, base64, textwrap
 from pathlib import Path
@@ -1771,17 +1765,6 @@ def _on_checkout_completed(data: dict):
     line_items = data.get("line_items", {}).get("data", [])
     if line_items:
         price_id = line_items[0].get("price", {}).get("id", "")
-
-    # NFT purchase — check first before B2B logic
-    if NFT_WEBHOOK_OK:
-        try:
-            nft_handled = _handle_nft_checkout(data)
-            if nft_handled:
-                notify(f"🎨 NFT SOLD — COA emailed to {email}")
-                return
-        except Exception as _nft_e:
-            log("error", "nft_webhook", f"NFT handler failed: {_nft_e}")
-
     product_key = _resolve_product_key(price_id)
     p = Config.PRODUCTS.get(product_key, Config.PRODUCTS["full_ops"])
     if email:
@@ -2539,7 +2522,7 @@ if TELEGRAM_OK:
                 # Node mesh status
                 try:
                     import psycopg2 as _pg
-                    _conn = _pg.connect(host="127.0.0.1", port=5432, dbname="omega_bank", user="postgres", connect_timeout=3)
+                    _conn = _pg.connect(host="127.0.0.1", port=5544, dbname="omega_bank", user="postgres", connect_timeout=3)
                     _cur = _conn.cursor()
                     _cur.execute("SELECT node_id, host, status, entry_count FROM omega_node_registry ORDER BY last_seen DESC")
                     nodes = _cur.fetchall()
@@ -2576,7 +2559,7 @@ if TELEGRAM_OK:
         elif data == "ledger":
             try:
                 import psycopg2 as _pgled
-                conn = _pgled.connect(host="127.0.0.1", port=5432,
+                conn = _pgled.connect(host="127.0.0.1", port=5544,
                                       dbname="omega_bank", user="postgres",
                                       connect_timeout=5)
                 cur = conn.cursor()
@@ -2894,7 +2877,7 @@ Rules:
                     price  = _MEXC_CLIENT.get_ticker(sym)
                     rating = _RATING_ENGINE.composite_rating(sym)
                     win_p  = _RATING_ENGINE.win_probability(sym)
-                    sig    = "BUY" if rating >= threshold else ("SELL" if rating <= -0.3 else "HOLD")
+                    sig    = "BUY" if rating >= 0.3 else ("SELL" if rating <= -0.3 else "HOLD")
                     signals_ctx += f"  {sym}: ${price:.4f} | {sig} | rating:{rating:+.3f} | win:{win_p:.1f}%\n"
                 except Exception:
                     pass
@@ -2918,7 +2901,7 @@ Rules:
         # Ledger context
         try:
             import psycopg2 as _pg  # type: ignore
-            _lconn = _pg.connect(host="127.0.0.1", port=5432,
+            _lconn = _pg.connect(host="127.0.0.1", port=5544,
                                   dbname="omega_bank", user="postgres", connect_timeout=3)
             _lc = _lconn.cursor()
             _lc.execute("""
@@ -3235,7 +3218,7 @@ class TradingConfig:
     SYMBOLS        = [s.strip() for s in os.getenv("TRADE_SYMBOLS", "XRP/USDT,BTC/USDT,ETH/USDT").split(",")]
     MAX_RISK       = float(os.getenv("MAX_RISK_PER_TRADE", "0.02"))
     MAX_DAILY_LOSS = float(os.getenv("MAX_DAILY_LOSS", "0.05"))
-    AUTO_TRADE = True  # toggled via Telegram
+    AUTO_TRADE     = False  # toggled via Telegram
     WS_ENDPOINT    = "wss://wbs.mexc.com/ws"
     REST_BASE      = "https://api.mexc.com"
     WEIGHTS        = {"rsi": 1.2, "macd": 1.5, "bollinger": 0.8, "candlestick": 1.5, "vwap": 1.2}
@@ -3565,236 +3548,94 @@ _MEXC_CLIENT    = MEXCClient()
 _RATING_ENGINE  = RatingEngine(_MEXC_CLIENT)
 
 # ── Core Trading Loop ──────────────────────────────────────
-
-# ================================
-# SAFE MEXC ORDER SANITIZER LAYER
-# ================================
-
-def sanitize_order(symbol, qty, price, rules=None):
-    try:
-        sym = symbol.replace("/", "")
-
-        if qty <= 0:
-            return None, "invalid_qty"
-
-        qty = round(qty, 6)
-
-        min_notional = 5.0
-        if rules and "min_notional" in rules:
-            min_notional = float(rules.get("min_notional", 5.0))
-
-        if price and qty * price < min_notional:
-            return None, "below_min_notional"
-
-        return (sym, qty), None
-
-    except Exception as e:
-        return None, str(e)
-
-# ================================
-
-
-
-# ================================
-# MEXC API COMPATIBILITY FIX (CRITICAL)
-# ================================
-
-def _normalize_symbol(sym: str) -> str:
-    return sym.replace("/", "").replace("-", "")
-
-def _safe_qty(qty: float) -> float:
-    try:
-        return float(f"{qty:.6f}")
-    except:
-        return 0.0
-
-def _min_notional_check(qty, price, min_notional=5.0):
-    try:
-        return (qty * price) >= min_notional
-    except:
-        return False
-
-# ================================
-
-
-
-# ================================
-# LIVE FILL VERIFICATION LAYER
-# ================================
-
-def verify_order_fill(client, order_id=None, symbol=None, timeout=5):
-    try:
-        start = time.time()
-
-        while time.time() - start < timeout:
-            try:
-                # try generic MEXC order query
-                if order_id:
-                    res = client._get(f"/api/v3/order?orderId={order_id}")
-                else:
-                    res = None
-
-                if res:
-                    status = res.get("status") or res.get("orderStatus")
-
-                    if status in ["FILLED", "filled", "SUCCESS", "PARTIALLY_FILLED"]:
-                        return True, res
-
-                    if status in ["CANCELED", "REJECTED", "EXPIRED"]:
-                        return False, res
-
-            except Exception:
-                pass
-
-            time.sleep(1)
-
-        return False, {"error": "timeout"}
-
-    except Exception as e:
-        return False, {"error": str(e)}
-
-# ================================
-
-
-
-# ================================
-# AUTO FILL GATE ACTIVATION WRAPPER
-# ================================
-
-def execute_order_with_verification(client, symbol, qty):
-    try:
-        order = execute_order_with_verification(_MEXC_CLIENT, symbol, qty)
-
-        filled, result = verify_order_fill(client, symbol=symbol)
-
-        if not filled:
-            log("warning", "trading", f"{symbol}: ORDER NOT FILLED → {result}")
-            return None
-
-        return order
-
-    except Exception as e:
-        log("error", "trading", f"{symbol}: execution error {e}")
-        return None
-
-# ================================
-
-
 def run_trading_cycle():
-    try:
-        if not TradingConfig.API_KEY:
-            log("warning", "trading", "MEXC_API_KEY not set — trading disabled")
-            return
+    if not TradingConfig.API_KEY:
+        log("warning", "trading", "MEXC_API_KEY not set — trading disabled")
+        return
 
-        balances = _MEXC_CLIENT.get_balance()
-        usdt = float(balances.get("USDT", 0))
+    balances = _MEXC_CLIENT.get_balance()
+    usdt     = balances.get("USDT", 0)
 
-        if _TRADING_STATE.starting_bal == 0:
-            _TRADING_STATE.starting_bal = usdt
+    if _TRADING_STATE.starting_bal == 0:
+        _TRADING_STATE.starting_bal = usdt
 
-        daily_loss = ((_TRADING_STATE.starting_bal - usdt) /
-                      max(_TRADING_STATE.starting_bal, 1))
+    daily_loss = (_TRADING_STATE.starting_bal - usdt) / max(_TRADING_STATE.starting_bal, 1)
+    if daily_loss >= TradingConfig.MAX_DAILY_LOSS:
+        log("warning", "trading", f"Daily loss limit hit {daily_loss:.1%} — pausing")
+        notify(f"⚠️ Trading paused — daily loss {daily_loss:.1%}")
+        return
 
-        if daily_loss >= TradingConfig.MAX_DAILY_LOSS:
-            log("warning", "trading", f"Daily loss limit hit {daily_loss:.2%}")
-            notify(f"⚠️ Trading paused — daily loss {daily_loss:.2%}")
-            return
+    # Auto-tune weights every 15 min
+    if _tt.time() - _TRADING_STATE.last_tuned > 900:
+        _tune_trading_params()
+        _TRADING_STATE.last_tuned = _tt.time()
 
-        if _tt.time() - _TRADING_STATE.last_tuned > 900:
-            _tune_trading_params()
-            _TRADING_STATE.last_tuned = _tt.time()
+    for symbol in TradingConfig.SYMBOLS:
+        try:
+            price  = _MEXC_CLIENT.get_ticker(symbol)
+            if not price: continue
 
-        for symbol in TradingConfig.SYMBOLS:
+            rating = _RATING_ENGINE.composite_rating(symbol)
+            regime = _RATING_ENGINE.market_regime(symbol)
+            win_p  = _RATING_ENGINE.win_probability(symbol)
 
-            try:
-                price = _MEXC_CLIENT.get_ticker(symbol)
-                if not price:
-                    continue
+            log("info", "trading", f"{symbol} | rating={rating:.3f} | regime={regime} | win={win_p:.1f}%")
 
-                price = float(price)
-
-                rating = _RATING_ENGINE.composite_rating(symbol)
-                regime = _RATING_ENGINE.market_regime(symbol)
-                win_p = _RATING_ENGINE.win_probability(symbol)
-
-                threshold = 0.10 if regime != "trending" else 0.15
-
-                log("info", "trading",
-                    f"{symbol} | rating={rating:.3f} | regime={regime} | win={win_p:.1f}%")
-
-                if rating >= threshold and symbol not in _TRADING_STATE.holdings:
-
-                    candles = _MEXC_CLIENT.get_klines(symbol, "15m", 100)
-                    if not candles:
-                        continue
-
-                    atr_val = Indicators.atr(candles)
-                    if atr_val <= 0:
-                        continue
-
-                    risk_amt = TradingConfig.MAX_RISK * usdt
-                    qty = risk_amt / (atr_val * 2)
-
-                    qty = max(qty, 0.0001)
-
-                    try:
-                        rules = _MEXC_CLIENT.get_symbol_rules(symbol)
-                        min_qty = float(rules.get("min_qty", 0))
-                        step = float(rules.get("step_size", 0.00000001))
-
-                        qty = max(qty, min_qty)
-
-                        if step > 0:
-                            qty = (qty // step) * step
-
-                    except:
-                        pass
-
-                    if qty * price < 5:
-                        continue
-
+            # Entry
+            if rating >= 0.3 and symbol not in _TRADING_STATE.holdings:
+                candles = _MEXC_CLIENT.get_klines(symbol, "15m", 100)
+                atr_val = Indicators.atr(candles)
+                risk_amt = TradingConfig.MAX_RISK * usdt
+                qty      = risk_amt / (atr_val * 2) if atr_val > 0 else 0
+                if qty > 0:
                     order = _MEXC_CLIENT.place_market_buy(symbol, qty)
-
                     if order:
                         _TRADING_STATE.holdings[symbol] = {
-                            "entry": price,
-                            "qty": qty,
+                            "entry": price, "qty": qty,
                             "stop": price - atr_val * 2,
-                            "take": price + atr_val * 3,
+                            "take": price + atr_val * 5,
                             "trail": price - atr_val * TradingConfig.RISK_MULT,
-                            "atr": atr_val,
-                            "ts": _tt.time(),
+                            "atr": atr_val, "ts": _tt.time(),
                             "regime": regime
                         }
+                        DB.get().execute(
+                            "INSERT INTO events(type,data) VALUES(?,?)",
+                            ("TRADE_OPEN", _tj.dumps({"symbol": symbol, "price": price, "qty": qty, "regime": regime}))
+                        )
+                        DB.get().commit()
+                        notify(f"📈 BUY {symbol} @ {price:.4f} | qty={qty:.4f} | win={win_p:.1f}%")
 
-                        notify(f"🚀 BUY {symbol} @ {price:.4f}")
+            # Exit
+            elif symbol in _TRADING_STATE.holdings:
+                pos = _TRADING_STATE.holdings[symbol]
+                new_trail = price - pos["atr"] * TradingConfig.RISK_MULT
+                pos["trail"] = max(pos["trail"], new_trail)
 
-                elif symbol in _TRADING_STATE.holdings:
+                should_exit = (
+                    price <= pos["trail"] or
+                    price >= pos["take"] or
+                    price <= pos["stop"] or
+                    (_tt.time() - pos["ts"]) > 3600
+                )
+                if should_exit:
+                    order = _MEXC_CLIENT.place_market_sell(symbol, pos["qty"])
+                    if order:
+                        profit = (price - pos["entry"]) * pos["qty"]
+                        _TRADING_STATE.trade_history.append({
+                            "symbol": symbol, "entry": pos["entry"],
+                            "exit": price, "profit": profit, "ts": _tt.time()
+                        })
+                        DB.get().execute(
+                            "INSERT INTO events(type,data) VALUES(?,?)",
+                            ("TRADE_CLOSE", _tj.dumps({"symbol": symbol, "price": price, "profit": round(profit,4)}))
+                        )
+                        DB.get().commit()
+                        notify(f"📉 SELL {symbol} @ {price:.4f} | P&L={profit:+.4f} USDT")
+                        del _TRADING_STATE.holdings[symbol]
 
-                    pos = _TRADING_STATE.holdings[symbol]
+        except Exception as e:
+            log("error", "trading", f"{symbol}: {e}")
 
-                    new_trail = price - pos["atr"] * TradingConfig.RISK_MULT
-                    pos["trail"] = max(pos["trail"], new_trail)
-
-                    should_exit = (
-                        price <= pos["trail"]
-                        or price >= pos["take"]
-                        or price <= pos["stop"]
-                        or (_tt.time() - pos["ts"]) > 3600
-                    )
-
-                    if should_exit:
-                        sell = _MEXC_CLIENT.place_market_sell(symbol, pos["qty"])
-
-                        if sell:
-                            del _TRADING_STATE.holdings[symbol]
-                            notify(f"📉 EXIT {symbol} @ {price:.4f}")
-
-            except Exception as e:
-                log("error", "trading", f"{symbol}: {e}")
-
-    except Exception as e:
-        log("error", "trading", f"cycle crash: {e}")
 def _tune_trading_params():
     try:
         symbol  = TradingConfig.SYMBOLS[0]
@@ -3912,7 +3753,7 @@ async def trading_button_handler(update, ctx):
                 regime = _RATING_ENGINE.market_regime(sym)
                 win_p  = _RATING_ENGINE.win_probability(sym)
                 w      = TradingConfig.WEIGHTS
-                sig    = "🟢 BUY" if rating >= threshold else ("🔴 SELL" if rating <= -0.3 else "⚪ HOLD")
+                sig    = "🟢 BUY" if rating >= 0.3 else ("🔴 SELL" if rating <= -0.3 else "⚪ HOLD")
                 in_pos = "📌 IN POSITION" if sym in _TRADING_STATE.holdings else ""
                 lines.append(
                     f"*{sym}* {in_pos}\n"
@@ -4064,7 +3905,7 @@ def bank_query(sql: str, db: str = "omega_bank") -> list:
     """Execute read query against Phone 2 PostgreSQL."""
     try:
         conn = _pg.connect(
-            host="127.0.0.1", port=5432,
+            host="127.0.0.1", port=5544,
             dbname=db, user="postgres",
             connect_timeout=5
         )
@@ -4081,7 +3922,7 @@ def get_bank_summary() -> dict:
     """Pull live financial summary from Omega Bank PostgreSQL."""
     try:
         import psycopg2 as _pg2
-        conn = _pg2.connect(host="127.0.0.1", port=5432, dbname="omega_bank",
+        conn = _pg2.connect(host="127.0.0.1", port=5544, dbname="omega_bank",
                             user="postgres", connect_timeout=5)
         cur = conn.cursor()
 
@@ -4295,7 +4136,7 @@ async def finance_button_handler(update, ctx):
     elif data == "finance_audit":
         try:
             import psycopg2 as _pg2
-            conn = _pg2.connect(host="127.0.0.1", port=5432, dbname="omega_bank",
+            conn = _pg2.connect(host="127.0.0.1", port=5544, dbname="omega_bank",
                                 user="postgres", connect_timeout=5)
             cur = conn.cursor()
             cur.execute("""
@@ -4767,8 +4608,8 @@ from urllib.error import URLError as _URLError
 import json as _json_st
 
 CONSENSUS_NODES = [
-    "127.0.0.1:7432",
-
+    "192.168.11.115:7432",
+    "192.168.11.2:7432",
 ]
 QUORUM_THRESHOLD = 500.00
 CONSENSUS_TIMEOUT = 8
@@ -4847,7 +4688,7 @@ def _pg_ledger_write(event_type, payload, snapshot_id=None):
         import hashlib as _hs_pg
 
         conn = _pg_local.connect(
-            host="127.0.0.1", port=5432,
+            host="127.0.0.1", port=5544,
             user="postgres", dbname="omega_bank"
         )
         conn.autocommit = True
@@ -4887,7 +4728,7 @@ def _node_manifest_write():
         import psycopg2 as _pg_m
         import socket as _sock
         conn = _pg_m.connect(
-            host="127.0.0.1", port=5432,
+            host="127.0.0.1", port=5544,
             user="postgres", dbname="omega_bank"
         )
         conn.autocommit = True
@@ -4965,65 +4806,3 @@ def _safe_ledger_write(event_type: str, payload: dict):
 
 
 
-
-# ── OMEGA PATCH: API SAFETY LAYER ─────────────────────────
-VALID_INTERVALS = {"1m","5m","15m","30m","1h","4h","1d"}
-
-def normalize_symbol(symbol: str) -> str:
-    return symbol.replace("/", "").replace("-", "").upper().strip()
-
-def normalize_interval(tf: str) -> str:
-    return tf if tf in VALID_INTERVALS else "15m"
-
-def safe_get_klines(client, symbol, interval, limit=100):
-    sym = normalize_symbol(symbol)
-    interval = normalize_interval(interval)
-
-    try:
-        return client.get_klines(sym, interval, limit)
-    except Exception as e:
-        log("error", "mexc", f"klines failed {sym}:{interval} -> {e}")
-        try:
-            return client.get_klines(sym, "15m", limit)
-        except Exception as e2:
-            log("error", "mexc", f"klines fallback failed {sym} -> {e2}")
-            return []
-
-# ─────────────────────────────────────────────
-
-# ── OMEGA PATCH: DYNAMIC THRESHOLD SUPPORT ────────────────
-# NOTE: insert inside run_trading_cycle after regime detection
-
-# if regime == "trending":
-#     threshold = 0.22
-# else:
-#     threshold = 0.15
-
-# replace:
-# if rating >= threshold
-# with:
-# if rating >= threshold
-
-# ─────────────────────────────────────────────
-
-# ── OMEGA PATCH: DYNAMIC WEIGHTS ENGINE ───────────────────
-def get_dynamic_weights(regime: str):
-    if regime == "trending":
-        return {
-            "rsi": 0.6,
-            "macd": 2.0,
-            "bollinger": 0.5,
-            "candlestick": 0.8,
-            "vwap": 2.0
-        }
-    else:
-        return {
-            "rsi": 1.2,
-            "macd": 0.8,
-            "bollinger": 1.8,
-            "candlestick": 1.4,
-            "vwap": 0.9
-        }
-
-# ─────────────────────────────────────────────
-TradingConfig.AUTO_TRADE = True
