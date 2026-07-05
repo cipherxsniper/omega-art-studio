@@ -1087,7 +1087,7 @@ function showTab(tab) {
 
 
 <script>
-var API_URL = 'https://wet-faced-thou-webster.trycloudflare.com';
+var API_URL = '';
 // Dynamic API URL — fetch from broker on load
 (async function() {
   try {
