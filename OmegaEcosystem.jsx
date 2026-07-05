@@ -1096,14 +1096,15 @@ var API_URL = 'https://needle-ion-meet-frog.trycloudflare.com';
     if (d.api) API_URL = d.api;
   } catch(e) {}
 })();
-var COLLECTIONS = ['echoes', 'somnium', 'paracosm', 'monolith', 'le-bal', 'realism-punks'];
+var COLLECTIONS = ['echoes', 'somnium', 'paracosm', 'monolith', 'le-bal', 'realism-punks', 'surrealism-punks'];
 var FOLDER_MAP = {
   'Echoes of Eternity': { folder: 'echoes_of_eternity', pad: 4 },
   'Somnium':            { folder: 'somnium',            pad: 4 },
   'Paracosm':           { folder: 'paracosm',            pad: 4 },
   'Monolith':           { folder: 'monolith',            pad: 4 },
   'Le Bal des Rêves':   { folder: 'le_bal_des_reves',   pad: 4 },
-  'Realism Punks':      { folder: 'realism_punks',       pad: 4 }
+  'Realism Punks':      { folder: 'realism_punks',       pad: 4 },
+  'Surrealism Punks':   { folder: 'surrealism_punks',    pad: 4 }
 };
 var ALL_TOKENS = [];
 var currentFilter = 'all';
