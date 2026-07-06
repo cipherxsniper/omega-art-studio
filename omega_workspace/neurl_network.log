@@ -1,0 +1,9 @@
+nohup: ignoring input
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/home/omega_workspace/neurl_network.py", line 30, in <module>
+    net.train(X, Y, epochs=1000, lr=1.0)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/home/omega_workspace/neurl_network.py", line 18, in train
+    Y_hat = self.forward(X)
+            ^^^^^^^^^^^^
+AttributeError: 'TwoLayerNet' object has no attribute 'forward'
