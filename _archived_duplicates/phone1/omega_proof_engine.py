@@ -11,8 +11,8 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 import psycopg2
 import psycopg2.extras
 
-DB_BANK   = "dbname=omega_bank user=u0_a321 host=127.0.0.1 port=5432"
-DB_LEDGER = "dbname=omega_ledger user=u0_a321 host=127.0.0.1 port=5432"
+DB_BANK   = "dbname=omega_bank user=u0_a321 host=127.0.0.1 port=5544"
+DB_LEDGER = "dbname=omega_ledger user=u0_a321 host=127.0.0.1 port=5544"
 PROOF_PORT = 8091
 PROOF_FILE = os.path.expanduser('~/omega_runtime/latest_proof.json')
 

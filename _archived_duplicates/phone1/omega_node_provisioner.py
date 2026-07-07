@@ -80,7 +80,7 @@ def generate_instance_id(port):
 def get_ledger_count():
     try:
         conn = psycopg2.connect(
-            host="127.0.0.1", port=5432,
+            host="127.0.0.1", port=5544,
             dbname="omega_bank", user="u0_a321",
             connect_timeout=5
         )

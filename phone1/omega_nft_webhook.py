@@ -43,7 +43,7 @@ GENESIS = {
 def _pg():
     import psycopg2, psycopg2.extras
     return psycopg2.connect(
-        host="127.0.0.1", port=5432, dbname="omega_ledger",
+        host="127.0.0.1", port=5544, dbname="omega_ledger",
         user="postgres",
         cursor_factory=psycopg2.extras.RealDictCursor
     )

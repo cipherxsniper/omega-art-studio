@@ -36,7 +36,7 @@ for d in [IMAGES_DIR, META_DIR]:
     d.mkdir(parents=True, exist_ok=True)
 
 # ── DB CONNECTIONS ───────────────────────────────────────────────────
-PG_LEDGER = "dbname=omega_ledger user=postgres host=127.0.0.1 port=5432"
+PG_LEDGER = "dbname=omega_ledger user=postgres host=127.0.0.1 port=5544"
 
 COLLECTION_NAME = "Le Bal des Rêves"
 TOTAL_SUPPLY = 100
