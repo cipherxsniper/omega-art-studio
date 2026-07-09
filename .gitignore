@@ -1,1 +1,24 @@
+# NFT images and thumbnails - too large for GitHub
+echoes_of_eternity/
+somnium/
+paracosm/
+monolith/
+# Large files
+*.safetensors
+*.db
+*.tgz
+*.log
+# Nested git repos
+sdcpp_project/
+misc/
+omega_sync/
+omega_push/
+omega_redirect/
+# Storage symlinks
+storage/
+# Compiled
+__pycache__/
+*.pyc
+# Secrets
+.env
 .omega_sync.lock

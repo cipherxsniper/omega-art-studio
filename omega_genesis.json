@@ -1,0 +1,239 @@
+{
+  "OMEGA_GENESIS": true,
+  "genesis_id": "ac28876f-fffb-43bf-8d8a-3d3cc5c784db",
+  "genesis_hash": "9ca210e2018dc4a03ab4240827abcb7fa8a22fe860be9b9f5c606b528841522f",
+  "merkle_root": "3964c25c054cbf8d99737f3efbe0a36ea52abc7623eecf4cf41e8cef7161ff56",
+  "genesis_ts": "2026-06-09T04:07:53.992186+00:00",
+  "genesis_version": "2.0.0",
+  "db_written": true,
+  "payload": {
+    "genesis_id": "ac28876f-fffb-43bf-8d8a-3d3cc5c784db",
+    "genesis_version": "2.0.0",
+    "event_type": "QUANTUM_GENESIS",
+    "timestamp": "2026-06-09T04:07:53.992186+00:00",
+    "builder": "Thomas Lee Harvey",
+    "org": "Omega AI / Omega Bank",
+    "email": "simpl3hoods@gmail.com",
+    "github": "github.com/cipherxsniper/OMEGAOPS.AI",
+    "topology": {
+      "node_count": 2,
+      "quorum": "2/2",
+      "nodes": {
+        "node-001": {
+          "node_id": "omega-node-001",
+          "role": "CONTROL_PLANE",
+          "host": "192.168.11.115",
+          "device": "Phone 1",
+          "ssh_port": 8022,
+          "arch": "ARM64",
+          "runtime": "Termux/Python3.13",
+          "services": [
+            "omega_v10",
+            "omega_sentinel",
+            "omega_oracle_v2",
+            "omega_guardian",
+            "omega_email_finder",
+            "omega_card_engine",
+            "telegram_bot",
+            "mexc_hft"
+          ],
+          "captured_at": "2026-06-09T04:07:52.710184+00:00",
+          "hostname": "localhost",
+          "python": "3.13.13",
+          "key_files": {
+            "omega_v10.py": true,
+            "omega_sentinel.py": true,
+            "omega_oracle_v2.py": true,
+            "omega_guardian.py": false,
+            "omega_email_finder.py": true,
+            "omega_card_engine.py": true,
+            "omega_consensus.py": false,
+            "omega_genesis.py": true,
+            "omega_node_bootstrap.py": false,
+            ".env": true
+          },
+          "omega_v10_running": true,
+          "omega_guardian_running": true
+        },
+        "node-002": {
+          "node_id": "omega-node-002",
+          "role": "DATABASE_PLANE",
+          "host": "192.168.11.163",
+          "device": "Phone 2",
+          "ssh_port": 8022,
+          "arch": "ARM64",
+          "runtime": "Termux/PostgreSQL18",
+          "services": [
+            "postgresql_18",
+            "omega_bank_db",
+            "omega_ledger_db"
+          ],
+          "captured_at": "2026-06-09T04:07:52.755785+00:00"
+        }
+      }
+    },
+    "financial_state": {
+      "omega_bank": {
+        "connected": true,
+        "wallet_count": 13,
+        "account_count": 13,
+        "wallet_detail": [
+          {
+            "id": "2db2e016-f6a1-4086-bec2-363edfb1c26b",
+            "type": "active",
+            "balance_cents": "756150695.17",
+            "currency": "USD",
+            "status": "active"
+          },
+          {
+            "id": "0018b87b-1daf-472c-b8c8-eff8cb9aa198",
+            "type": "active",
+            "balance_cents": "59696107.52",
+            "currency": "USD",
+            "status": "active"
+          },
+          {
+            "id": "a2a76886-1222-4ae9-bd0c-939b509ec755",
+            "type": "active",
+            "balance_cents": "59696107.52",
+            "currency": "USD",
+            "status": "active"
+          },
+          {
+            "id": "8a06f132-50d3-49c5-881f-795f951af503",
+            "type": "active",
+            "balance_cents": "44782080.64",
+            "currency": "USD",
+            "status": "active"
+          },
+          {
+            "id": "80795b24-da42-4b9f-aa32-0349004880dc",
+            "type": "active",
+            "balance_cents": "26353053.76",
+            "currency": "USD",
+            "status": "active"
+          },
+          {
+            "id": "2ac05c75-c429-4550-b7c9-1a9bce3a17e7",
+            "type": "active",
+            "balance_cents": "14975026.88",
+            "currency": "USD",
+            "status": "active"
+          },
+          {
+            "id": "92f17408-e801-4e89-8494-d8c414fa1ca7",
+            "type": "active",
+            "balance_cents": "14924026.88",
+            "currency": "USD",
+            "status": "active"
+          },
+          {
+            "id": "708f2b6b-094b-4898-8368-e27dfeac1a2f",
+            "type": "active",
+            "balance_cents": "7462013.44",
+            "currency": "USD",
+            "status": "active"
+          },
+          {
+            "id": "19841a36-3d95-46ab-a154-99684fefd57e",
+            "type": "active",
+            "balance_cents": "7462013.44",
+            "currency": "USD",
+            "status": "active"
+          },
+          {
+            "id": "7597e069-65bc-4b55-b420-a2a2682f53e0",
+            "type": "active",
+            "balance_cents": "3500500.00",
+            "currency": "USD",
+            "status": "active"
+          },
+          {
+            "id": "70e8cdae-983c-4392-a97a-4ae06217b303",
+            "type": "active",
+            "balance_cents": "1000050.00",
+            "currency": "USD",
+            "status": "active"
+          },
+          {
+            "id": "fe881e17-8b24-42f4-ba4f-c1ce38770b51",
+            "type": "active",
+            "balance_cents": "999874.25",
+            "currency": "USD",
+            "status": "active"
+          },
+          {
+            "id": "8fcaf9c3-24d1-4c4b-ad88-856576b8b6e9",
+            "type": "active",
+            "balance_cents": "628838.00",
+            "currency": "USD",
+            "status": "active"
+          }
+        ],
+        "treasury_reserve_cents": 100000000000,
+        "treasury_usd": 1000000000.0,
+        "currency_treasury_usd": 1400000000.0,
+        "total_balance_cents": 997630387,
+        "total_balance_usd": 997630387.5,
+        "virtual_card_count": 2,
+        "virtual_card_table": "virtual_cards"
+      },
+      "omega_ledger": {
+        "connected": true,
+        "entry_count": 11,
+        "max_sequence": 23,
+        "chain_tip_hash": "GENESIS",
+        "active_nodes": 0
+      }
+    },
+    "bootstrap_protocol": {
+      "version": "2.0.0",
+      "entry_script": "omega_node_bootstrap.py",
+      "required_env": [
+        "ANTHROPIC_API_KEY",
+        "TELEGRAM_BOT_TOKEN",
+        "STRIPE_SECRET_KEY",
+        "MEXC_API_KEY",
+        "MEXC_API_SECRET"
+      ],
+      "db_connection": {
+        "method": "ssh_tunnel",
+        "target": "192.168.11.163",
+        "ssh_port": 8022,
+        "pg_port": 5432,
+        "databases": [
+          "omega_bank",
+          "omega_ledger"
+        ]
+      },
+      "registration_table": "omega_node_registry",
+      "genesis_table": "omega_genesis_events",
+      "spawn_signal_table": "omega_spawn_signals",
+      "gossip_interval_sec": 30
+    },
+    "spawn_thresholds": {
+      "ledger_entries": 1000,
+      "settled_usd": 10000.0,
+      "active_clients": 10,
+      "time_epoch_hours": 168
+    },
+    "chain_anchor": {
+      "prev_chain_tip": "GENESIS",
+      "hash_strategy": "SHA256_MERKLE"
+    },
+    "genesis_hash": "9ca210e2018dc4a03ab4240827abcb7fa8a22fe860be9b9f5c606b528841522f",
+    "merkle_root": "3964c25c054cbf8d99737f3efbe0a36ea52abc7623eecf4cf41e8cef7161ff56"
+  },
+  "bootstrap": {
+    "genesis_id": "ac28876f-fffb-43bf-8d8a-3d3cc5c784db",
+    "genesis_hash": "9ca210e2018dc4a03ab4240827abcb7fa8a22fe860be9b9f5c606b528841522f",
+    "phone2_host": "192.168.11.163",
+    "phone2_ssh_port": 8022,
+    "db_host": "127.0.0.1",
+    "db_port": 5432,
+    "db_user": "postgres",
+    "registration_db": "omega_ledger",
+    "node_registry": "omega_node_registry",
+    "genesis_table": "omega_genesis_events"
+  }
+}

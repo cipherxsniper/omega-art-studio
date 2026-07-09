@@ -1,0 +1,1520 @@
+[Sat Jun 20 10:49:52 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 10:50:02 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 10:50:33 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 10:50:43 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 10:51:13 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 10:51:24 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 10:51:54 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 10:52:04 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 10:52:35 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 10:52:45 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 10:53:15 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 10:53:26 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 10:53:56 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 10:54:06 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 10:54:37 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 10:54:47 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 10:55:17 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 10:55:28 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 10:55:58 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 10:56:08 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 10:56:39 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 10:56:49 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 10:57:19 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 10:57:30 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 10:58:00 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 10:58:10 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 10:58:41 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 10:58:51 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 10:59:22 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 10:59:32 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:00:02 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:00:12 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:00:43 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 11:00:53 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:01:23 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:01:34 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:02:04 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:02:14 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:02:45 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:02:55 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:03:25 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:03:35 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:04:06 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 11:04:16 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:04:46 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:04:57 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:05:27 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:05:37 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:06:08 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:06:18 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:06:48 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:06:59 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:07:29 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 11:07:39 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:08:10 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:08:20 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:08:50 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:09:01 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:09:31 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:09:41 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:10:12 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:10:22 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:10:52 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 11:11:02 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:11:33 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:11:43 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:12:14 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:12:24 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:12:54 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:13:04 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:13:35 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:13:45 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:14:16 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 11:14:26 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:14:56 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:15:06 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:15:37 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:15:47 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:16:18 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:16:28 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:16:58 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:17:08 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:17:39 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 11:17:49 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:18:20 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:18:30 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:19:00 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:19:10 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:19:41 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:19:51 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:20:22 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:20:32 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:21:02 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 11:21:12 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:21:43 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:21:53 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:22:24 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:22:34 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:23:04 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:23:14 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:23:45 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:23:55 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:24:26 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:24:36 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:25:06 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:25:16 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:25:47 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:25:57 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:26:28 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 11:26:38 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:27:08 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:27:19 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:27:49 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:27:59 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:28:30 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:28:40 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:29:10 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:29:21 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:29:51 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 11:30:01 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:30:32 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:30:42 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:31:12 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:31:23 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:31:53 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:32:03 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:32:34 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:32:44 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:33:14 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 11:33:25 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:33:55 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:34:05 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:34:36 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:34:46 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:35:16 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:35:26 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:35:57 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:36:07 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:36:37 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 11:36:48 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:37:18 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:37:28 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:37:59 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:38:09 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:38:40 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:38:50 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:39:20 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:39:30 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:40:01 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 11:40:11 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:40:42 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:40:52 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:41:22 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:41:32 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:42:03 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:42:13 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:42:44 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:42:54 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:43:24 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 11:43:34 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:44:05 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:44:15 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:44:46 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:44:56 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:45:26 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:45:36 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:46:07 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:46:17 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:46:48 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 11:46:58 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:47:28 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:47:38 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:48:09 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:48:19 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:48:50 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 11:49:00 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:49:30 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:49:40 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:50:11 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:50:21 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:50:51 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:51:02 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:51:32 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:51:42 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:52:13 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 11:52:23 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:52:53 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:53:04 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:53:34 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:53:44 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:54:15 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:54:25 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:54:55 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:55:06 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:55:36 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 11:55:46 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:56:17 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:56:27 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:56:57 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:57:08 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:57:38 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:57:48 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:58:19 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:58:29 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:58:59 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 11:59:10 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 11:59:40 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 11:59:50 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:00:21 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:00:31 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:01:01 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:01:12 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:01:42 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:01:52 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:02:23 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 12:02:33 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:03:04 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:03:14 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:03:44 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:03:54 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:04:25 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:04:35 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:05:06 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:05:16 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:05:46 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 12:05:56 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:06:27 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:06:37 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:07:08 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:07:18 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:07:48 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:07:58 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:08:29 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:08:39 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:09:10 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 12:09:20 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:09:50 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:10:00 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:10:31 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:10:41 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:11:12 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:11:22 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:11:52 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:12:02 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:12:33 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 12:12:43 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:13:14 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:13:24 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:13:54 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:14:04 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:14:35 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 12:14:45 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:15:16 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:15:26 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:15:56 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:16:06 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:16:37 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:16:47 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:17:18 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:17:28 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:17:58 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 12:18:08 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:18:39 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:18:49 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:19:20 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:19:30 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:20:00 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:20:10 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:20:41 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:20:51 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:21:22 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 12:21:32 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:22:02 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:22:13 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:22:43 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:22:53 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:23:24 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:23:34 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:24:04 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:24:15 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:24:45 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 12:24:55 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:25:26 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:25:36 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:26:06 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:26:17 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:26:47 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:26:57 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:27:28 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:27:38 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:28:08 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 12:28:19 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:28:49 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:28:59 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:29:30 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:29:40 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:30:10 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:30:21 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:30:51 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:31:01 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:31:32 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 12:31:42 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:32:12 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:32:23 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:32:53 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:33:03 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:33:34 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:33:44 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:34:14 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:34:25 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:34:55 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 12:35:05 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:35:36 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:35:46 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:36:17 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:36:27 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:36:57 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:37:07 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:37:38 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:37:48 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:38:19 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 12:38:29 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:38:59 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:39:09 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:39:40 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:39:50 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:40:20 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 12:40:31 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:41:01 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:41:11 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:41:42 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:41:52 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:42:23 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:42:33 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:43:03 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:43:13 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:43:44 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 12:43:54 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:44:25 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:44:35 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:45:05 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:45:15 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:45:46 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:45:56 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:46:27 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:46:37 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:47:07 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 12:47:17 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:47:48 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:47:58 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:48:29 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:48:39 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:49:09 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:49:19 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:49:50 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:50:00 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:50:30 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 12:50:41 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:51:11 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:51:21 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:51:52 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:52:02 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:52:33 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:52:43 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:53:13 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:53:23 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:53:54 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 12:54:04 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:54:35 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:54:45 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:55:15 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:55:25 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:55:56 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:56:06 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:56:37 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:56:47 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:57:17 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 12:57:27 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:57:58 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:58:08 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:58:38 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:58:49 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 12:59:19 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 12:59:29 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:00:00 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:00:10 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:00:41 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 13:00:51 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:01:21 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:01:31 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:02:02 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:02:12 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:02:43 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 13:02:53 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:03:23 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:03:33 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:04:04 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:04:14 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:04:45 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:04:55 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:05:25 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:05:35 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:06:06 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 13:06:16 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:06:47 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:06:57 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:07:27 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:07:37 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:08:08 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:08:18 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:08:49 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:08:59 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:09:29 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 13:09:39 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:10:10 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:10:20 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:10:51 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:11:01 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:11:31 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:11:42 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:12:12 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:12:22 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:12:53 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 13:13:03 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:13:33 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:13:43 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:14:14 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:14:24 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:14:55 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:15:05 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:15:35 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:15:45 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:16:16 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 13:16:26 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:16:57 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:17:07 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:17:37 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:17:47 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:18:18 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:18:28 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:18:58 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:19:09 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:19:39 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 13:19:49 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:20:20 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:20:30 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:21:01 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:21:11 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:21:41 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:21:51 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:22:22 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:22:32 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:23:02 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 13:23:13 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:23:43 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:23:53 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:24:24 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:24:34 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:25:04 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:25:15 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:25:45 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:25:55 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:26:26 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 13:26:36 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:27:06 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:27:17 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:27:47 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:27:57 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:28:28 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 13:28:38 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:29:09 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:29:19 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:29:49 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:29:59 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:30:30 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:30:40 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:31:11 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:31:21 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:31:51 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 13:32:01 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:32:32 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:32:42 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:33:13 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:33:23 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:33:53 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:34:04 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:34:34 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:34:44 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:35:15 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 13:35:25 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:35:55 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:36:06 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:36:36 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:36:46 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:37:17 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:37:27 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:37:57 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:38:08 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:38:38 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 13:38:48 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:39:19 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:39:29 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:39:59 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:40:09 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:40:40 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:40:50 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:41:21 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:41:31 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:42:01 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 13:42:12 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:42:42 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:42:52 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:43:23 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:43:33 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:44:03 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:44:14 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:44:44 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:44:54 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:45:25 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 13:45:35 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:46:05 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:46:16 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:46:46 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:46:56 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:47:27 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:47:37 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:48:07 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:48:18 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:48:48 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 13:48:58 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:49:29 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:49:39 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:50:10 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:50:20 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:50:50 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:51:00 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:51:31 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:51:41 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:52:11 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 13:52:22 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:52:52 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:53:02 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:53:33 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:53:43 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:54:13 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 13:54:24 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:54:54 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:55:04 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:55:35 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:55:45 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:56:16 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:56:26 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:56:56 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:57:06 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:57:37 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 13:57:47 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:58:18 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:58:28 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:58:58 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:59:08 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 13:59:39 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 13:59:49 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:00:19 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:00:30 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:01:00 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 14:01:11 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:01:43 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:01:55 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:02:25 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:02:35 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:03:06 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:03:16 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:03:46 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:03:57 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:04:27 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 14:04:37 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:05:08 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:05:18 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:05:48 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:05:58 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:06:29 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:06:39 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:07:09 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:07:19 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:07:50 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:08:00 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:08:31 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:08:41 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:09:11 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:09:22 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:09:52 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:10:02 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:10:32 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:10:43 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:11:13 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:11:23 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:11:54 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:12:04 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:12:34 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:12:45 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:13:15 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:13:25 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:13:56 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:14:06 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:14:36 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:14:46 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:15:17 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:15:27 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:15:57 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:16:07 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:16:38 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:16:48 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:17:19 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:17:29 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:17:59 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:18:10 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:18:40 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:18:50 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:19:20 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:19:31 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:20:01 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:20:11 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:20:42 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:20:52 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:21:23 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:21:33 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:22:03 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:22:13 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:22:44 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:22:54 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:23:24 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:23:35 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:24:05 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:24:15 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:24:46 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:24:56 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:25:26 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:25:37 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:26:07 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:26:17 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:26:48 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:26:58 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:27:28 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:27:39 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:28:09 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:28:19 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:28:50 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:29:00 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:29:30 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:29:41 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:30:11 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:30:21 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:30:52 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:31:02 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:31:32 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:31:42 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:32:13 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:32:23 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:32:53 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:33:04 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:33:34 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:33:44 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:34:15 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:34:25 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:34:55 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:35:06 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:35:36 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:35:46 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:36:17 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:36:27 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:36:57 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:37:08 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:37:38 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:37:48 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:38:19 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:38:29 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:38:59 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:39:10 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:39:40 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:39:50 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:40:21 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:40:31 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:41:01 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:41:12 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:41:42 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:41:52 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:42:23 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:42:33 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:43:04 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:43:14 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:43:44 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:43:54 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:44:25 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:44:35 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:45:06 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:45:16 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:45:46 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:45:56 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:46:27 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:46:37 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:47:08 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:47:18 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:47:48 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:47:59 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:48:29 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:48:39 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:49:10 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:49:20 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:49:50 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:50:01 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:50:31 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:50:41 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:51:12 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:51:22 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:51:52 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:52:02 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:52:33 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:52:43 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:53:14 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:53:24 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:53:54 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:54:05 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:54:35 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:54:45 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:55:16 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:55:26 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:55:56 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:56:06 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:56:33 PDT 2026] RESTART: consensus node
+[Sat Jun 20 14:56:36 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:56:46 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:57:16 PDT 2026] RESTART: consensus node
+[Sat Jun 20 14:57:20 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:57:30 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:58:00 PDT 2026] RESTART: consensus node
+[Sat Jun 20 14:58:03 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:58:14 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:58:44 PDT 2026] RESTART: consensus node
+[Sat Jun 20 14:58:47 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:58:57 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 14:59:28 PDT 2026] RESTART: consensus node
+[Sat Jun 20 14:59:31 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 14:59:41 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 15:00:11 PDT 2026] RESTART: consensus node
+[Sat Jun 20 15:00:15 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 15:00:25 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 15:00:55 PDT 2026] RESTART: consensus node
+[Sat Jun 20 15:00:58 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 15:01:09 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 15:01:39 PDT 2026] RESTART: consensus node
+[Sat Jun 20 15:01:42 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 15:01:52 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 15:02:23 PDT 2026] RESTART: consensus node
+[Sat Jun 20 15:02:26 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 15:02:36 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 15:03:06 PDT 2026] RESTART: consensus node
+[Sat Jun 20 15:03:10 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 15:03:20 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 15:03:50 PDT 2026] RESTART: consensus node
+[Sat Jun 20 15:03:53 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 15:04:03 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 15:04:34 PDT 2026] RESTART: consensus node
+[Sat Jun 20 15:04:37 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 15:04:47 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 15:05:18 PDT 2026] RESTART: consensus node
+[Sat Jun 20 15:05:21 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 15:05:31 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 15:06:01 PDT 2026] RESTART: consensus node
+[Sat Jun 20 15:06:04 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 15:06:15 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 15:06:45 PDT 2026] RESTART: consensus node
+[Sat Jun 20 15:06:48 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 15:06:58 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 15:07:29 PDT 2026] RESTART: consensus node
+[Sat Jun 20 15:07:32 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 15:07:42 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 15:08:12 PDT 2026] RESTART: consensus node
+[Sat Jun 20 15:08:16 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 15:08:26 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 15:08:56 PDT 2026] RESTART: consensus node
+[Sat Jun 20 15:08:59 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 15:09:10 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 15:09:40 PDT 2026] RESTART: consensus node
+[Sat Jun 20 15:09:43 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 15:09:53 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 15:10:24 PDT 2026] RESTART: consensus node
+[Sat Jun 20 15:10:27 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 15:10:37 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 15:11:07 PDT 2026] RESTART: consensus node
+[Sat Jun 20 15:11:11 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 15:11:21 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 15:11:51 PDT 2026] RESTART: consensus node
+[Sat Jun 20 15:11:54 PDT 2026] RESTART: SSH tunnel (process_alive=no)
+[Sat Jun 20 15:12:04 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 15:12:34 PDT 2026] RESTART: consensus node
+[Sat Jun 20 18:32:16 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 18:32:28 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 18:33:00 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 18:33:10 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 18:33:41 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 18:33:51 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 18:34:21 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 18:34:32 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 18:35:02 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 18:35:13 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 18:35:43 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 18:35:53 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 18:36:24 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 18:36:34 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 18:37:04 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 18:37:14 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 18:37:45 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 18:37:55 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 18:38:25 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 18:38:36 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 18:39:06 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 18:39:16 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 18:39:47 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 18:39:57 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 18:40:27 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 18:40:37 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 18:41:08 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 18:41:18 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 18:41:48 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 18:41:59 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 18:42:29 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 18:42:40 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 18:43:10 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 18:43:20 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 18:43:51 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 18:44:01 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 18:44:32 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 18:44:42 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 18:45:12 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 18:45:22 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 18:45:53 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 18:46:03 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 18:46:34 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 18:46:44 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 18:47:14 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 18:47:24 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 18:47:55 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 18:48:05 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 18:48:36 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 18:48:46 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 18:49:16 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 18:49:26 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 18:49:57 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 18:50:07 PDT 2026] SSH tunnel FAILED
+[Sat Jun 20 18:50:38 PDT 2026] RESTART: SSH tunnel (process_alive=yes)
+[Sat Jun 20 18:50:49 PDT 2026] SSH tunnel RESTORED
+nohup: ignoring input
+nohup: ignoring input
+[Sat Jun 20 22:06:18 PDT 2026] Guardian started (PID 20237)
+[Sat Jun 20 22:06:19 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:06:19 PDT 2026] RESTART: companion_server
+[Sat Jun 20 22:06:19 PDT 2026] RESTART: node3_bridge
+[Sat Jun 20 22:06:19 PDT 2026] RESTART: dashboard_bridge
+[Sat Jun 20 22:06:19 PDT 2026] RESTART: node3 localhost.run tunnel
+[Sat Jun 20 22:06:54 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:07:25 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:07:56 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:08:26 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:08:57 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:09:27 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:09:58 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:10:29 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:10:59 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:11:30 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:12:01 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:12:32 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:13:02 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:13:33 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:14:04 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:14:35 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:15:05 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:15:36 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:16:06 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:16:37 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:17:07 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:17:38 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:18:08 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:18:39 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:19:09 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:19:39 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:20:10 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:20:40 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:21:11 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:21:41 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:22:12 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:22:42 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:23:12 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:23:43 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:24:14 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:24:44 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:25:14 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:25:45 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:26:15 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:26:46 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:27:16 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:27:47 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:28:17 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:28:48 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:29:18 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:29:49 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:30:19 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:30:50 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:31:20 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:31:51 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:32:22 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:32:52 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:33:23 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:33:54 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:34:24 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:34:55 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:35:26 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:35:56 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:36:27 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:36:59 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:37:29 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:38:00 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:38:30 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:39:01 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:39:31 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:40:02 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:40:33 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:41:03 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:41:34 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:42:05 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:42:35 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:43:06 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:43:36 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:44:07 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:44:37 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:45:08 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:45:38 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:46:09 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:46:39 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:47:10 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:47:40 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:48:11 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:48:41 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:49:12 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:49:42 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:50:13 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:50:43 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:51:14 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:51:44 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:52:15 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:52:46 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:53:17 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:53:47 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:54:18 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:54:49 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:55:20 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:55:51 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:56:21 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:56:52 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:57:22 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:57:53 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:58:24 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:58:54 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:59:25 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 22:59:56 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:00:27 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:00:57 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:01:28 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:01:59 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:02:29 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:03:00 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:03:30 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:04:01 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:04:32 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:05:03 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:05:33 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:06:05 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:06:36 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:07:11 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:07:42 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:08:13 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:08:44 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:09:14 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:09:45 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:10:15 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:10:46 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:11:16 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:11:46 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:12:17 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:12:48 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:13:18 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:13:49 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:14:20 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:14:50 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:14:50 PDT 2026] RESTART: node3 http_server
+[Sat Jun 20 23:15:23 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:15:53 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:16:24 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:16:55 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:17:26 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:17:56 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:18:27 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:18:57 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:19:28 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:19:58 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:20:29 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:20:59 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:21:30 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:22:01 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:22:32 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:23:03 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:23:33 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:24:04 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:24:34 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:25:05 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:25:35 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:26:06 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:26:36 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:27:08 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:27:39 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:28:09 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:28:40 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:29:11 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:29:42 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:30:12 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:30:43 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:31:13 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:31:44 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:32:15 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:32:46 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:33:20 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:33:50 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:34:21 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:34:52 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:35:22 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:35:53 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:36:23 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:36:54 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:37:25 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:37:55 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:38:26 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:38:56 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:39:27 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:39:58 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:40:29 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:40:59 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:41:30 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:42:00 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:42:32 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:43:04 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:43:34 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:44:05 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:44:35 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:45:06 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:45:37 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:46:08 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:46:39 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:47:10 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:47:40 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:48:11 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:48:42 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:49:12 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:49:43 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:50:14 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:50:44 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:51:15 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:51:46 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:52:17 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:52:47 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:53:18 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:53:49 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:54:20 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:54:50 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:55:21 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:55:52 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:56:22 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:56:53 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:57:24 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:57:55 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:58:26 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:58:56 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:59:27 PDT 2026] RESTART: spawn_engine
+[Sat Jun 20 23:59:58 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:00:29 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:01:01 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:01:32 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:02:03 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:02:33 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:03:04 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:03:35 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:04:07 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:04:38 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:05:09 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:05:40 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:06:10 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:06:41 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:07:17 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:07:49 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:08:19 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:08:50 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:09:21 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:09:52 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:10:23 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:10:53 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:11:24 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:11:54 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:12:25 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:12:55 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:13:26 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:13:58 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:14:29 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:15:00 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:15:31 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:16:01 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:16:32 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:17:03 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:17:34 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:18:04 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:18:35 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:19:05 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:19:36 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:20:06 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:20:37 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:21:07 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:21:38 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:22:08 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:22:39 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:23:09 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:23:40 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:24:10 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:24:41 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:25:12 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:25:44 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:26:18 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:26:49 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:27:20 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:27:50 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:28:21 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:28:52 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:29:23 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:29:54 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:30:24 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:30:55 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:31:25 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:31:56 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:32:26 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:32:57 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:33:28 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:33:58 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:34:29 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:34:59 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:35:30 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:36:01 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:36:31 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:37:02 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:37:32 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:38:03 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:38:34 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:39:05 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:39:35 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:40:06 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:40:36 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:41:07 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:41:38 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:42:08 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:42:39 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:43:10 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:43:40 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:44:11 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:44:42 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:45:13 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:45:45 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:46:16 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:46:47 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:47:18 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:47:48 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:48:19 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:48:51 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:49:21 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:49:52 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:50:23 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:50:54 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:51:24 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:51:55 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:52:26 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:52:57 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:53:27 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:53:58 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:54:29 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:55:00 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:55:31 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:56:02 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:56:32 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:57:03 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:57:34 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:58:04 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:58:35 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:59:06 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 00:59:37 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:36:50 PDT 2026] Guardian started (PID 19385)
+[Sun Jun 21 01:36:50 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:36:50 PDT 2026] RESTART: node3 http_server
+[Sun Jun 21 01:36:52 PDT 2026] RESTART: companion_server
+[Sun Jun 21 01:36:52 PDT 2026] RESTART: node3_bridge
+[Sun Jun 21 01:36:52 PDT 2026] RESTART: dashboard_bridge
+[Sun Jun 21 01:36:53 PDT 2026] RESTART: node3 localhost.run tunnel
+[Sun Jun 21 01:37:30 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:37:30 PDT 2026] RESTART: tunnel_daemon
+[Sun Jun 21 01:38:09 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:38:39 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:39:10 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:39:40 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:40:11 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:40:42 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:41:13 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:41:43 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:42:14 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:42:44 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:43:16 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:43:46 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:44:17 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:44:47 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:45:19 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:45:49 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:46:20 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:46:51 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:47:21 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:47:52 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:48:22 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:48:53 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:49:23 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:49:54 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:50:24 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:50:55 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:51:25 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:51:55 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:52:26 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:52:57 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:53:27 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:53:58 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:54:28 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:54:59 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:55:32 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:56:04 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:56:35 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:57:06 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:57:36 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:57:37 PDT 2026] RESTART: provenance_api
+[Sun Jun 21 01:58:07 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:58:38 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:59:08 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 01:59:39 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:00:10 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:00:41 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:01:11 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:01:42 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:02:13 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:02:44 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:03:16 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:03:47 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:04:17 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:04:48 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:05:18 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:05:50 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:06:21 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:06:51 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:07:22 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:07:53 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:08:23 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:08:54 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:09:24 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:09:54 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:10:25 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:10:55 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:11:26 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:12:00 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:12:31 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:13:01 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:13:32 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:14:03 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:14:33 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:15:04 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:15:35 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:16:07 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:16:37 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:17:08 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:17:39 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:18:09 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:18:40 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:19:11 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:19:41 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:20:12 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:20:43 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:21:14 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:21:46 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:22:17 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:22:49 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:23:20 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:23:51 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:24:22 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:24:53 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:25:24 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:25:55 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:26:26 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:26:57 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:27:28 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:27:58 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:28:28 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:28:59 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:29:29 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:30:01 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:30:31 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:31:02 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:31:32 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:32:03 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:32:33 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:33:04 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:33:34 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:34:05 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:34:35 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:35:06 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:35:36 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:36:07 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:36:37 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:37:07 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:37:40 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:38:11 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:38:41 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:39:12 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:39:42 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:40:13 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:40:43 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:41:14 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:41:44 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:42:15 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:42:45 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:43:16 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:43:46 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:44:17 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:44:48 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:45:18 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:45:48 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:46:19 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:46:49 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:47:20 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:47:52 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:48:23 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:48:53 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:49:24 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:49:55 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:50:25 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:50:56 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:51:26 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:51:57 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:52:27 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:52:58 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:52:58 PDT 2026] RESTART: provenance_api
+[Sun Jun 21 02:53:28 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:53:59 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:54:29 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:55:00 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:55:30 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:56:01 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:56:32 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:57:03 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:57:33 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:58:04 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:58:34 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:59:05 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 02:59:35 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:00:06 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:00:36 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:01:07 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:01:37 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:02:08 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:02:38 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:03:09 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:03:40 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:04:11 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:04:41 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:05:12 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:05:42 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:06:13 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:06:43 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:07:14 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:07:44 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:08:15 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:08:45 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:09:16 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:09:46 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:10:17 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:10:47 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:11:18 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:11:48 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:12:19 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:12:49 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:13:20 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:13:51 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:14:21 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:14:51 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:15:22 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:15:52 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:16:23 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:16:53 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:17:24 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:17:54 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:18:25 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:18:55 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:19:26 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:19:56 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:20:27 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:20:57 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:21:28 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:21:58 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:22:29 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:22:59 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:23:30 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:24:00 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:24:31 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:25:01 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:25:32 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:26:02 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:26:33 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:27:03 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:27:34 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:28:04 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:28:35 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:29:05 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:29:36 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:30:06 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:30:38 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:31:08 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:31:39 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:32:09 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:32:40 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:33:10 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:33:41 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:34:12 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:34:43 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:35:14 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:35:44 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:36:15 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:36:45 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:37:17 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:37:51 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:38:22 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:38:53 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:39:23 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:39:54 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:40:24 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:40:55 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:41:25 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:41:56 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:42:26 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:42:57 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:43:27 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:43:58 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:44:28 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:44:58 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:45:31 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:46:02 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:46:34 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:47:05 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:47:35 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:48:06 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:48:36 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:49:07 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:49:37 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:50:08 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:50:38 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:51:09 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:51:39 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:52:10 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:52:40 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:53:11 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:53:41 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:54:11 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:54:42 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:55:13 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:55:43 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:56:14 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:56:44 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:57:15 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:57:45 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:58:16 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:58:46 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:59:16 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 03:59:48 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 04:00:18 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 04:00:50 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 04:01:20 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 04:01:51 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 04:02:22 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 04:02:52 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 04:03:24 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 04:03:54 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 04:04:25 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 04:04:56 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 04:05:27 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 04:05:57 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 04:06:28 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 04:06:58 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 04:07:29 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 04:07:59 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 04:08:30 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 04:09:01 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 04:09:31 PDT 2026] RESTART: consensus
+[Sun Jun 21 04:09:34 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 04:10:05 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 04:10:26 PDT 2026] Guardian started (PID 32706)
+[Sun Jun 21 04:10:27 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 04:10:27 PDT 2026] RESTART: node3 http_server
+[Sun Jun 21 04:10:59 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 04:10:59 PDT 2026] RESTART: companion_server
+[Sun Jun 21 04:10:59 PDT 2026] RESTART: node3_bridge
+[Sun Jun 21 04:11:30 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 04:12:03 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 04:12:34 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 04:13:05 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 04:13:36 PDT 2026] RESTART: spawn_engine
+[Sun Jun 21 04:14:06 PDT 2026] RESTART: spawn_engine

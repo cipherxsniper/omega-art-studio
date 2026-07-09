@@ -1,0 +1,62 @@
+{
+  "instances": {
+    "5a1c35f44d956d98": {
+      "instance_id": "5a1c35f44d956d98",
+      "owner_email": "test@omega.ai",
+      "owner_name": "TestUser",
+      "tier": "lite",
+      "port": 6000,
+      "subdomain": "testuser-5a1c35",
+      "status": "ACTIVE",
+      "created_at": "2026-06-14T14:42:11.447363+00:00",
+      "expires_at": "2026-07-14T14:42:11.447405+00:00",
+      "stripe_id": null,
+      "key_id": "54a957fddc30ff74"
+    },
+    "a600f3fe22428f48": {
+      "instance_id": "a600f3fe22428f48",
+      "owner_email": "victoria@test.com",
+      "owner_name": "Victoria Thompson",
+      "tier": "sovereign",
+      "port": 6001,
+      "subdomain": "victoriathompson-a600f3",
+      "status": "TERMINATED",
+      "created_at": "2026-06-14T23:30:05.800123+00:00",
+      "expires_at": "2026-07-14T23:30:05.800179+00:00",
+      "stripe_id": "pi_test_victoria_1497",
+      "key_id": "4a4bbf062842f201",
+      "terminated_at": "2026-06-15T00:32:06.292351+00:00"
+    },
+    "b522fc886f47d526": {
+      "instance_id": "b522fc886f47d526",
+      "owner_email": "bbygirlv94@gmail.com",
+      "owner_name": "Victoria Thompson",
+      "tier": "sovereign",
+      "port": 6002,
+      "subdomain": "victoriathompson-b522fc",
+      "status": "ACTIVE",
+      "created_at": "2026-06-15T00:32:15.788912+00:00",
+      "expires_at": "2026-07-15T00:32:15.788940+00:00",
+      "stripe_id": null,
+      "key_id": "8a0829241830eafe"
+    },
+    "0a12807ca947ecc8": {
+      "instance_id": "0a12807ca947ecc8",
+      "owner_email": "simpl3hoods@gmail.com",
+      "owner_name": "Thomas Lee Harvey",
+      "tier": "sovereign",
+      "port": 6003,
+      "subdomain": "thomasleeharvey-0a1280",
+      "status": "ACTIVE",
+      "created_at": "2026-06-15T05:03:56.094872+00:00",
+      "expires_at": "2026-07-15T05:03:56.094969+00:00",
+      "stripe_id": "OMEGA_FOUNDER_NODE_FREE",
+      "key_id": "1b0b07fd060cd883"
+    }
+  },
+  "port_assignments": {
+    "5a1c35f44d956d98": 6000,
+    "b522fc886f47d526": 6002,
+    "0a12807ca947ecc8": 6003
+  }
+}

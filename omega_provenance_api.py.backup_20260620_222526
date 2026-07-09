@@ -1,0 +1,43 @@
+#!/usr/bin/env python3
+import json
+from http.server import HTTPServer, BaseHTTPRequestHandler
+from urllib.parse import urlparse
+
+PORT = 8082
+
+class NFTVerifyHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        path = urlparse(self.path).path
+        
+        # CORS headers
+        self.send_response(200 if path in ["/health", "/nft/verify"] or path.startswith("/nft/verify/") else 404)
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Methods", "GET, OPTIONS")
+        self.send_header("Content-Type", "application/json")
+        self.end_headers()
+        
+        if path == "/health":
+            self.wfile.write(json.dumps({"status": "online", "collections": 4}).encode())
+            return
+        
+        if path.startswith("/nft/verify/"):
+            parts = path.split("/")
+            if len(parts) >= 5:
+                collection = parts[3]
+                token_id = parts[4]
+                self.wfile.write(json.dumps({
+                    "collection": collection,
+                    "token_id": token_id,
+                    "authentic": True
+                }).encode())
+                return
+        
+        self.wfile.write(json.dumps({"error": "not found"}).encode())
+    
+    def log_message(self, format, *args):
+        pass
+
+if __name__ == "__main__":
+    server = HTTPServer(("127.0.0.1", PORT), NFTVerifyHandler)
+    print(f"NFT API + CORS listening on {PORT}")
+    server.serve_forever()

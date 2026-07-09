@@ -1,0 +1,20 @@
+{
+  "ts": "2026-06-23T05:07:10.162498+00:00",
+  "tarball_sha256": "92881bd200991993059f593b5fc5716b46c068c55c65d4e2c7efcad5c36403ed",
+  "tarball_size": 119791,
+  "local": {
+    "object_id": "2814f683236b4f1b8390911fc05f4fb4",
+    "owner_id": "thomas_lee_harvey",
+    "object_name": "system_backup_20260623_050709.tar.gz",
+    "content_type": "application/gzip",
+    "size_bytes": 119791,
+    "checksum": "b8be48c2c72e65c84560f1ef6091361017bb4d402a1d65a40e0c34ea0aa7ff25",
+    "immutable": true,
+    "created_at": "2026-06-23T05:07:10.020236+00:00",
+    "node": "node3"
+  },
+  "remote": {
+    "ok": false,
+    "error": "ssh: connect to host 192.168.11.163 port 8022: Connection refused\n/data/data/com.termux/files/usr/bin/scp: Connection closed"
+  }
+}

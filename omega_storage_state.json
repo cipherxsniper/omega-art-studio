@@ -1,0 +1,77 @@
+{
+  "timestamp": "2026-06-16T22:06:32.661950",
+  "version": "1.0",
+  "score": 100,
+  "max_score": 100,
+  "critical": 0,
+  "warnings": 0,
+  "issues": [
+    "\u2705 All storage metrics optimal"
+  ],
+  "storage": {
+    "internal": {
+      "path": "/data",
+      "total_bytes": 111558000640,
+      "used_bytes": 49095725056,
+      "free_bytes": 62462275584,
+      "used_pct": 44.01,
+      "total_human": "103.90 GB",
+      "used_human": "45.72 GB",
+      "free_human": "58.17 GB"
+    },
+    "external": {
+      "path": "/sdcard",
+      "total_bytes": 111558000640,
+      "used_bytes": 49095725056,
+      "free_bytes": 62462275584,
+      "used_pct": 44.01,
+      "total_human": "103.90 GB",
+      "used_human": "45.72 GB",
+      "free_human": "58.17 GB"
+    },
+    "termux_home": {
+      "path": "/data/data/com.termux/files/home",
+      "total_bytes": 111558000640,
+      "used_bytes": 49095725056,
+      "free_bytes": 62462275584,
+      "used_pct": 44.01,
+      "total_human": "103.90 GB",
+      "used_human": "45.72 GB",
+      "free_human": "58.17 GB"
+    }
+  },
+  "inode": {
+    "total": 13511677,
+    "used": 332058,
+    "free": 13179619,
+    "used_pct": 2.46
+  },
+  "database": {
+    "exists": true,
+    "size_bytes": 4096,
+    "size_human": "4.00 KB",
+    "tables": 8,
+    "entries": 8
+  },
+  "logs": {
+    "exists": true,
+    "size_bytes": 184802,
+    "size_human": "180.47 KB",
+    "files": 14,
+    "largest_file": "2026-06-16.log (86.92 KB)"
+  },
+  "thresholds": {
+    "disk_warn": 85,
+    "disk_crit": 95,
+    "db_warn_gb": 2.0,
+    "db_crit_gb": 4.0,
+    "log_warn_gb": 1.0,
+    "log_crit_gb": 2.0,
+    "inode_warn": 90,
+    "inode_crit": 98
+  },
+  "hash": "c572f786284c5422",
+  "previous_hash": "c8be4a084cd7a8ae",
+  "delta": 0,
+  "status": "State changed"
+}

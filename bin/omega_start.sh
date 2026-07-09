@@ -1,0 +1,1 @@
+/data/data/com.termux/files/home/Omega-Production/omega_bank/scripts/omega_start.sh
