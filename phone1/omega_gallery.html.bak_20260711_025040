@@ -640,16 +640,13 @@ var API_URL = 'https://prize-loud-desktop-inch.trycloudflare.com';
     if (d.api) API_URL = d.api;
   } catch(e) {}
 })();
-var COLLECTIONS = ['echoes', 'somnium', 'paracosm', 'monolith', 'le-bal', 'realism_punks', 'surrealism_punks', 'prosoneira'];
+var COLLECTIONS = ['echoes', 'somnium', 'paracosm', 'monolith', 'le-bal'];
 var FOLDER_MAP = {
   'Echoes of Eternity': { folder: 'echoes_of_eternity', pad: 4 },
   'Somnium':            { folder: 'somnium',            pad: 4 },
   'Paracosm':           { folder: 'paracosm',            pad: 4 },
   'Monolith':           { folder: 'monolith',            pad: 4 },
-  'Le Bal des Rêves':   { folder: 'le_bal_des_reves',   pad: 4 },
-  'Realism Punks':      { folder: 'realism_punks',      pad: 4 },
-  'Surrealism Punks':   { folder: 'surrealism_punks',   pad: 4 },
-  'Prosoneira':         { folder: 'prosoneira',         pad: 4 }
+  'Le Bal des Rêves':   { folder: 'le_bal_des_reves',   pad: 4 }
 };
 var ALL_TOKENS = [];
 var currentFilter = 'all';
@@ -756,7 +753,7 @@ function render() {
               : t.is_founder_linked ?
               '<div style="text-align:center;color:#8B7355;font-size:9px;font-style:italic;">Founder Held · Not For Sale</div>'
               : t.stripe_payment_link ?
-              '<button onclick="event.stopPropagation();addToCart(' + t.token_id + ',\''+t.collection+'\',\''+t.title+'\',\''+t.rarity+'\',\''+t.stripe_payment_link+'\')" style="display:block;width:100%;background:#C9A84C;color:#0D0B0E;padding:8px;font-size:10px;letter-spacing:2px;font-weight:bold;text-transform:uppercase;border:none;cursor:pointer;font-family:\'JetBrains Mono\',monospace;">Add to Cart · ' + ({"Impossible Diamond":"$2,500","Gold":"$500","Silver":"$150","Bronze":"$75","Common":"$15"}[t.rarity]||"$15") + '</button>'
+              '<button onclick="event.stopPropagation();addToCart(' + t.token_id + ',\''+t.collection+'\',\''+t.title+'\',\''+t.rarity+'\',\''+t.stripe_payment_link+'\')" style="display:block;width:100%;background:#C9A84C;color:#0D0B0E;padding:8px;font-size:10px;letter-spacing:2px;font-weight:bold;text-transform:uppercase;border:none;cursor:pointer;font-family:\'JetBrains Mono\',monospace;">Add to Cart · ' + ({"Impossible Diamond":"$2,500","Black Diamond":"$500","Super Rare":"$150","Rare":"$75","Medium":"$35","Common":"$15"}[t.rarity]||"$15") + '</button>'
               : '<div style="text-align:center;color:#8B7355;font-size:9px;">Not available</div>'
             ) +
           '</div>' +
@@ -768,7 +765,7 @@ function render() {
 
 loadAll();
 
-const PRICES={"Impossible Diamond":2500,"Gold":500,"Silver":150,"Bronze":75,"Common":15};
+const PRICES={"Impossible Diamond":2500,"Black Diamond":500,"Super Rare":150,"Rare":75,"Medium":35,"Common":15};
 let cart=JSON.parse(localStorage.getItem('omega_cart')||'[]');
 
 function saveCart(){localStorage.setItem('omega_cart',JSON.stringify(cart));renderCart();}
