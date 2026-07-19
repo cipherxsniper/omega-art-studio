@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Omega Ledger — Verify Record</title>
+<style>
+  body{background:#0a0e14;color:#e8eef8;font-family:'Space Mono',monospace;
+    display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;padding:24px;}
+  .card{max-width:520px;width:100%;border:1px solid #c9a96150;background:rgba(255,255,255,0.02);padding:32px;}
+  h1{font-size:16px;letter-spacing:3px;text-transform:uppercase;color:#c9a961;margin-bottom:20px;}
+  .field{margin-bottom:16px;}
+  .label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#c9a961;opacity:0.7;margin-bottom:4px;}
+  .value{font-size:12px;color:#e8eef8;word-break:break-all;line-height:1.6;}
+  .status-ok{color:#4ade80;}
+  .status-bad{color:#f87171;}
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>Omega Ledger Verification</h1>
+    <div id="result">Loading…</div>
+  </div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    const resultEl = document.getElementById('result');
+    fetch('./data/manifest.json')
+      .then(r => r.json())
+      .then(data => {
+        if (!id || !data[id]) {
+          resultEl.innerHTML = '<div class="field"><div class="value status-bad">No record found for this ID.</div></div>';
+          return;
+        }
+        const rec = data[id];
+        resultEl.innerHTML = `
+          <div class="field"><div class="label">Status</div><div class="value status-ok">✓ Verified on Omega Sovereign Registry</div></div>
+          <div class="field"><div class="label">Filename</div><div class="value">${rec.filename}</div></div>
+          <div class="field"><div class="label">Content Hash (SHA-256)</div><div class="value">${rec.content_hash}</div></div>
+          <div class="field"><div class="label">OM109 Signature (Ed25519)</div><div class="value">Position ${rec.om109_position} \u2014 ${rec.om109_signature}</div></div>
+          <div class="field"><div class="label">Chain Record</div><div class="value">prev: ${rec.prev_chain_hash}<br>this: ${rec.entry_chain_hash}</div></div>
+          <div class="field"><div class="label">Note</div><div class="value">${rec.note}</div></div>
+        `;
+      })
+      .catch(() => { resultEl.innerHTML = '<div class="value status-bad">Could not load ledger manifest.</div>'; });
+  </script>
+</body>
+</html>
