@@ -136,6 +136,7 @@ a { color: inherit; }
 .og-dropzone { border: 2px dashed var(--line); border-radius: 10px; padding: 36px 16px; text-align: center;
   color: var(--text-dim); margin-bottom: 16px; cursor: pointer; }
 .og-dropzone.og-drag { border-color: var(--gold); color: var(--gold); }
+.og-file-native { display:block; width:100%; color: var(--parchment); background: var(--antique-black); border:1px solid var(--line); border-radius:8px; padding:10px; font-size:13px; box-sizing:border-box; }
 .og-status-text { color: var(--text-dim); font-size: 14px; line-height: 1.6; }
 
 #og-about { padding: 74px 20px 96px; }
@@ -28754,10 +28755,11 @@ plausible.init()
       </div>
       <div id="og-step-upload" class="og-step" style="display:none">
         <label class="og-label">File to certify</label>
-        <label id="og-dropzone" class="og-dropzone" for="og-file-input">
-          <input id="og-file-input" type="file" style="display:none">
-          <div id="og-dropzone-text">Drag &amp; drop, or tap to choose a file</div>
-        </label>
+        <div id="og-dropzone" class="og-dropzone" style="text-align:left;cursor:default;">
+          <label class="og-label" for="og-file-input" style="margin-bottom:6px;display:block;">Choose file</label>
+          <input id="og-file-input" type="file" class="og-file-native">
+          <div id="og-dropzone-text" style="font-size:12px;color:var(--text-dim);margin-top:8px;">No file selected</div>
+        </div>
         <button type="button" id="og-certify-btn" class="og-btn og-btn-red" disabled>Certify Document</button>
       </div>
       <div id="og-step-status" class="og-step" style="display:none">
