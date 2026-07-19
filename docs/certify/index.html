@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Certify a Document — Omega Sovereign Registry</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Space+Mono:wght@400;700&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:#0a0e14; color:#e8eef8; font-family:'Cormorant Garamond',serif;
+    min-height:100vh; padding:32px 20px; display:flex; align-items:center; justify-content:center;
+  }
+  .wrap{ width:100%; max-width:640px; }
+  .eyebrow{ font-family:'Space Mono',monospace; font-size:11px; letter-spacing:5px; text-transform:uppercase;
+    color:#c9a961; text-align:center; margin-bottom:12px; }
+  h1{ font-size:34px; font-weight:400; text-align:center; color:#fff; margin-bottom:8px; }
+  .sub{ font-size:15px; font-style:italic; color:#a8b2c4; text-align:center; max-width:480px; margin:0 auto 36px; line-height:1.5; }
+  .card{ border:1px solid #c9a96150; background:rgba(255,255,255,0.02); padding:32px; position:relative; }
+  .card::before, .card::after{ content:''; position:absolute; width:16px; height:16px; border-color:#c9a961; border-style:solid; }
+  .card::before{ top:-1px; left:-1px; border-width:2px 0 0 2px; }
+  .card::after{ bottom:-1px; right:-1px; border-width:0 2px 2px 0; }
+  label{ display:block; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:3px;
+    text-transform:uppercase; color:#c9a961; opacity:0.8; margin-bottom:8px; }
+  input[type=email]{
+    width:100%; background:#0d1219; border:1px solid #c9a96150; color:#e8eef8;
+    font-family:'Space Mono',monospace; font-size:13px; padding:12px 14px; margin-bottom:24px;
+  }
+  input[type=email]:focus{ outline:none; border-color:#c9a961; }
+  .dropzone{
+    border:1.5px dashed #c9a96170; padding:36px 20px; text-align:center; cursor:pointer;
+    margin-bottom:24px; transition:border-color 0.15s;
+  }
+  .dropzone.drag{ border-color:#c9a961; background:rgba(201,169,97,0.04); }
+  .dropzone .dz-label{ font-family:'Space Mono',monospace; font-size:11px; letter-spacing:2px;
+    text-transform:uppercase; color:#c9a961; margin-bottom:6px; }
+  .dropzone .dz-file{ font-size:14px; color:#e8eef8; margin-top:6px; word-break:break-all; }
+  input[type=file]{ display:none; }
+  button{
+    width:100%; background:#c9a961; color:#0a0e14; border:none; padding:14px;
+    font-family:'Space Mono',monospace; font-size:12px; letter-spacing:3px; text-transform:uppercase;
+    font-weight:700; cursor:pointer; transition:opacity 0.15s;
+  }
+  button:hover{ opacity:0.88; }
+  button:disabled{ opacity:0.4; cursor:not-allowed; }
+  .status{ margin-top:20px; font-family:'Space Mono',monospace; font-size:12px; text-align:center; display:none; }
+  .status.show{ display:block; }
+  .status.ok{ color:#4ade80; }
+  .status.bad{ color:#f87171; }
+  .status a{ color:#c9a961; }
+  .note{ margin-top:28px; text-align:center; font-family:'Space Mono',monospace; font-size:9.5px;
+    letter-spacing:1px; color:#c9a961; opacity:0.55; line-height:1.7; }
+  .back{ display:block; text-align:center; margin-top:24px; font-family:'Space Mono',monospace;
+    font-size:10px; letter-spacing:2px; color:#a8b2c4; text-decoration:none; }
+  .back:hover{ color:#c9a961; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="eyebrow">Omega Sovereign Registry</div>
+    <h1>Certify a Document</h1>
+    <div class="sub">Free. Cryptographically signed under OM109, chain-hashed, and independently verifiable — no account, no trust required in our servers.</div>
+    <div class="card">
+      <form id="certForm">
+        <label>Your Email</label>
+        <input type="email" id="email" placeholder="you@example.com" required>
+        <label>Document</label>
+        <div class="dropzone" id="dropzone">
+          <div class="dz-label">Click or drop a file</div>
+          <div class="dz-file" id="dzFile">No file selected</div>
+        </div>
+        <input type="file" id="fileInput">
+        <button type="submit" id="submitBtn">Certify Document</button>
+      </form>
+      <div class="status" id="status"></div>
+    </div>
+    <div class="note">Your file is hashed, signed, and never stored beyond generating your certificate.<br>The public record contains only the file's hash — never its contents or your email.</div>
+    <a class="back" href="../gallery/">← Back to Omega Art Studio</a>
+  </div>
+<script>
+  var CERTIFY_API = 'https://characterized-cds-clouds-alloy.trycloudflare.com';
+  const dz = document.getElementById('dropzone');
+  const fileInput = document.getElementById('fileInput');
+  const dzFile = document.getElementById('dzFile');
+  const form = document.getElementById('certForm');
+  const statusEl = document.getElementById('status');
+  const btn = document.getElementById('submitBtn');
+  let selectedFile = null;
+  dz.addEventListener('click', () => fileInput.click());
+  dz.addEventListener('dragover', e => { e.preventDefault(); dz.classList.add('drag'); });
+  dz.addEventListener('dragleave', () => dz.classList.remove('drag'));
+  dz.addEventListener('drop', e => {
+    e.preventDefault(); dz.classList.remove('drag');
+    if (e.dataTransfer.files.length) { selectedFile = e.dataTransfer.files[0]; dzFile.textContent = selectedFile.name; }
+  });
+  fileInput.addEventListener('change', () => {
+    if (fileInput.files.length) { selectedFile = fileInput.files[0]; dzFile.textContent = selectedFile.name; }
+  });
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    if (!selectedFile) { showStatus('Please select a file.', false); return; }
+    btn.disabled = true; btn.textContent = 'Certifying…';
+    statusEl.className = 'status';
+    const fd = new FormData();
+    fd.append('email', email);
+    fd.append('file', selectedFile);
+    try {
+      const res = await fetch(CERTIFY_API + '/certify', { method: 'POST', body: fd });
+      const data = await res.json();
+      if (data.ok) {
+        showStatus(`Certified. <a href="${data.verify_url}" target="_blank">View your certificate →</a> A copy was also emailed to you.`, true);
+        form.reset(); selectedFile = null; dzFile.textContent = 'No file selected';
+      } else {
+        showStatus('Certification failed: ' + (data.error || 'unknown error'), false);
+      }
+    } catch (err) {
+      showStatus('Could not reach the registry. Please try again shortly.', false);
+    }
+    btn.disabled = false; btn.textContent = 'Certify Document';
+  });
+  function showStatus(html, ok) {
+    statusEl.innerHTML = html;
+    statusEl.className = 'status show ' + (ok ? 'ok' : 'bad');
+  }
+</script>
+</body>
+</html>
