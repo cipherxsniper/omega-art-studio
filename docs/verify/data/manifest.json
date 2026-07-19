@@ -8,6 +8,15 @@
     "om109_signature": "174dbb565f453a2c8f216587d0e6c277a18c6fe5c04316fbc57ef6af9e79762b581aa0076fa55c6187796ae10902d8b3c13e23aa7e18f4cdc7116e94d661b600",
     "prev_chain_hash": "ef275a4d12ced3af6b91b7ebfb56be526ed1791f5fdd937c5991ea7ca96958e4"
   },
+  "d1eca6379dedbfab3b9409ce36d0c6ebd2da1b38184b144c32220f8b246d8aa2": {
+    "content_hash": "b4a8be81037c4ae9001913647813bc454dc6637975ab2448dd33f4967cac5c8d",
+    "entry_chain_hash": "d1eca6379dedbfab3b9409ce36d0c6ebd2da1b38184b144c32220f8b246d8aa2",
+    "filename": "test_certify_doc.txt",
+    "note": "Cryptographically signed and hash-chained. Verifiable offline \u2014 not yet broadcast on-chain.",
+    "om109_position": 116,
+    "om109_signature": "b0934f761c2457689b329d682851b03e1f530f2a4a7db391cc7d00d232350b3d2fbff6552e03a098fa428cde10769ce1876e2084e4e8e31a734ec50c3acacc04",
+    "prev_chain_hash": "95826e0e712dc6a4fb623ae65f2265062fa7908809262eaab2a1f2366a876a5c"
+  },
   "e7fc5f13740600c1bb92cf2aadfed4a5f36934fbdcf58d8739713f41b688eb9e": {
     "content_hash": "b4a8be81037c4ae9001913647813bc454dc6637975ab2448dd33f4967cac5c8d",
     "entry_chain_hash": "e7fc5f13740600c1bb92cf2aadfed4a5f36934fbdcf58d8739713f41b688eb9e",
