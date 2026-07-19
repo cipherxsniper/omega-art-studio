@@ -5,87 +5,339 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Omega Empire — NFT Gallery</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700;900&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #0a0910; --card: #14121a; --pink: #ec4899; --border: rgba(236,72,153,0.3);
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0; background: var(--bg); color: #f0eef2;
-    font-family: 'Inter', system-ui, sans-serif;
-  }
-  header { padding: 24px 16px 8px; text-align: center; }
-  h1 { font-family: 'Fraunces', serif; font-weight: 700; font-size: 28px; margin: 0 0 4px; }
-  .stat { color: #999; font-size: 13px; }
-  .filters { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; padding: 16px; }
-  .filter-btn {
-    background: var(--card); border: 1px solid var(--border); color: #ccc;
-    border-radius: 999px; padding: 6px 14px; font-size: 12px; cursor: pointer;
-  }
-  .filter-btn.active { background: var(--pink); color: #000; font-weight: 600; }
-  .grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 12px; padding: 0 16px 40px; max-width: 1200px; margin: 0 auto;
-  }
-  .tile { aspect-ratio: 1/1; perspective: 1200px; cursor: pointer; }
-  .tile-inner {
-    position: relative; width: 100%; height: 100%;
-    transform-style: preserve-3d; transition: transform 0.6s;
-  }
-  .tile.flipped .tile-inner { transform: rotateY(180deg); }
-  .face {
-    position: absolute; inset: 0; backface-visibility: hidden;
-    border-radius: 12px; overflow: hidden; border: 1px solid var(--border);
-  }
-  .front img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .back {
-    transform: rotateY(180deg); background: var(--card);
-    padding: 10px; display: flex; flex-direction: column;
-    justify-content: space-between; overflow-y: auto;
-  }
-  .badge-sold {
-    position: absolute; top: 6px; right: 6px; background: rgba(220,38,38,0.9);
-    color: #fff; font-size: 8px; font-weight: 700; padding: 2px 8px; border-radius: 999px;
-  }
-  .badge-founder {
-    position: absolute; top: 6px; left: 6px; background: rgba(234,179,8,0.9);
-    color: #000; font-size: 8px; font-weight: 700; padding: 2px 8px; border-radius: 999px;
-  }
-  .caption {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
-    padding: 8px;
-  }
-  .caption .title { font-size: 10px; font-weight: 600; font-family: 'Fraunces', serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .caption .sub { font-size: 9px; color: #aaa; }
-  .coa-header { color: var(--pink); font-size: 9px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 6px; }
-  .coa-title { font-size: 11px; font-weight: 600; font-family: 'Fraunces', serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .coa-sub { font-size: 9px; color: #999; margin-bottom: 6px; }
-  .coa-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin-bottom: 6px; }
-  .coa-cell { background: rgba(255,255,255,0.04); border-radius: 4px; padding: 4px 6px; }
-  .coa-cell .k { font-size: 8px; color: #888; }
-  .coa-cell .v { font-size: 8px; font-weight: 600; }
-  .coa-theme { font-size: 8px; color: #999; margin-bottom: 6px; line-height: 1.3; }
-  .coa-crypto { font-family: 'IBM Plex Mono', monospace; font-size: 7px; color: #888; word-break: break-all; }
-  .coa-crypto span { color: rgba(236,72,153,0.7); }
-  .coa-crypto div { margin-bottom: 2px; }
-  .buy-btn {
-    display: flex; align-items: center; justify-content: center; gap: 4px;
-    font-size: 10px; font-weight: 600; background: var(--pink); color: #000;
-    border-radius: 6px; padding: 6px; margin-top: 6px; text-decoration: none;
-    flex-shrink: 0;
-  }
-  footer { text-align: center; color: #666; font-size: 11px; padding: 20px; }
+:root {
+  --antique-black: #16130f;
+  --antique-panel: #211b15;
+  --antique-panel2: #2a2219;
+  --parchment: #e9dfc8;
+  --gold: #c9a24b;
+  --gold-bright: #e0bd6b;
+  --red: #7c2530;
+  --red-bright: #9c3140;
+  --green: #2f5233;
+  --green-bright: #3e6b45;
+  --line: rgba(201,162,75,0.25);
+  --text-dim: #a89a7e;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at top, rgba(201,162,75,0.06), transparent 60%),
+    var(--antique-black);
+  color: var(--parchment);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+a { color: inherit; }
+
+/* ===== Hamburger + sidenav ===== */
+#og-hamburger {
+  position: fixed; top: 16px; left: 16px; z-index: 70;
+  width: 42px; height: 42px; border: 1px solid var(--line);
+  border-radius: 8px; background: rgba(33,27,21,0.92);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 5px; cursor: pointer; backdrop-filter: blur(4px);
+}
+#og-hamburger span { width: 20px; height: 2px; background: var(--gold); border-radius: 2px; }
+#og-sidenav {
+  position: fixed; top: 0; left: 0; height: 100vh; width: 260px;
+  background: linear-gradient(180deg, var(--antique-panel), var(--antique-black));
+  border-right: 1px solid var(--line); z-index: 69;
+  transform: translateX(-100%); transition: transform .28s ease;
+  padding: 90px 24px 24px; display: flex; flex-direction: column; gap: 22px;
+}
+#og-sidenav.og-open { transform: translateX(0); }
+#og-sidenav .og-nav-brand {
+  font-family: 'Fraunces', serif; font-weight: 700; font-size: 18px;
+  color: var(--gold-bright); margin-bottom: 6px; letter-spacing: .03em;
+}
+.og-nav-link {
+  color: var(--parchment); text-decoration: none; font-size: 14px;
+  letter-spacing: .04em; padding: 10px 0; border-bottom: 1px solid transparent;
+  display: flex; align-items: center; gap: 10px;
+}
+.og-nav-link:hover { color: var(--gold-bright); border-color: var(--line); }
+#og-nav-scrim { position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 65; display: none; }
+#og-nav-scrim.og-open { display: block; }
+
+/* ===== NFT of the Week — museum hero, top of page ===== */
+#og-hero {
+  padding: 100px 20px 70px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(201,162,75,0.12), transparent 55%),
+    linear-gradient(180deg, var(--antique-panel), var(--antique-black));
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.og-eyebrow { font-size: 12px; letter-spacing: .28em; color: var(--gold); font-weight: 600; margin-bottom: 10px; }
+.og-h2 { font-family: 'Fraunces', serif; font-weight: 700; font-size: 28px; margin: 0 0 8px; color: var(--parchment); }
+.og-hero-sub { color: var(--text-dim); font-size: 13px; margin-bottom: 40px; }
+
+.og-museum { position: relative; display: flex; flex-direction: column; align-items: center; }
+.og-spotlight {
+  position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
+  width: 520px; height: 520px;
+  background: conic-gradient(from 200deg at 50% 0%, transparent, rgba(224,189,107,0.20), transparent 60%);
+  filter: blur(2px);
+  pointer-events: none;
+}
+.og-stage { perspective: 1400px; width: 260px; height: 260px; margin-bottom: 26px; position: relative; }
+.og-rotator {
+  width: 100%; height: 100%; position: relative;
+  transform-style: preserve-3d;
+  animation: og-spin-3d 14s linear infinite;
+  box-shadow: 0 30px 60px rgba(0,0,0,.65);
+  border-radius: 14px;
+}
+.og-rotator img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; border-radius: 14px;
+  border: 1px solid var(--line);
+  backface-visibility: hidden;
+}
+.og-rotator .og-face-back { transform: rotateY(180deg); }
+@keyframes og-spin-3d {
+  from { transform: rotateY(0deg); }
+  to   { transform: rotateY(360deg); }
+}
+.og-pedestal-shadow {
+  width: 180px; height: 22px; margin: 0 auto 22px;
+  background: radial-gradient(ellipse, rgba(0,0,0,0.55), transparent 70%);
+}
+.og-plaque {
+  border-top: 1px solid var(--line); padding-top: 14px; display: inline-block; min-width: 240px;
+}
+.og-plaque-title { font-family: 'Fraunces', serif; font-weight: 600; font-size: 17px; color: var(--parchment); }
+.og-plaque-sub { font-size: 12px; color: var(--text-dim); margin-top: 4px; letter-spacing: .04em; }
+
+/* ===== Collections ===== */
+#og-collections { padding: 60px 20px 20px; max-width: 1100px; margin: 0 auto; }
+.og-album-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 18px; }
+.og-album-card {
+  cursor: pointer; border: 1px solid var(--line); border-radius: 10px; overflow: hidden;
+  background: var(--antique-panel); transition: transform .15s, box-shadow .15s, border-color .15s;
+}
+.og-album-card:hover { transform: translateY(-3px); box-shadow: 0 14px 26px rgba(0,0,0,.5); border-color: var(--gold); }
+.og-album-cover { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; }
+.og-album-meta { padding: 12px; border-top: 1px solid var(--line); }
+.og-album-name { font-family: 'Fraunces', serif; font-size: 13px; font-weight: 600; color: var(--parchment); margin-bottom: 4px; }
+.og-album-count { font-size: 11px; color: var(--text-dim); letter-spacing: .05em; }
+
+#og-collection-view { display: none; max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+.og-back-btn {
+  background: none; border: 1px solid var(--gold); color: var(--gold-bright);
+  padding: 9px 18px; border-radius: 8px; cursor: pointer; margin-bottom: 22px; font-size: 13px;
+}
+.og-back-btn:hover { background: rgba(201,162,75,0.08); }
+.og-collection-title { font-family: 'Fraunces', serif; font-size: 22px; margin-bottom: 22px; color: var(--parchment); }
+
+/* ===== Card grid (unchanged flip mechanics) ===== */
+.grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 14px;
+}
+.tile { aspect-ratio: 1/1; perspective: 1200px; cursor: pointer; }
+.tile-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.6s; }
+.tile.flipped .tile-inner { transform: rotateY(180deg); }
+.face { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); }
+.front img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.back {
+  transform: rotateY(180deg); background: var(--antique-panel2);
+  padding: 10px; display: flex; flex-direction: column; justify-content: space-between; overflow-y: auto;
+}
+.badge-sold {
+  position: absolute; top: 6px; right: 6px; background: rgba(124,37,48,0.92);
+  color: var(--parchment); font-size: 8px; font-weight: 700; padding: 2px 8px; border-radius: 999px;
+}
+.badge-founder {
+  position: absolute; top: 6px; left: 6px; background: rgba(201,162,75,0.92);
+  color: #1a1512; font-size: 8px; font-weight: 700; padding: 2px 8px; border-radius: 999px;
+}
+.caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); padding: 8px;
+}
+.caption .title { font-size: 10px; font-weight: 600; font-family: 'Fraunces', serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.caption .sub { font-size: 9px; color: var(--text-dim); }
+.coa-header { color: var(--gold-bright); font-size: 9px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 6px; }
+.coa-title { font-size: 11px; font-weight: 600; font-family: 'Fraunces', serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--parchment); }
+.coa-sub { font-size: 9px; color: var(--text-dim); margin-bottom: 6px; }
+.coa-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin-bottom: 6px; }
+.coa-cell { background: rgba(201,162,75,0.06); border-radius: 4px; padding: 4px 6px; }
+.coa-cell .k { font-size: 8px; color: var(--text-dim); }
+.coa-cell .v { font-size: 8px; font-weight: 600; color: var(--parchment); }
+.coa-theme { font-size: 8px; color: var(--text-dim); margin-bottom: 6px; line-height: 1.3; }
+.coa-crypto { font-family: 'IBM Plex Mono', monospace; font-size: 7px; color: var(--text-dim); word-break: break-all; }
+.coa-crypto span { color: var(--gold); }
+.coa-crypto div { margin-bottom: 2px; }
+.buy-btn {
+  display: flex; align-items: center; justify-content: center; gap: 4px;
+  font-size: 10px; font-weight: 600; background: var(--green); color: var(--parchment);
+  border-radius: 6px; padding: 6px; margin-top: 6px; text-decoration: none; flex-shrink: 0;
+}
+.buy-btn:hover { background: var(--green-bright); }
+
+/* ===== Registry (gold + red antique) ===== */
+#og-registry { padding: 70px 20px; background: linear-gradient(180deg, #1c140f, var(--antique-black)); border-top: 1px solid var(--line); }
+.og-wrap { max-width: 1000px; margin: 0 auto; }
+.og-lede { color: var(--text-dim); max-width: 620px; line-height: 1.65; margin-bottom: 34px; }
+.og-registry-card { border: 1px solid var(--red-bright); background: var(--antique-panel); border-radius: 12px; padding: 28px; max-width: 480px; }
+.og-label { display: block; font-size: 12px; color: var(--gold); letter-spacing: .05em; margin-bottom: 8px; }
+.og-input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--antique-black); color: var(--parchment); margin-bottom: 16px; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+.og-btn { width: 100%; padding: 13px; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; }
+.og-btn-red { background: var(--red); color: var(--parchment); }
+.og-btn-red:hover { background: var(--red-bright); }
+.og-btn:disabled { opacity: .4; cursor: not-allowed; }
+.og-dropzone { border: 2px dashed var(--line); border-radius: 10px; padding: 36px 16px; text-align: center; color: var(--text-dim); margin-bottom: 16px; cursor: pointer; }
+.og-dropzone.og-drag { border-color: var(--gold); color: var(--gold); }
+.og-status-text { color: var(--text-dim); font-size: 14px; line-height: 1.6; }
+
+/* ===== About (money green accents) ===== */
+#og-about { padding: 70px 20px 90px; }
+.og-pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 20px; }
+.og-pillar { border: 1px solid var(--line); background: var(--antique-panel); border-radius: 10px; padding: 22px; }
+.og-pillar-num { color: var(--green-bright); font-size: 12px; letter-spacing: .15em; margin-bottom: 8px; font-family: 'IBM Plex Mono', monospace; }
+.og-pillar-title { font-weight: 600; margin-bottom: 8px; color: var(--parchment); font-family: 'Fraunces', serif; }
+.og-pillar-body { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+
+footer { text-align: center; color: var(--text-dim); font-size: 11px; padding: 24px; border-top: 1px solid var(--line); }
+
+#lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 100; align-items: center; justify-content: center; }
+#lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 8px; }
+#lightbox button { position: absolute; top: 16px; right: 16px; background: rgba(201,162,75,0.15); border: 1px solid var(--line); color: var(--parchment); border-radius: 999px; width: 36px; height: 36px; font-size: 18px; cursor: pointer; }
 </style>
+<script async src="https://plausible.io/js/pa-tuQurexZFQFTXyVhr2phd.js"></script>
+<script>
+window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+plausible.init()
+</script>
 </head>
 <body>
-<header>
-  <h1>Omega Empire — NFT Gallery</h1>
-  <div class="stat">711 verified items · tap to flip · double-tap to enlarge</div>
-</header>
-<div class="filters"><button class="filter-btn active" data-filter="all">All</button><button class="filter-btn" data-filter="AI_Neo_Expressionist_Dreamscapes">AI_Neo_Expressionist_Dreamscapes</button><button class="filter-btn" data-filter="Echoes of Eternity">Echoes of Eternity</button><button class="filter-btn" data-filter="Le Bal des Rêves">Le Bal des Rêves</button><button class="filter-btn" data-filter="Monolith">Monolith</button><button class="filter-btn" data-filter="Neural Cosmos">Neural Cosmos</button><button class="filter-btn" data-filter="Paracosm">Paracosm</button><button class="filter-btn" data-filter="Prosoneira">Prosoneira</button><button class="filter-btn" data-filter="Quantum Dreams">Quantum Dreams</button><button class="filter-btn" data-filter="Realism Punks">Realism Punks</button><button class="filter-btn" data-filter="Somnium">Somnium</button><button class="filter-btn" data-filter="Surrealism Punks">Surrealism Punks</button></div>
-<div class="grid" id="grid">
+
+<button id="og-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+<nav id="og-sidenav">
+  <div class="og-nav-brand">Omega Empire</div>
+  <a href="#og-hero" class="og-nav-link">✦ NFT of the Week</a>
+  <a href="#og-collections" class="og-nav-link">▦ Collections</a>
+  <a href="#og-registry" class="og-nav-link">🛡 Sovereign Registry</a>
+  <a href="#og-about" class="og-nav-link">ℹ About</a>
+</nav>
+<div id="og-nav-scrim"></div>
+
+<section id="og-hero">
+  <div class="og-eyebrow">ON DISPLAY</div>
+  <h2 class="og-h2">NFT of the Week</h2>
+  <div class="og-hero-sub">711 verified items in the vault · rotating museum display</div>
+  <div class="og-museum">
+    <div class="og-spotlight"></div>
+    <div class="og-stage">
+      <div class="og-rotator" id="og-rotator">
+        <img class="og-face-front" id="og-notw-img-a" src="" alt="">
+        <img class="og-face-back" id="og-notw-img-b" src="" alt="">
+      </div>
+    </div>
+    <div class="og-pedestal-shadow"></div>
+    <div class="og-plaque">
+      <div id="og-notw-title" class="og-plaque-title">—</div>
+      <div id="og-notw-sub" class="og-plaque-sub">—</div>
+    </div>
+  </div>
+</section>
+
+<section id="og-collections">
+  <div class="og-eyebrow">THE COLLECTIONS</div>
+  <h2 class="og-h2">Browse by Collection</h2>
+  <div id="og-album-grid" class="og-album-grid">
+    
+        <div class="og-album-card" data-collection="AI_Neo_Expressionist_Dreamscapes">
+          <img class="og-album-cover" src="https://pub-a9badbb58b474d6f958f21fe5d79fb7f.r2.dev/ai_neo_expressionist_dreamscapes/0001.png" alt="AI_Neo_Expressionist_Dreamscapes" loading="lazy">
+          <div class="og-album-meta">
+            <div class="og-album-name">AI_Neo_Expressionist_Dreamscapes</div>
+            <div class="og-album-count">1 items</div>
+          </div>
+        </div>
+        <div class="og-album-card" data-collection="Echoes of Eternity">
+          <img class="og-album-cover" src="https://pub-a9badbb58b474d6f958f21fe5d79fb7f.r2.dev/echoes_of_eternity/0001.png" alt="Echoes of Eternity" loading="lazy">
+          <div class="og-album-meta">
+            <div class="og-album-name">Echoes of Eternity</div>
+            <div class="og-album-count">98 items</div>
+          </div>
+        </div>
+        <div class="og-album-card" data-collection="Le Bal des Rêves">
+          <img class="og-album-cover" src="https://pub-a9badbb58b474d6f958f21fe5d79fb7f.r2.dev/le_bal_des_reves/0001.png" alt="Le Bal des Rêves" loading="lazy">
+          <div class="og-album-meta">
+            <div class="og-album-name">Le Bal des Rêves</div>
+            <div class="og-album-count">100 items</div>
+          </div>
+        </div>
+        <div class="og-album-card" data-collection="Monolith">
+          <img class="og-album-cover" src="https://pub-a9badbb58b474d6f958f21fe5d79fb7f.r2.dev/monolith/2001.png" alt="Monolith" loading="lazy">
+          <div class="og-album-meta">
+            <div class="og-album-name">Monolith</div>
+            <div class="og-album-count">100 items</div>
+          </div>
+        </div>
+        <div class="og-album-card" data-collection="Neural Cosmos">
+          <img class="og-album-cover" src="https://pub-a9badbb58b474d6f958f21fe5d79fb7f.r2.dev/neural_cosmos/0001.png" alt="Neural Cosmos" loading="lazy">
+          <div class="og-album-meta">
+            <div class="og-album-name">Neural Cosmos</div>
+            <div class="og-album-count">1 items</div>
+          </div>
+        </div>
+        <div class="og-album-card" data-collection="Paracosm">
+          <img class="og-album-cover" src="https://pub-a9badbb58b474d6f958f21fe5d79fb7f.r2.dev/paracosm/1001.png" alt="Paracosm" loading="lazy">
+          <div class="og-album-meta">
+            <div class="og-album-name">Paracosm</div>
+            <div class="og-album-count">100 items</div>
+          </div>
+        </div>
+        <div class="og-album-card" data-collection="Prosoneira">
+          <img class="og-album-cover" src="https://pub-a9badbb58b474d6f958f21fe5d79fb7f.r2.dev/prosoneira/0001.png" alt="Prosoneira" loading="lazy">
+          <div class="og-album-meta">
+            <div class="og-album-name">Prosoneira</div>
+            <div class="og-album-count">10 items</div>
+          </div>
+        </div>
+        <div class="og-album-card" data-collection="Quantum Dreams">
+          <img class="og-album-cover" src="https://pub-a9badbb58b474d6f958f21fe5d79fb7f.r2.dev/quantum_dreams/0001.png" alt="Quantum Dreams" loading="lazy">
+          <div class="og-album-meta">
+            <div class="og-album-name">Quantum Dreams</div>
+            <div class="og-album-count">1 items</div>
+          </div>
+        </div>
+        <div class="og-album-card" data-collection="Realism Punks">
+          <img class="og-album-cover" src="https://pub-a9badbb58b474d6f958f21fe5d79fb7f.r2.dev/realism_punks/0001.png" alt="Realism Punks" loading="lazy">
+          <div class="og-album-meta">
+            <div class="og-album-name">Realism Punks</div>
+            <div class="og-album-count">100 items</div>
+          </div>
+        </div>
+        <div class="og-album-card" data-collection="Somnium">
+          <img class="og-album-cover" src="https://pub-a9badbb58b474d6f958f21fe5d79fb7f.r2.dev/somnium/0001.png" alt="Somnium" loading="lazy">
+          <div class="og-album-meta">
+            <div class="og-album-name">Somnium</div>
+            <div class="og-album-count">100 items</div>
+          </div>
+        </div>
+        <div class="og-album-card" data-collection="Surrealism Punks">
+          <img class="og-album-cover" src="https://pub-a9badbb58b474d6f958f21fe5d79fb7f.r2.dev/surrealism_punks/3001.png" alt="Surrealism Punks" loading="lazy">
+          <div class="og-album-meta">
+            <div class="og-album-name">Surrealism Punks</div>
+            <div class="og-album-count">100 items</div>
+          </div>
+        </div>
+  </div>
+</section>
+
+<div id="og-collection-view">
+  <button id="og-back-btn" class="og-back-btn">← Back to Collections</button>
+  <h3 id="og-collection-title" class="og-collection-title"></h3>
+  <div class="grid" id="grid">
 
     <div class="tile" data-token="1" data-collection="AI_Neo_Expressionist_Dreamscapes">
       <div class="tile-inner">
@@ -9905,7 +10157,7 @@
           <div class="coa-sub">Monolith · Token #2067</div>
           <div class="coa-grid">
             <div class="coa-cell"><div class="k">Rarity</div><div class="v">Common</div></div>
-            <div class="coa-cell"><div class="k">Price USD</div><div class="v">$15.00</div></div>
+            <div class="coa-cell"><div class="k">Price USD</div><div class="v">$1.00</div></div>
             <div class="coa-cell"><div class="k">Status</div><div class="v">for_sale</div></div>
             <div class="coa-cell"><div class="k">Minted</div><div class="v">2026-06-19</div></div>
           </div>
@@ -26384,49 +26636,223 @@
         </div>
       </div>
     </div>
+  </div>
 </div>
+
+<section id="og-registry">
+  <div class="og-wrap">
+    <div class="og-eyebrow">FREE · PUBLIC · IMMUTABLE</div>
+    <h2 class="og-h2">Omega Sovereign Registry</h2>
+    <p class="og-lede">
+      Certify any image or document with a real Ed25519 OM109 signature,
+      permanently hash-chained and independently verifiable. Your certificate
+      is emailed to you automatically.
+    </p>
+    <div class="og-registry-card">
+      <div id="og-step-email" class="og-step">
+        <label class="og-label">Your email</label>
+        <input id="og-email-input" type="email" placeholder="you@example.com" class="og-input">
+        <button id="og-email-continue" class="og-btn og-btn-red">Continue</button>
+      </div>
+      <div id="og-step-upload" class="og-step" style="display:none">
+        <label class="og-label">File to certify</label>
+        <div id="og-dropzone" class="og-dropzone">
+          <input id="og-file-input" type="file" style="display:none">
+          <div id="og-dropzone-text">Drag &amp; drop, or tap to choose a file</div>
+        </div>
+        <button id="og-certify-btn" class="og-btn og-btn-red" disabled>Certify Document</button>
+      </div>
+      <div id="og-step-status" class="og-step" style="display:none">
+        <div id="og-status-text" class="og-status-text"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="og-about">
+  <div class="og-wrap">
+    <div class="og-eyebrow">THE OMEGA EMPIRE</div>
+    <h2 class="og-h2">Built on two phones. Zero funding. Zero servers.</h2>
+    <p class="og-lede">
+      OmegaOps.AI is a solo-built financial operating system running entirely on
+      two Android phones via Termux — no cloud VM, no root, no GPU. Everything
+      here — the ledger, the signatures, the certificates — runs on hardware
+      that fits in a pocket.
+    </p>
+    <div class="og-pillars">
+      <div class="og-pillar">
+        <div class="og-pillar-num">01</div>
+        <div class="og-pillar-title">7-Layer Double-Entry Ledger</div>
+        <div class="og-pillar-body">Every transaction is recorded across seven independent accounting layers with full double-entry integrity — immutable once written, SHA-256 hash-chained record to record.</div>
+      </div>
+      <div class="og-pillar">
+        <div class="og-pillar-num">02</div>
+        <div class="og-pillar-title">2-Node Byzantine Quorum</div>
+        <div class="og-pillar-body">The two phones run as an independent Byzantine fault-tolerant consensus quorum. No single device can unilaterally write to the financial truth layer.</div>
+      </div>
+      <div class="og-pillar">
+        <div class="og-pillar-num">03</div>
+        <div class="og-pillar-title">OM109 Dual-Signing Algorithm</div>
+        <div class="og-pillar-body">A custom Ed25519-based dual-signature scheme (SIG-A / SIG-B). Every NFT and every certified document gets its own OM109 fingerprint, chained to the record before it.</div>
+      </div>
+      <div class="og-pillar">
+        <div class="og-pillar-num">04</div>
+        <div class="og-pillar-title">Omega Sovereign Registry</div>
+        <div class="og-pillar-body">A free public document certification service built on the same OM109 chain — anyone can hash-sign an image or document and get a verifiable certificate.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>All items OM109-signed and checksum-verified against original mint. Generated statically from live ledger data.</footer>
 
-<div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:100; align-items:center; justify-content:center;">
-  <img id="lightbox-img" style="max-width:90vw; max-height:90vh; border-radius:8px;">
-  <button onclick="closeLightbox()" style="position:absolute; top:16px; right:16px; background:rgba(255,255,255,0.15); border:none; color:#fff; border-radius:999px; width:36px; height:36px; font-size:18px; cursor:pointer;">×</button>
+<div id="lightbox">
+  <img id="lightbox-img">
+  <button onclick="closeLightbox()">×</button>
 </div>
 
 <script>
-document.querySelectorAll('.tile').forEach(tile => {
-  let lastTap = 0;
-  tile.addEventListener('click', () => {
-    const now = Date.now();
-    if (now - lastTap < 300) {
-      const img = tile.querySelector('.front img');
-      if (img && img.src) openLightbox(img.src);
-    } else {
-      setTimeout(() => {
-        if (Date.now() - lastTap >= 300) tile.classList.toggle('flipped');
-      }, 300);
-    }
-    lastTap = now;
-  });
-});
+(function(){
+  var OMEGA_CERTIFY_ENDPOINT = 'https://characterized-cds-clouds-alloy.trycloudflare.com/certify';
 
-function openLightbox(src) {
-  document.getElementById('lightbox-img').src = src;
-  document.getElementById('lightbox').style.display = 'flex';
-}
-function closeLightbox() {
-  document.getElementById('lightbox').style.display = 'none';
-}
+  var hb = document.getElementById('og-hamburger');
+  var nav = document.getElementById('og-sidenav');
+  var scrim = document.getElementById('og-nav-scrim');
+  function closeNav(){ nav.classList.remove('og-open'); scrim.classList.remove('og-open'); }
+  hb.addEventListener('click', function(){ nav.classList.toggle('og-open'); scrim.classList.toggle('og-open'); });
+  scrim.addEventListener('click', closeNav);
+  document.querySelectorAll('.og-nav-link').forEach(function(a){ a.addEventListener('click', closeNav); });
 
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const filter = btn.dataset.filter;
-    document.querySelectorAll('.tile').forEach(tile => {
-      tile.style.display = (filter === 'all' || tile.dataset.collection === filter) ? '' : 'none';
+  var tiles = Array.prototype.slice.call(document.querySelectorAll('.tile'));
+
+  document.querySelectorAll('.tile').forEach(function(tile){
+    var lastTap = 0;
+    tile.addEventListener('click', function(){
+      var now = Date.now();
+      if (now - lastTap < 300) {
+        var img = tile.querySelector('.front img');
+        if (img && img.src) openLightbox(img.src);
+      } else {
+        setTimeout(function(){
+          if (Date.now() - lastTap >= 300) tile.classList.toggle('flipped');
+        }, 300);
+      }
+      lastTap = now;
     });
   });
-});
+  window.openLightbox = function(src){
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').style.display = 'flex';
+  };
+  window.closeLightbox = function(){ document.getElementById('lightbox').style.display = 'none'; };
+
+  var pool = tiles.filter(function(t){ return t.querySelector('.face.front img'); });
+  var rotator = document.getElementById('og-rotator');
+  var imgA = document.getElementById('og-notw-img-a');
+  var imgB = document.getElementById('og-notw-img-b');
+  var showingA = true;
+  function randomPiece(){
+    var t = pool[Math.floor(Math.random() * pool.length)];
+    var img = t.querySelector('.face.front img');
+    var title = t.querySelector('.coa-title');
+    var sub = t.querySelector('.coa-sub');
+    return { img: img ? img.src : '', title: title ? title.textContent : '', sub: sub ? sub.textContent : '' };
+  }
+  function showRandom(){
+    var p = randomPiece();
+    var targetImg = showingA ? imgB : imgA;
+    targetImg.src = p.img;
+    document.getElementById('og-notw-title').textContent = p.title || '—';
+    document.getElementById('og-notw-sub').textContent = p.sub || '—';
+    showingA = !showingA;
+  }
+  if (pool.length) {
+    var first = randomPiece();
+    imgA.src = first.img;
+    document.getElementById('og-notw-title').textContent = first.title || '—';
+    document.getElementById('og-notw-sub').textContent = first.sub || '—';
+    setInterval(showRandom, 7000);
+  }
+
+  var byCollection = {};
+  tiles.forEach(function(t){
+    var c = t.dataset.collection || 'Uncategorized';
+    byCollection[c] = byCollection[c] || [];
+    byCollection[c].push(t);
+  });
+
+  var collectionsSection = document.getElementById('og-collections');
+  var collectionView = document.getElementById('og-collection-view');
+  var collectionTitle = document.getElementById('og-collection-title');
+  var backBtn = document.getElementById('og-back-btn');
+
+  document.querySelectorAll('.og-album-card').forEach(function(card){
+    card.addEventListener('click', function(){
+      var name = card.dataset.collection;
+      var list = byCollection[name] || [];
+      collectionsSection.style.display = 'none';
+      collectionView.style.display = 'block';
+      collectionTitle.textContent = name;
+      tiles.forEach(function(t){ t.style.display = 'none'; });
+      list.forEach(function(t){ t.style.display = ''; });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  backBtn.addEventListener('click', function(){
+    collectionView.style.display = 'none';
+    collectionsSection.style.display = '';
+    document.getElementById('og-collections').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  var userEmail = '';
+  var selectedFile = null;
+
+  document.getElementById('og-email-continue').addEventListener('click', function(){
+    var val = document.getElementById('og-email-input').value.trim();
+    if (!val || val.indexOf('@') === -1) return;
+    userEmail = val;
+    document.getElementById('og-step-email').style.display = 'none';
+    document.getElementById('og-step-upload').style.display = 'block';
+  });
+
+  var dz = document.getElementById('og-dropzone');
+  var fileInput = document.getElementById('og-file-input');
+  dz.addEventListener('click', function(){ fileInput.click(); });
+  dz.addEventListener('dragover', function(e){ e.preventDefault(); dz.classList.add('og-drag'); });
+  dz.addEventListener('dragleave', function(){ dz.classList.remove('og-drag'); });
+  dz.addEventListener('drop', function(e){
+    e.preventDefault(); dz.classList.remove('og-drag');
+    if (e.dataTransfer.files[0]) setFile(e.dataTransfer.files[0]);
+  });
+  fileInput.addEventListener('change', function(){ if (fileInput.files[0]) setFile(fileInput.files[0]); });
+  function setFile(f){
+    selectedFile = f;
+    document.getElementById('og-dropzone-text').textContent = f.name;
+    document.getElementById('og-certify-btn').disabled = false;
+  }
+
+  document.getElementById('og-certify-btn').addEventListener('click', function(){
+    if (!selectedFile || !userEmail) return;
+    var btn = document.getElementById('og-certify-btn');
+    btn.disabled = true;
+    btn.textContent = 'Certifying...';
+    var fd = new FormData();
+    fd.append('email', userEmail);
+    fd.append('file', selectedFile);
+    document.getElementById('og-step-upload').style.display = 'none';
+    document.getElementById('og-step-status').style.display = 'block';
+    document.getElementById('og-status-text').textContent = 'Hashing and signing your file...';
+    fetch(OMEGA_CERTIFY_ENDPOINT, { method: 'POST', body: fd }).then(function(res){
+      if (!res.ok) throw new Error('Certify request failed: ' + res.status);
+      document.getElementById('og-status-text').textContent =
+        'Done. Your Certificate of Certification is on its way to ' + userEmail + '.';
+    }).catch(function(err){
+      document.getElementById('og-status-text').textContent =
+        'Something went wrong certifying that file. Please try again in a moment.';
+    });
+  });
+})();
 </script>
 </body>
 </html>
