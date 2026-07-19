@@ -28916,38 +28916,51 @@ plausible.init()
   var OG_DB_NAME = 'og_certify_store';
   var OG_STORE = 'pending_files';
   function ogOpenDB(cb) {
-    var req = indexedDB.open(OG_DB_NAME, 1);
-    req.onupgradeneeded = function() { req.result.createObjectStore(OG_STORE); };
-    req.onsuccess = function() { cb(req.result); };
-    req.onerror = function() { cb(null); };
+    try {
+      if (typeof indexedDB === 'undefined' || !indexedDB) { cb(null); return; }
+      var req = indexedDB.open(OG_DB_NAME, 1);
+      req.onupgradeneeded = function() { try { req.result.createObjectStore(OG_STORE); } catch (e) {} };
+      req.onsuccess = function() { cb(req.result); };
+      req.onerror = function() { cb(null); };
+    } catch (e) { cb(null); }
   }
   function ogSaveFile(file, cb) {
-    ogOpenDB(function(db) {
-      if (!db) return cb && cb(false);
-      var tx = db.transaction(OG_STORE, 'readwrite');
-      tx.objectStore(OG_STORE).put({ blob: file, name: file.name, type: file.type, ts: Date.now() }, 'pending');
-      tx.oncomplete = function() { cb && cb(true); };
-      tx.onerror = function() { cb && cb(false); };
-    });
+    try {
+      ogOpenDB(function(db) {
+        if (!db) return cb && cb(false);
+        try {
+          var tx = db.transaction(OG_STORE, 'readwrite');
+          tx.objectStore(OG_STORE).put({ blob: file, name: file.name, type: file.type, ts: Date.now() }, 'pending');
+          tx.oncomplete = function() { cb && cb(true); };
+          tx.onerror = function() { cb && cb(false); };
+        } catch (e) { cb && cb(false); }
+      });
+    } catch (e) { cb && cb(false); }
   }
   function ogLoadFile(cb) {
-    ogOpenDB(function(db) {
-      if (!db) return cb(null);
-      var tx = db.transaction(OG_STORE, 'readonly');
-      var req = tx.objectStore(OG_STORE).get('pending');
-      req.onsuccess = function() { cb(req.result || null); };
-      req.onerror = function() { cb(null); };
-    });
+    try {
+      ogOpenDB(function(db) {
+        if (!db) return cb(null);
+        try {
+          var tx = db.transaction(OG_STORE, 'readonly');
+          var req = tx.objectStore(OG_STORE).get('pending');
+          req.onsuccess = function() { cb(req.result || null); };
+          req.onerror = function() { cb(null); };
+        } catch (e) { cb(null); }
+      });
+    } catch (e) { cb(null); }
   }
   function ogClearFile() {
-    ogOpenDB(function(db) {
-      if (!db) return;
-      db.transaction(OG_STORE, 'readwrite').objectStore(OG_STORE).delete('pending');
-    });
+    try {
+      ogOpenDB(function(db) {
+        if (!db) return;
+        try { db.transaction(OG_STORE, 'readwrite').objectStore(OG_STORE).delete('pending'); } catch (e) {}
+      });
+    } catch (e) {}
   }
 
   // Auto-resume: if a file survived a reload, jump straight back to it
-  ogLoadFile(function(rec) {
+  try { ogLoadFile(function(rec) {
     if (rec && rec.blob) {
       selectedFile = rec.blob;
       var savedEmail2 = '';
@@ -28958,7 +28971,7 @@ plausible.init()
       document.getElementById('og-dropzone-text').textContent = rec.name + ' (recovered after interruption)';
       document.getElementById('og-certify-btn').disabled = false;
     }
-  });
+  }); } catch (e) {}
 
   emailInput.addEventListener('keydown', function(e){
     if (e.key === 'Enter') { e.preventDefault(); e.stopPropagation(); document.getElementById('og-email-continue').click(); }
