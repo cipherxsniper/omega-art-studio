@@ -28748,23 +28748,13 @@ plausible.init()
       about your file is stored or published; only its fingerprint is.
     </div>
     <div class="og-registry-card">
-      <div id="og-step-email" class="og-step">
-        <label class="og-label">Your email</label>
-        <input id="og-email-input" type="email" placeholder="you@example.com" class="og-input">
-        <button type="button" id="og-email-continue" class="og-btn og-btn-red">Continue</button>
-      </div>
-      <div id="og-step-upload" class="og-step" style="display:none">
-        <label class="og-label">File to certify</label>
-        <div id="og-dropzone" class="og-dropzone" style="text-align:left;cursor:default;">
-          <label class="og-label" for="og-file-input" style="margin-bottom:6px;display:block;">Choose file</label>
-          <input id="og-file-input" type="file" class="og-file-native">
-          <div id="og-dropzone-text" style="font-size:12px;color:var(--text-dim);margin-top:8px;">No file selected</div>
-        </div>
-        <button type="button" id="og-certify-btn" class="og-btn og-btn-red" disabled>Certify Document</button>
-      </div>
-      <div id="og-step-status" class="og-step" style="display:none">
-        <div id="og-status-text" class="og-status-text"></div>
-      </div>
+      <label class="og-label" for="og-email-input">Your email</label>
+      <input id="og-email-input" type="email" placeholder="you@example.com" class="og-input" autocomplete="email">
+      <label class="og-label" for="og-file-input">File to certify</label>
+      <input id="og-file-input" type="file" class="og-file-native">
+      <div id="og-file-name" style="font-size:12px;color:var(--text-dim);margin:6px 0 16px;">No file selected</div>
+      <button type="button" id="og-certify-btn" class="og-btn og-btn-red">Certify Document</button>
+      <div id="og-status-text" class="og-status-text" style="margin-top:14px;"></div>
     </div>
   </div>
 </section>
@@ -28899,139 +28889,55 @@ plausible.init()
     document.getElementById('og-collections').scrollIntoView({ behavior: 'smooth' });
   });
 
-  // ===== Registry: hardened upload flow =====
-  var userEmail = '';
-  var selectedFile = null;
-  var emailInput = document.getElementById('og-email-input');
-  var stepEmail = document.getElementById('og-step-email');
-  var stepUpload = document.getElementById('og-step-upload');
-  var stepStatus = document.getElementById('og-step-status');
+  // ===== Registry: simple single-step upload =====
+  var OMEGA_CERTIFY_ENDPOINT2 = OMEGA_CERTIFY_ENDPOINT;
+  var emailInput2 = document.getElementById('og-email-input');
+  var fileInput2 = document.getElementById('og-file-input');
+  var fileNameEl = document.getElementById('og-file-name');
+  var certifyBtn2 = document.getElementById('og-certify-btn');
+  var statusEl2 = document.getElementById('og-status-text');
 
   try {
-    var savedEmail = localStorage.getItem('og_certify_email');
-    if (savedEmail) {
-      emailInput.value = savedEmail;
-    }
+    var savedEmail2 = localStorage.getItem('og_certify_email');
+    if (savedEmail2) emailInput2.value = savedEmail2;
   } catch (e) {}
 
-  // ===== Survives tab-kill/reload: persist file bytes in IndexedDB =====
-  var OG_DB_NAME = 'og_certify_store';
-  var OG_STORE = 'pending_files';
-  function ogOpenDB(cb) {
-    try {
-      if (typeof indexedDB === 'undefined' || !indexedDB) { cb(null); return; }
-      var req = indexedDB.open(OG_DB_NAME, 1);
-      req.onupgradeneeded = function() { try { req.result.createObjectStore(OG_STORE); } catch (e) {} };
-      req.onsuccess = function() { cb(req.result); };
-      req.onerror = function() { cb(null); };
-    } catch (e) { cb(null); }
-  }
-  function ogSaveFile(file, cb) {
-    try {
-      ogOpenDB(function(db) {
-        if (!db) return cb && cb(false);
-        try {
-          var tx = db.transaction(OG_STORE, 'readwrite');
-          tx.objectStore(OG_STORE).put({ blob: file, name: file.name, type: file.type, ts: Date.now() }, 'pending');
-          tx.oncomplete = function() { cb && cb(true); };
-          tx.onerror = function() { cb && cb(false); };
-        } catch (e) { cb && cb(false); }
-      });
-    } catch (e) { cb && cb(false); }
-  }
-  function ogLoadFile(cb) {
-    try {
-      ogOpenDB(function(db) {
-        if (!db) return cb(null);
-        try {
-          var tx = db.transaction(OG_STORE, 'readonly');
-          var req = tx.objectStore(OG_STORE).get('pending');
-          req.onsuccess = function() { cb(req.result || null); };
-          req.onerror = function() { cb(null); };
-        } catch (e) { cb(null); }
-      });
-    } catch (e) { cb(null); }
-  }
-  function ogClearFile() {
-    try {
-      ogOpenDB(function(db) {
-        if (!db) return;
-        try { db.transaction(OG_STORE, 'readwrite').objectStore(OG_STORE).delete('pending'); } catch (e) {}
-      });
-    } catch (e) {}
-  }
+  fileInput2.addEventListener('change', function(){
+    var f = fileInput2.files && fileInput2.files[0];
+    fileNameEl.textContent = f ? f.name : 'No file selected';
+  });
 
-  // Auto-resume: if a file survived a reload, jump straight back to it
-  try { ogLoadFile(function(rec) {
-    if (rec && rec.blob) {
-      selectedFile = rec.blob;
-      var savedEmail2 = '';
-      try { savedEmail2 = localStorage.getItem('og_certify_email') || ''; } catch (e) {}
-      if (savedEmail2) userEmail = savedEmail2;
-      stepEmail.style.display = 'none';
-      stepUpload.style.display = 'block';
-      document.getElementById('og-dropzone-text').textContent = rec.name + ' (recovered after interruption)';
-      document.getElementById('og-certify-btn').disabled = false;
+  certifyBtn2.addEventListener('click', function(e){
+    e.preventDefault(); e.stopPropagation();
+    try {
+      var email = (emailInput2.value || '').trim();
+      var file = fileInput2.files && fileInput2.files[0];
+      if (!email || email.indexOf('@') === -1) { statusEl2.textContent = 'Enter a valid email first.'; return; }
+      if (!file) { statusEl2.textContent = 'Choose a file first.'; return; }
+      try { localStorage.setItem('og_certify_email', email); } catch (err) {}
+      certifyBtn2.disabled = true;
+      certifyBtn2.textContent = 'Certifying...';
+      statusEl2.textContent = 'Hashing and signing your file...';
+      var fd = new FormData();
+      fd.append('email', email);
+      fd.append('file', file);
+      fetch(OMEGA_CERTIFY_ENDPOINT2, { method: 'POST', body: fd })
+        .then(function(res){
+          if (!res.ok) throw new Error('Server responded with status ' + res.status);
+          statusEl2.textContent = 'Done. Your Certificate of Certification is on its way to ' + email + '.';
+          certifyBtn2.textContent = 'Certify Document';
+          certifyBtn2.disabled = false;
+        })
+        .catch(function(err){
+          statusEl2.textContent = 'Certification failed: ' + (err && err.message ? err.message : 'unknown error') + '. Please try again.';
+          certifyBtn2.textContent = 'Certify Document';
+          certifyBtn2.disabled = false;
+        });
+    } catch (outerErr) {
+      statusEl2.textContent = 'Unexpected error: ' + (outerErr && outerErr.message ? outerErr.message : 'unknown');
+      certifyBtn2.disabled = false;
+      certifyBtn2.textContent = 'Certify Document';
     }
-  }); } catch (e) {}
-
-  emailInput.addEventListener('keydown', function(e){
-    if (e.key === 'Enter') { e.preventDefault(); e.stopPropagation(); document.getElementById('og-email-continue').click(); }
-  });
-
-  document.getElementById('og-email-continue').addEventListener('click', function(e){
-    e.preventDefault(); e.stopPropagation();
-    var val = emailInput.value.trim();
-    if (!val || val.indexOf('@') === -1) return;
-    userEmail = val;
-    try { localStorage.setItem('og_certify_email', val); } catch (err) {}
-    stepEmail.style.display = 'none';
-    stepUpload.style.display = 'block';
-  });
-
-  var dz = document.getElementById('og-dropzone');
-  var fileInput = document.getElementById('og-file-input');
-  dz.addEventListener('dragover', function(e){ e.preventDefault(); e.stopPropagation(); dz.classList.add('og-drag'); });
-  dz.addEventListener('dragleave', function(e){ e.preventDefault(); e.stopPropagation(); dz.classList.remove('og-drag'); });
-  dz.addEventListener('drop', function(e){
-    e.preventDefault(); e.stopPropagation(); dz.classList.remove('og-drag');
-    if (e.dataTransfer.files[0]) setFile(e.dataTransfer.files[0]);
-  });
-  fileInput.addEventListener('change', function(e){
-    e.stopPropagation();
-    if (fileInput.files[0]) setFile(fileInput.files[0]);
-  });
-  function setFile(f){
-    selectedFile = f;
-    document.getElementById('og-dropzone-text').textContent = f.name;
-    document.getElementById('og-certify-btn').disabled = false;
-    ogSaveFile(f);
-  }
-
-  document.getElementById('og-certify-btn').addEventListener('click', function(e){
-    e.preventDefault(); e.stopPropagation();
-    if (!selectedFile || !userEmail) return;
-    var btn = document.getElementById('og-certify-btn');
-    btn.disabled = true;
-    btn.textContent = 'Certifying...';
-    var fd = new FormData();
-    fd.append('email', userEmail);
-    fd.append('file', selectedFile);
-    stepUpload.style.display = 'none';
-    stepStatus.style.display = 'block';
-    document.getElementById('og-status-text').textContent = 'Hashing and signing your file...';
-    fetch(OMEGA_CERTIFY_ENDPOINT, { method: 'POST', body: fd })
-      .then(function(res){
-        if (!res.ok) throw new Error('Server responded with status ' + res.status);
-        ogClearFile();
-        document.getElementById('og-status-text').textContent =
-          'Done. Your Certificate of Certification is on its way to ' + userEmail + '.';
-      })
-      .catch(function(err){
-        document.getElementById('og-status-text').textContent =
-          'Certification failed: ' + (err && err.message ? err.message : 'unknown error') +
-          '. Please try again in a moment.';
-      });
   });
 })();
 </script>
