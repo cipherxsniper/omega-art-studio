@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Omega Sovereign Registry</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Space+Mono:wght@400;700&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{ background:#0a0e14; color:#e8eef8; font-family:'Cormorant Garamond',serif; line-height:1.6; }
+  .wrap{ max-width:720px; margin:0 auto; padding:64px 24px 80px; }
+  .eyebrow{ font-family:'Space Mono',monospace; font-size:11px; letter-spacing:5px; text-transform:uppercase;
+    color:#c9a961; margin-bottom:14px; }
+  h1{ font-size:42px; font-weight:400; color:#fff; margin-bottom:8px; }
+  .lede{ font-size:18px; font-style:italic; color:#a8b2c4; margin-bottom:48px; max-width:560px; }
+  h2{ font-size:24px; font-weight:600; color:#c9a961; margin:44px 0 14px; }
+  p{ font-size:17px; color:#d8dee8; margin-bottom:16px; }
+  .stat-row{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin:32px 0 12px; }
+  .stat{ border:1px solid #c9a96140; padding:20px; }
+  .stat-num{ font-family:'Space Mono',monospace; font-size:26px; color:#c9a961; }
+  .stat-label{ font-family:'Space Mono',monospace; font-size:10px; letter-spacing:2px;
+    text-transform:uppercase; color:#a8b2c4; margin-top:6px; }
+  .divider{ height:1px; background:linear-gradient(90deg,transparent,#c9a96150,transparent); margin:44px 0; }
+  .quote{ font-style:italic; font-size:19px; color:#c9a961; border-left:2px solid #c9a961;
+    padding-left:20px; margin:32px 0; }
+  .links{ margin-top:56px; display:flex; gap:24px; flex-wrap:wrap; }
+  .links a{ font-family:'Space Mono',monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase;
+    color:#0a0e14; background:#c9a961; padding:12px 22px; text-decoration:none; }
+  .links a.secondary{ background:transparent; color:#c9a961; border:1px solid #c9a961; }
+  @media (max-width:600px){ .stat-row{ grid-template-columns:1fr; } h1{ font-size:32px; } }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="eyebrow">Omega Sovereign Registry</div>
+    <h1>Built from nothing but two phones.</h1>
+    <div class="lede">No servers. No funding. No team. Just a phone, Termux, and a refusal to fake a single number along the way.</div>
+    <p>Omega started as two Android phones running Termux — no cloud, no data center, no outside capital. Everything you're looking at, the ledger, the art, the certification registry, was built and is still operated entirely from those two devices.</p>
+    <div class="stat-row">
+      <div class="stat"><div class="stat-num">$0</div><div class="stat-label">Startup Capital</div></div>
+      <div class="stat"><div class="stat-num">2</div><div class="stat-label">Android Phones</div></div>
+      <div class="stat"><div class="stat-num">1</div><div class="stat-label">Person</div></div>
+      <div class="stat"><div class="stat-num">713</div><div class="stat-label">OM109-Signed Works</div></div>
+    </div>
+    <h2>A financial system with no server room</h2>
+    <p>Underneath the art sits a seven-layer, double-entry ledger running real Byzantine consensus across two nodes — the two phones, checking each other, so no single device is a single point of failure. It's the same architectural principle banks use, built without a bank's budget.</p>
+    <h2>OM109 — signed twice, trusted once</h2>
+    <p>Every certified work carries OM109, a dual-key signing algorithm built for this project: two independent cryptographic signatures combined into one fingerprint. Tamper with either signature alone, and the fingerprint breaks. It's not a gimmick — it's the same signer now certifying real documents for free through the Sovereign Registry.</p>
+    <div class="quote">Provenance you can hold in your hand — verified by math, not by asking you to trust our servers.</div>
+    <h2>What "sovereign" actually means here</h2>
+    <p>Every certificate this system issues is independently recomputable. The hash-chain math behind each record is public — anyone can check it without needing our servers to be online, without needing to trust us at all. That's the whole point of building it this way instead of the easy way.</p>
+    <div class="divider"></div>
+    <p style="font-family:'Space Mono',monospace;font-size:12px;color:#a8b2c4;">— Thomas Lee Harvey, Founder</p>
+    <div class="links">
+      <a href="../gallery/">View the Gallery</a>
+      <a class="secondary" href="../certify/">Certify a Document</a>
+    </div>
+  </div>
+</body>
+</html>
