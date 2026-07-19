@@ -28912,6 +28912,54 @@ plausible.init()
     }
   } catch (e) {}
 
+  // ===== Survives tab-kill/reload: persist file bytes in IndexedDB =====
+  var OG_DB_NAME = 'og_certify_store';
+  var OG_STORE = 'pending_files';
+  function ogOpenDB(cb) {
+    var req = indexedDB.open(OG_DB_NAME, 1);
+    req.onupgradeneeded = function() { req.result.createObjectStore(OG_STORE); };
+    req.onsuccess = function() { cb(req.result); };
+    req.onerror = function() { cb(null); };
+  }
+  function ogSaveFile(file, cb) {
+    ogOpenDB(function(db) {
+      if (!db) return cb && cb(false);
+      var tx = db.transaction(OG_STORE, 'readwrite');
+      tx.objectStore(OG_STORE).put({ blob: file, name: file.name, type: file.type, ts: Date.now() }, 'pending');
+      tx.oncomplete = function() { cb && cb(true); };
+      tx.onerror = function() { cb && cb(false); };
+    });
+  }
+  function ogLoadFile(cb) {
+    ogOpenDB(function(db) {
+      if (!db) return cb(null);
+      var tx = db.transaction(OG_STORE, 'readonly');
+      var req = tx.objectStore(OG_STORE).get('pending');
+      req.onsuccess = function() { cb(req.result || null); };
+      req.onerror = function() { cb(null); };
+    });
+  }
+  function ogClearFile() {
+    ogOpenDB(function(db) {
+      if (!db) return;
+      db.transaction(OG_STORE, 'readwrite').objectStore(OG_STORE).delete('pending');
+    });
+  }
+
+  // Auto-resume: if a file survived a reload, jump straight back to it
+  ogLoadFile(function(rec) {
+    if (rec && rec.blob) {
+      selectedFile = rec.blob;
+      var savedEmail2 = '';
+      try { savedEmail2 = localStorage.getItem('og_certify_email') || ''; } catch (e) {}
+      if (savedEmail2) userEmail = savedEmail2;
+      stepEmail.style.display = 'none';
+      stepUpload.style.display = 'block';
+      document.getElementById('og-dropzone-text').textContent = rec.name + ' (recovered after interruption)';
+      document.getElementById('og-certify-btn').disabled = false;
+    }
+  });
+
   emailInput.addEventListener('keydown', function(e){
     if (e.key === 'Enter') { e.preventDefault(); e.stopPropagation(); document.getElementById('og-email-continue').click(); }
   });
@@ -28943,6 +28991,7 @@ plausible.init()
     selectedFile = f;
     document.getElementById('og-dropzone-text').textContent = f.name;
     document.getElementById('og-certify-btn').disabled = false;
+    ogSaveFile(f);
   }
 
   document.getElementById('og-certify-btn').addEventListener('click', function(e){
@@ -28960,6 +29009,7 @@ plausible.init()
     fetch(OMEGA_CERTIFY_ENDPOINT, { method: 'POST', body: fd })
       .then(function(res){
         if (!res.ok) throw new Error('Server responded with status ' + res.status);
+        ogClearFile();
         document.getElementById('og-status-text').textContent =
           'Done. Your Certificate of Certification is on its way to ' + userEmail + '.';
       })
