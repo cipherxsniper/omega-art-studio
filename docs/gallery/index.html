@@ -28754,10 +28754,10 @@ plausible.init()
       </div>
       <div id="og-step-upload" class="og-step" style="display:none">
         <label class="og-label">File to certify</label>
-        <div id="og-dropzone" class="og-dropzone">
+        <label id="og-dropzone" class="og-dropzone" for="og-file-input">
           <input id="og-file-input" type="file" style="display:none">
           <div id="og-dropzone-text">Drag &amp; drop, or tap to choose a file</div>
-        </div>
+        </label>
         <button type="button" id="og-certify-btn" class="og-btn og-btn-red" disabled>Certify Document</button>
       </div>
       <div id="og-step-status" class="og-step" style="display:none">
@@ -28989,7 +28989,6 @@ plausible.init()
 
   var dz = document.getElementById('og-dropzone');
   var fileInput = document.getElementById('og-file-input');
-  dz.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); fileInput.click(); });
   dz.addEventListener('dragover', function(e){ e.preventDefault(); e.stopPropagation(); dz.classList.add('og-drag'); });
   dz.addEventListener('dragleave', function(e){ e.preventDefault(); e.stopPropagation(); dz.classList.remove('og-drag'); });
   dz.addEventListener('drop', function(e){
