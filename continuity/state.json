@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-07-26T00:31:01Z",
+  "generated_utc": "2026-07-26T03:18:02Z",
   "ledger": {
     "total_entries": "2020591",
     "last_global_sequence": "4593796",
@@ -26,7 +26,7 @@
       "display_name": "Manus growth/build agent",
       "role": "agent_proposer",
       "active": "t",
-      "trust_streak": "1"
+      "trust_streak": "3"
     }
   ],
   "consensus": [
@@ -68,7 +68,7 @@
   ],
   "wallets": {
     "count": "26",
-    "total_available": "83315104002.38",
+    "total_available": "83315103998.88",
     "total_locked": "0.00"
   },
   "recent_decisions": [
@@ -131,17 +131,17 @@
   "repos": [
     {
       "repo": "OMEGAOPS.AI",
-      "sha": "d2adf17",
+      "sha": "8841ae1",
       "dirty_files": 0
     },
     {
       "repo": "OMEGAOPS.AI-manus",
-      "sha": "5583dc7",
+      "sha": "8952ece",
       "dirty_files": 1
     },
     {
       "repo": "omega-fintech",
-      "sha": "61d9817",
+      "sha": "756e48e",
       "dirty_files": 0
     },
     {
@@ -151,7 +151,7 @@
     },
     {
       "repo": "omega-art-studio",
-      "sha": "d08e87c",
+      "sha": "a244c49",
       "dirty_files": 0
     }
   ]
