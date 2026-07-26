@@ -1,22 +1,142 @@
 {
-  "generated_utc": "2026-07-26T00:00:48Z",
+  "generated_utc": "2026-07-26T00:08:17Z",
   "ledger": {
-    "rows": "n/a",
-    "last_hash": "n/a"
+    "total_entries": "2020591",
+    "last_global_sequence": "4593796",
+    "chain_head_hash": "1e85f4160faa4d34eef2ae707a2d8776396286ce56b1ba4a35d22b63b80db044",
+    "last_entry_at": "2026-07-23 04:43:46.600124"
   },
+  "quorum_nodes": [
+    {
+      "node_id": "PHONE1_CONSENSUS",
+      "display_name": "Thomas (Telegram-gated human key)",
+      "role": "human_key",
+      "active": "t",
+      "trust_streak": "0"
+    },
+    {
+      "node_id": "PHONE2_SENTINEL",
+      "display_name": "Phone 2 automated sentinel",
+      "role": "sentinel_auto",
+      "active": "t",
+      "trust_streak": "0"
+    },
+    {
+      "node_id": "MANUS_AGENT",
+      "display_name": "Manus growth/build agent",
+      "role": "agent_proposer",
+      "active": "t",
+      "trust_streak": "1"
+    }
+  ],
+  "consensus": [
+    {
+      "node_id": "omega-node-002",
+      "chain_head_hash": "c62f59cfa88361407d90af03e8c2dd9b09e385fa125a59be4aa6c8ae03c5d2ca",
+      "last_seq": "4593686",
+      "merkle_root": "",
+      "updated_at": "2026-07-18 07:18:19.66469-07"
+    },
+    {
+      "node_id": "omega-node-localhost",
+      "chain_head_hash": "fd28cc729e27817ee70ef348655d35f287212f4c0cb57761b2cf0a07640f0761",
+      "last_seq": "4593790",
+      "merkle_root": "",
+      "updated_at": "2026-07-18 06:23:43.335389-07"
+    },
+    {
+      "node_id": "omega-node-001",
+      "chain_head_hash": "fd28cc729e27817ee70ef348655d35f287212f4c0cb57761b2cf0a07640f0761",
+      "last_seq": "4593790",
+      "merkle_root": "",
+      "updated_at": "2026-07-18 06:24:44.798332-07"
+    }
+  ],
+  "trading_bot": {
+    "open_positions": "0",
+    "closed_positions": "0",
+    "capital_in_open_positions_usdt": "0",
+    "realized_pnl_usdt": "0"
+  },
+  "treasury": [
+    {
+      "name": "OMEGA_MAIN_RESERVE",
+      "total_capital": "1000000000.00",
+      "allocated_credit": "0.00",
+      "frozen": "f"
+    }
+  ],
+  "wallets": {
+    "count": "26",
+    "total_available": "83315104002.38",
+    "total_locked": "0.00"
+  },
+  "recent_decisions": [
+    {
+      "category": "discovery",
+      "summary": "Root cause found: patch_multi_position.py contains stale buggy main() that could reintroduce phantom positions",
+      "at": "2026-07-16 23:51:39.74251"
+    },
+    {
+      "category": "discovery",
+      "summary": "UPCUSDT open position was phantom \u2014 zero real order history on MEXC",
+      "at": "2026-07-16 23:41:53.059926"
+    },
+    {
+      "category": "ledger",
+      "summary": "Backed MEXC_SPOT_USDT wallet ($200,005.00) with operator-attested bank withdrawal",
+      "at": "2026-07-16 22:43:27.221758"
+    },
+    {
+      "category": "guardrail",
+      "summary": "Reversed manually-fabricated OMUSD backing and resulting fake gold-bridge redeem",
+      "at": "2026-07-16 22:06:56.488072"
+    },
+    {
+      "category": "architecture",
+      "summary": "CANONICAL: nft_registry (713 rows) lives in omega_ledger DB, not omega_bank. omega_ledger otherwise stale since 07-02. DO NOT drop/archive omega_ledger.",
+      "at": "2026-07-16 20:15:28.522414"
+    },
+    {
+      "category": "infra",
+      "summary": "Wired NFT gallery to auto-regenerate every 30 min via cron",
+      "at": "2026-07-15 01:33:37.416302"
+    },
+    {
+      "category": "infra",
+      "summary": "Generated static NFT storefront/gallery page",
+      "at": "2026-07-14 23:58:01.345065"
+    },
+    {
+      "category": "infra",
+      "summary": "Stood up Cloudflare R2 public image hosting for NFT gallery",
+      "at": "2026-07-14 23:33:08.767365"
+    },
+    {
+      "category": "bugfix",
+      "summary": "Rolled expired Stripe live secret key",
+      "at": "2026-07-14 21:09:53.9691"
+    },
+    {
+      "category": "bugfix",
+      "summary": "Untracked .omega_sync.lock from 3 repos",
+      "at": "2026-07-14 20:52:15.37343"
+    }
+  ],
   "nfts": {
-    "total": "n/a",
-    "pending_images": "n/a"
+    "total": "713",
+    "sold": "6",
+    "unsold": "0"
   },
   "repos": [
     {
       "repo": "OMEGAOPS.AI",
-      "sha": "f18156c",
+      "sha": "b624920",
       "dirty_files": 1
     },
     {
       "repo": "omega-fintech",
-      "sha": "be6acc2",
+      "sha": "61d9817",
       "dirty_files": 0
     },
     {
@@ -26,7 +146,7 @@
     },
     {
       "repo": "omega-art-studio",
-      "sha": "7e85227",
+      "sha": "20e38b1",
       "dirty_files": 1
     }
   ]
