@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-07-26T04:40:01Z",
+  "generated_utc": "2026-07-26T05:30:34Z",
   "ledger": {
     "total_entries": "2020591",
     "last_global_sequence": "4593796",
@@ -15,18 +15,18 @@
       "trust_streak": "0"
     },
     {
-      "node_id": "PHONE2_SENTINEL",
-      "display_name": "Phone 2 automated sentinel",
-      "role": "sentinel_auto",
-      "active": "t",
-      "trust_streak": "0"
-    },
-    {
       "node_id": "MANUS_AGENT",
       "display_name": "Manus growth/build agent",
       "role": "agent_proposer",
       "active": "t",
       "trust_streak": "3"
+    },
+    {
+      "node_id": "PHONE2_SENTINEL",
+      "display_name": "Phone 2 automated sentinel",
+      "role": "sentinel_auto",
+      "active": "f",
+      "trust_streak": "0"
     }
   ],
   "consensus": [
@@ -131,17 +131,17 @@
   "repos": [
     {
       "repo": "OMEGAOPS.AI",
-      "sha": "ef1c8d6",
+      "sha": "60985fd",
       "dirty_files": 0
     },
     {
       "repo": "OMEGAOPS.AI-manus",
-      "sha": "01ab28c",
-      "dirty_files": 0
+      "sha": "b1d606f",
+      "dirty_files": 1
     },
     {
       "repo": "omega-fintech",
-      "sha": "623cb02",
+      "sha": "59c5e78",
       "dirty_files": 0
     },
     {
@@ -151,7 +151,7 @@
     },
     {
       "repo": "omega-art-studio",
-      "sha": "bb67349",
+      "sha": "eebbb2a",
       "dirty_files": 0
     }
   ]
