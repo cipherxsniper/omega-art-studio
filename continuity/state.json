@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-07-29T05:06:43Z",
+  "generated_utc": "2026-07-29T16:25:36Z",
   "ledger": {
     "total_entries": "2020591",
     "last_global_sequence": "4593796",
@@ -74,6 +74,16 @@
   "recent_decisions": [
     {
       "category": "discovery",
+      "summary": "Identified storage issue with 90% usage",
+      "at": "2026-07-29 00:37:32.00991"
+    },
+    {
+      "category": "discovery",
+      "summary": "Largest files in home directory listed",
+      "at": "2026-07-29 00:34:03.961301"
+    },
+    {
+      "category": "discovery",
       "summary": "Root cause found: patch_multi_position.py contains stale buggy main() that could reintroduce phantom positions",
       "at": "2026-07-16 23:51:39.74251"
     },
@@ -111,16 +121,6 @@
       "category": "infra",
       "summary": "Stood up Cloudflare R2 public image hosting for NFT gallery",
       "at": "2026-07-14 23:33:08.767365"
-    },
-    {
-      "category": "bugfix",
-      "summary": "Rolled expired Stripe live secret key",
-      "at": "2026-07-14 21:09:53.9691"
-    },
-    {
-      "category": "bugfix",
-      "summary": "Untracked .omega_sync.lock from 3 repos",
-      "at": "2026-07-14 20:52:15.37343"
     }
   ],
   "nfts": {
@@ -131,17 +131,17 @@
   "repos": [
     {
       "repo": "OMEGAOPS.AI",
-      "sha": "5e8a3f6",
+      "sha": "a045d2f",
       "dirty_files": 1
     },
     {
       "repo": "OMEGAOPS.AI-manus",
-      "sha": "f8e0603",
+      "sha": "8b3b369",
       "dirty_files": 0
     },
     {
       "repo": "omega-fintech",
-      "sha": "7905012",
+      "sha": "256b9d2",
       "dirty_files": 0
     },
     {
@@ -151,7 +151,7 @@
     },
     {
       "repo": "omega-art-studio",
-      "sha": "cf43832",
+      "sha": "fe97f28",
       "dirty_files": 0
     }
   ]
